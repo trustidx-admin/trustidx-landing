@@ -250,6 +250,13 @@
     .swiss-panel{grid-template-columns:1fr;padding:52px 34px}
     .band{padding:52px 34px}
     .navlinks{display:none}
+    /* Sur mobile/tablette, le texte en dégradé (background-clip:text) peut rester
+       invisible selon le navigateur : on force un texte plein bien lisible. */
+    .hero h1,.one,.formats .fline{
+      background:none;
+      color:#eef4ff;
+      -webkit-text-fill-color:#eef4ff;
+    }
   }
   @media (max-width:560px){
     section{padding:72px 0}
