@@ -795,7 +795,7 @@ const I18N = {
     privTitle: "Vos données restent chez vous. Toujours.",
     privText: "Seule l'empreinte de votre document est inscrite sur la blockchain. Une empreinte ne révèle rien : elle est illisible et ne peut pas être inversée. Ni le fichier, ni son contenu, ni ses métadonnées ne quittent votre organisation.",
     hashTitle: "Qu'est-ce qu'une empreinte numérique ?",
-    hashText: "Une empreinte (ou hash) est un code unique de longueur fixe, calculé à partir de votre fichier, comme une empreinte digitale. Modifiez une virgule ou un pixel, et l'empreinte devient totalement différente. Impossible de reconstituer le document à partir de son empreinte : le calcul ne fonctionne que dans un sens. Et en pratique, deux fichiers différents ne peuvent pas produire la même empreinte.",
+    hashText: "Une empreinte (ou hash) est un code unique de longueur fixe, calculé à partir de votre fichier, comme une empreinte digitale. Modifiez une virgule ou un pixel, et l'empreinte devient totalement différente. Impossible de reconstituer le document à partir de son empreinte : le calcul ne fonctionne que dans un sens. Et en pratique, deux fichiers différents ne peuvent pas produire la même empreinte. En résumé : l'empreinte prouve tout sur votre document, mais ne révèle rien de lui.",
     priv1Title: "L'empreinte suffit",
     priv1Text: "Pas besoin d'accéder au fichier source pour le certifier : posséder son empreinte suffit, avec les éventuelles métadonnées associées. Celui qui certifie n'est pas forcément celui qui détient le document.",
     priv2Title: "Rien de lisible sur la blockchain",
@@ -850,7 +850,7 @@ const I18N = {
     privTitle: "Ihre Daten bleiben bei Ihnen. Immer.",
     privText: "Nur der Fingerabdruck Ihres Dokuments wird auf der Blockchain eingetragen. Ein Fingerabdruck verrät nichts: Er ist unlesbar und lässt sich nicht umkehren. Weder die Datei noch ihr Inhalt noch ihre Metadaten verlassen Ihre Organisation.",
     hashTitle: "Was ist ein digitaler Fingerabdruck?",
-    hashText: "Ein Fingerabdruck (oder Hash) ist ein einzigartiger Code fester Länge, der aus Ihrer Datei berechnet wird, wie ein Fingerabdruck beim Menschen. Ändern Sie ein Komma oder ein Pixel, und der Fingerabdruck wird völlig anders. Aus dem Fingerabdruck lässt sich das Dokument nicht rekonstruieren: Die Berechnung funktioniert nur in eine Richtung. Und in der Praxis können zwei verschiedene Dateien nicht denselben Fingerabdruck erzeugen.",
+    hashText: "Ein Fingerabdruck (oder Hash) ist ein einzigartiger Code fester Länge, der aus Ihrer Datei berechnet wird, wie ein Fingerabdruck beim Menschen. Ändern Sie ein Komma oder ein Pixel, und der Fingerabdruck wird völlig anders. Aus dem Fingerabdruck lässt sich das Dokument nicht rekonstruieren: Die Berechnung funktioniert nur in eine Richtung. Und in der Praxis können zwei verschiedene Dateien nicht denselben Fingerabdruck erzeugen. Kurz gesagt: Der Fingerabdruck beweist alles über Ihr Dokument, verrät aber nichts von ihm.",
     priv1Title: "Der Fingerabdruck genügt",
     priv1Text: "Für die Zertifizierung ist kein Zugriff auf die Quelldatei nötig: Ihr Fingerabdruck genügt, gegebenenfalls mit den zugehörigen Metadaten. Wer zertifiziert, muss nicht derjenige sein, der das Dokument besitzt.",
     priv2Title: "Nichts Lesbares auf der Blockchain",
@@ -905,7 +905,7 @@ const I18N = {
     privTitle: "I vostri dati restano da voi. Sempre.",
     privText: "Sulla blockchain viene registrata solo l'impronta del vostro documento. Un'impronta non rivela nulla: è illeggibile e non può essere invertita. Né il file, né il suo contenuto, né i suoi metadati lasciano la vostra organizzazione.",
     hashTitle: "Che cos'è un'impronta digitale?",
-    hashText: "Un'impronta (o hash) è un codice unico di lunghezza fissa, calcolato a partire dal vostro file, come un'impronta digitale umana. Modificate una virgola o un pixel, e l'impronta diventa totalmente diversa. Impossibile ricostruire il documento a partire dalla sua impronta: il calcolo funziona in un solo senso. E in pratica, due file diversi non possono produrre la stessa impronta.",
+    hashText: "Un'impronta (o hash) è un codice unico di lunghezza fissa, calcolato a partire dal vostro file, come un'impronta digitale umana. Modificate una virgola o un pixel, e l'impronta diventa totalmente diversa. Impossibile ricostruire il documento a partire dalla sua impronta: il calcolo funziona in un solo senso. E in pratica, due file diversi non possono produrre la stessa impronta. In sintesi: l'impronta prova tutto sul vostro documento, ma non ne rivela nulla.",
     priv1Title: "L'impronta è sufficiente",
     priv1Text: "Per certificare non serve accedere al file sorgente: basta possederne l'impronta, con gli eventuali metadati associati. Chi certifica non è necessariamente chi detiene il documento.",
     priv2Title: "Nulla di leggibile sulla blockchain",
@@ -960,7 +960,202 @@ const I18N = {
     privTitle: "Your data stays with you. Always.",
     privText: "Only your document's fingerprint is recorded on the blockchain. A fingerprint reveals nothing: it is unreadable and cannot be reversed. Neither the file, nor its content, nor its metadata ever leaves your organisation.",
     hashTitle: "What is a digital fingerprint?",
-    hashText: "A fingerprint (or hash) is a unique, fixed-length code computed from your file, much like a human fingerprint. Change a single comma or pixel, and the fingerprint becomes completely different. The document cannot be reconstructed from its fingerprint: the computation only works one way. And in practice, two different files cannot produce the same fingerprint.",
+    hashText: "A fingerprint (or hash) is a unique, fixed-length code computed from your file, much like a human fingerprint. Change a single comma or pixel, and the fingerprint becomes completely different. The document cannot be reconstructed from its fingerprint: the computation only works one way. And in practice, two different files cannot produce the same fingerprint. In short: the fingerprint proves everything about your document, yet reveals nothing of it.",
+    priv1Title: "The fingerprint is enough",
+    priv1Text: "No access to the source file is needed to certify it: holding its fingerprint is enough, along with any associated metadata. The one who certifies is not necessarily the one who holds the document.",
+    priv2Title: "Nothing readable on the blockchain",
+    priv2Text: "Only the fingerprint is publicly recorded. It reveals nothing about the content: the document, its text or its images cannot be deduced from it.",
+    priv3Title: "Your metadata belongs to you",
+    priv3Text: "You alone decide which metadata to associate with a document. It stays with you and is never published.",
+    nsKicker: "Our conviction",
+    nsTitle: "The strength of blockchain. Without the speculation.",
+    nsText: "TrustIDX is not a crypto project. We use the blockchain for what it does best: a public, neutral, tamper-proof, permanent ledger. And for nothing else.",
+    ns1Title: "No token",
+    ns1Text: "No TrustIDX token, no currency to buy, nothing to trade.",
+    ns2Title: "No wallet",
+    ns2Text: "No wallet to install, no crypto knowledge required. Just a service.",
+    ns3Title: "No speculation",
+    ns3Text: "Nothing to stake, nothing to win, nothing to lose. Only the proof matters.",
+    nsOne: "The blockchain as a registry of trust. That's all. And that's a lot.",
+    footSoon: "Coming soon",
+    footCh: "Designed and operated in Switzerland"
+  }
+};
+
+function setLang(lang){
+  const dict = I18N[lang] || I18N.fr;
+  document.documentElement.lang = lang;
+  document.title = dict.title;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) el.textContent = dict[key];
+  });
+  document.querySelectorAll('.langs button').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('trustidx-lang', lang); } catch (e) { /* mode privé */ }
+}
+
+document.querySelectorAll('.langs button').forEach(b =>
+  b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+(function init(){
+  let lang = null;
+  try { lang = localStorage.getItem('trustidx-lang'); } catch (e) { /* mode privé */ }
+  if (!lang) {
+    const nav = (navigator.language || 'fr').slice(0, 2).toLowerCase();
+    lang = ['fr','de','it','en'].includes(nav) ? nav : 'fr';
+  }
+  setLang(lang);
+})();
+
+/* ---- Scroll progress + header condensation ---- */
+(function(){
+  const progress = document.getElementById('progress');
+  const header = document.querySelector('header');
+  let ticking = false;
+  function update(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    header.classList.toggle('scrolled', h.scrollTop > 24);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+/* ---- Scroll reveal ---- */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
+s: Er ist unlesbar und lässt sich nicht umkehren. Weder die Datei noch ihr Inhalt noch ihre Metadaten verlassen Ihre Organisation.",
+    hashTitle: "Was ist ein digitaler Fingerabdruck?",
+    hashText: "Ein Fingerabdruck (oder Hash) ist ein einzigartiger Code fester Länge, der aus Ihrer Datei berechnet wird, wie ein Fingerabdruck beim Menschen. Ändern Sie ein Komma oder ein Pixel, und der Fingerabdruck wird völlig anders. Aus dem Fingerabdruck lässt sich das Dokument nicht rekonstruieren: Die Berechnung funktioniert nur in eine Richtung. Und in der Praxis können zwei verschiedene Dateien nicht denselben Fingerabdruck erzeugen. Kurz gesagt: Der Fingerabdruck beweist alles über Ihr Dokument, verrät aber nichts von ihm.",
+    priv1Title: "Der Fingerabdruck genügt",
+    priv1Text: "Für die Zertifizierung ist kein Zugriff auf die Quelldatei nötig: Ihr Fingerabdruck genügt, gegebenenfalls mit den zugehörigen Metadaten. Wer zertifiziert, muss nicht derjenige sein, der das Dokument besitzt.",
+    priv2Title: "Nichts Lesbares auf der Blockchain",
+    priv2Text: "Öffentlich eingetragen wird nur der Fingerabdruck. Er verrät nichts über den Inhalt: Weder das Dokument noch sein Text oder seine Bilder lassen sich daraus ableiten.",
+    priv3Title: "Ihre Metadaten gehören Ihnen",
+    priv3Text: "Sie allein bestimmen, welche Metadaten Sie einem Dokument zuordnen. Sie bleiben bei Ihnen und werden nie veröffentlicht.",
+    nsKicker: "Unsere Überzeugung",
+    nsTitle: "Die Stärke der Blockchain. Ohne die Spekulation.",
+    nsText: "TrustIDX ist kein Krypto-Projekt. Wir nutzen die Blockchain für das, was sie am besten kann: ein öffentliches, neutrales, fälschungssicheres und dauerhaftes Register. Und für nichts anderes.",
+    ns1Title: "Kein Token",
+    ns1Text: "Kein TrustIDX-Token, keine Währung zu kaufen, nichts zu handeln.",
+    ns2Title: "Kein Wallet",
+    ns2Text: "Kein Wallet zu installieren, kein Krypto-Wissen nötig. Einfach ein Dienst.",
+    ns3Title: "Keine Spekulation",
+    ns3Text: "Nichts zu setzen, nichts zu gewinnen, nichts zu verlieren. Es zählt allein der Beweis.",
+    nsOne: "Die Blockchain als Vertrauensregister. Mehr nicht. Und das ist schon viel.",
+    footSoon: "Bald verfügbar",
+    footCh: "In der Schweiz konzipiert und betrieben"
+  },
+  it: {
+    title: "TrustIDX · Certificazione di documenti sulla blockchain",
+    heroTitle: "Distinguere il vero dal falso. Provare l'autenticità di un documento, per sempre.",
+    heroLead: "TrustIDX ancora l'impronta digitale dei vostri documenti su una blockchain pubblica. Ogni documento certificato diventa verificabile da chiunque, in qualsiasi momento, senza intermediari obbligati.",
+    heroCta: "La blockchain, senza speculazione",
+    heroCta2: "Scoprire il principio",
+    heroHint: "Nessun conto crypto. Nessuna conoscenza tecnica richiesta.",
+    navHow: "Come funziona",
+    navSpec: "Senza speculazione",
+    probKicker: "Il contesto",
+    probTitle: "Nell'era dell'IA, ogni documento può essere imitato, falsificato o retrodatato.",
+    probText: "Contratti, diplomi, attestati, rapporti, fatture, ma anche foto, video o file audio: gli strumenti per produrre falsi convincenti non sono mai stati così accessibili. La domanda non è più se un documento sembri autentico, ma se sia possibile dimostrarlo. TrustIDX fornisce questa prova.",
+    howKicker: "Il principio",
+    howTitle: "Una prova semplice, pubblica e permanente.",
+    how1Title: "L'impronta",
+    how1Text: "Ogni file riceve un'impronta crittografica unica: documento Word o Excel, PDF, immagine, video, audio… qualsiasi file digitale, così com'è, senza alcuna conversione. Il file stesso non lascia mai la vostra organizzazione: viene utilizzata solo la sua impronta.",
+    how2Title: "L'ancoraggio",
+    how2Text: "Questa impronta viene registrata, con marca temporale, su Base, una blockchain pubblica di secondo livello (layer 2) basata su Ethereum. Una volta registrata, è infalsificabile.",
+    how3Title: "La verifica",
+    how3Text: "Chiunque può verificare, gratuitamente e per sempre, che un documento è autentico, datato e certificato dall'organizzazione che lo ha emesso.",
+    fmtLine: "Qualsiasi file digitale. Nessuna conversione. Nessun limite.",
+    fmtMore: "+ ogni formato",
+    domKicker: "Il prerequisito",
+    domTitle: "Un solo prerequisito: il vostro nome di dominio.",
+    domText: "Il vostro dominio è la vostra identità. È ciò che collega ogni certificazione alla vostra organizzazione, pubblicamente e senza ambiguità. Se la vostra organizzazione possiede e controlla un nome di dominio, è pronta a certificare.",
+    domPoint1: "Niente da installare, niente da distribuire",
+    domPoint2: "Nessun hardware, nessuna infrastruttura",
+    domPoint3: "Nessuna competenza blockchain richiesta",
+    domPoint4: "Nessun accesso ai file necessario: basta la loro impronta (hash)",
+    domExample: "vostra-azienda.ch",
+    navPriv: "Riservatezza",
+    privKicker: "Riservatezza",
+    privTitle: "I vostri dati restano da voi. Sempre.",
+    privText: "Sulla blockchain viene registrata solo l'impronta del vostro documento. Un'impronta non rivela nulla: è illeggibile e non può essere invertita. Né il file, né il suo contenuto, né i suoi metadati lasciano la vostra organizzazione.",
+    hashTitle: "Che cos'è un'impronta digitale?",
+    hashText: "Un'impronta (o hash) è un codice unico di lunghezza fissa, calcolato a partire dal vostro file, come un'impronta digitale umana. Modificate una virgola o un pixel, e l'impronta diventa totalmente diversa. Impossibile ricostruire il documento a partire dalla sua impronta: il calcolo funziona in un solo senso. E in pratica, due file diversi non possono produrre la stessa impronta. In sintesi: l'impronta prova tutto sul vostro documento, ma non ne rivela nulla.",
+    priv1Title: "L'impronta è sufficiente",
+    priv1Text: "Per certificare non serve accedere al file sorgente: basta possederne l'impronta, con gli eventuali metadati associati. Chi certifica non è necessariamente chi detiene il documento.",
+    priv2Title: "Nulla di leggibile sulla blockchain",
+    priv2Text: "Pubblicamente viene registrata solo l'impronta. Non rivela nulla del contenuto: impossibile dedurne il documento, il suo testo o le sue immagini.",
+    priv3Title: "I vostri metadati vi appartengono",
+    priv3Text: "Siete gli unici padroni dei metadati che scegliete di associare a un documento. Restano da voi e non vengono mai pubblicati.",
+    nsKicker: "La nostra convinzione",
+    nsTitle: "La forza della blockchain. Senza la speculazione.",
+    nsText: "TrustIDX non è un progetto crypto. Usiamo la blockchain per ciò che sa fare meglio: un registro pubblico, neutrale, infalsificabile e permanente. E per nient'altro.",
+    ns1Title: "Nessun token",
+    ns1Text: "Nessun token TrustIDX, nessuna moneta da comprare, niente da scambiare.",
+    ns2Title: "Nessun wallet",
+    ns2Text: "Nessun wallet da installare, nessuna conoscenza crypto richiesta. Semplicemente un servizio.",
+    ns3Title: "Nessuna speculazione",
+    ns3Text: "Niente da puntare, niente da vincere, niente da perdere. Conta solo la prova.",
+    nsOne: "La blockchain come registro di fiducia. Tutto qui. Ed è già molto.",
+    footSoon: "Presto disponibile",
+    footCh: "Concepito e gestito in Svizzera"
+  },
+  en: {
+    title: "TrustIDX · Document certification on the blockchain",
+    heroTitle: "Telling real from fake. Proving a document is authentic. Forever.",
+    heroLead: "TrustIDX anchors your documents' digital fingerprint on a public blockchain. Every certified document becomes verifiable by anyone, at any time, with no mandatory middleman.",
+    heroCta: "Blockchain, without the speculation",
+    heroCta2: "See how it works",
+    heroHint: "No crypto account. No technical knowledge required.",
+    navHow: "How it works",
+    navSpec: "No speculation",
+    probKicker: "The problem",
+    probTitle: "In the AI era, any document can be imitated, forged or backdated.",
+    probText: "Contracts, diplomas, certificates, reports, invoices, but also photos, videos or audio files: the tools to produce convincing fakes have never been this accessible. The question is no longer whether a document looks genuine, but whether you can prove it. TrustIDX provides that proof.",
+    howKicker: "How it works",
+    howTitle: "A simple, public, permanent proof.",
+    how1Title: "The fingerprint",
+    how1Text: "Every file gets a unique cryptographic fingerprint: Word or Excel document, PDF, image, video, audio… any digital file, as is, with no conversion whatsoever. The file itself never leaves your organisation: only its fingerprint is used.",
+    how2Title: "The anchoring",
+    how2Text: "That fingerprint is recorded, timestamped, on Base, a public layer-2 blockchain secured by Ethereum. Once recorded, it cannot be tampered with.",
+    how3Title: "The verification",
+    how3Text: "Anyone can verify, freely and forever, that a document is authentic, dated, and certified by the organisation that issued it.",
+    fmtLine: "Any digital file. No conversion. No limits.",
+    fmtMore: "+ any format",
+    domKicker: "The prerequisite",
+    domTitle: "One single prerequisite: your domain name.",
+    domText: "Your domain is your identity. It is what links every certification to your organisation, publicly and unambiguously. If your organisation owns and controls a domain name, it is ready to certify.",
+    domPoint1: "Nothing to install, nothing to deploy",
+    domPoint2: "No hardware, no infrastructure",
+    domPoint3: "No blockchain expertise required",
+    domPoint4: "No access to the files needed: their fingerprint (hash) is enough",
+    domExample: "your-company.ch",
+    navPriv: "Privacy",
+    privKicker: "Privacy",
+    privTitle: "Your data stays with you. Always.",
+    privText: "Only your document's fingerprint is recorded on the blockchain. A fingerprint reveals nothing: it is unreadable and cannot be reversed. Neither the file, nor its content, nor its metadata ever leaves your organisation.",
+    hashTitle: "What is a digital fingerprint?",
+    hashText: "A fingerprint (or hash) is a unique, fixed-length code computed from your file, much like a human fingerprint. Change a single comma or pixel, and the fingerprint becomes completely different. The document cannot be reconstructed from its fingerprint: the computation only works one way. And in practice, two different files cannot produce the same fingerprint. In short: the fingerprint proves everything about your document, yet reveals nothing of it.",
     priv1Title: "The fingerprint is enough",
     priv1Text: "No access to the source file is needed to certify it: holding its fingerprint is enough, along with any associated metadata. The one who certifies is not necessarily the one who holds the document.",
     priv2Title: "Nothing readable on the blockchain",
