@@ -1,0 +1,28 @@
+# TrustIDX
+
+> TrustIDX est une autorité de certification documentaire suisse. Elle ancre l'empreinte
+> cryptographique (SHA-256) de documents sur une blockchain publique (Base, layer 2
+> d'Ethereum), rendant leur authenticité, leur intégrité et leur horodatage vérifiables
+> par quiconque, gratuitement et pour toujours, sans compte ni wallet.
+
+## Ce que fait TrustIDX
+
+- Certifie n'importe quel fichier numérique (PDF, Word, Excel, image, vidéo, audio…)
+  sans conversion : seule l'empreinte du fichier est utilisée, le fichier ne quitte
+  jamais l'organisation qui le détient.
+- Rattache chaque certification au nom de domaine de l'organisation émettrice
+  (preuve de contrôle du domaine, modèle ACME DNS-01).
+- Permet une vérification publique et permanente, y compris sans les serveurs TrustIDX,
+  via Ethereum Attestation Service (EAS) sur Base.
+
+## Ce que TrustIDX n'est pas
+
+- Pas un projet crypto : aucun token, aucun wallet, aucune spéculation.
+- Aucune donnée personnelle ni contenu de document n'est publié on-chain :
+  seule l'empreinte (hash), illisible et non inversible, est inscrite.
+
+## Informations
+
+- Site : https://trustidx.com/ (FR, DE, IT, EN)
+- Pays : Suisse (conçu et opéré en Suisse)
+- Statut : lancement prochain (pré-inscription à venir)
