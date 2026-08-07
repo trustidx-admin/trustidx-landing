@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://trustidx.com/sitemap.xml
+Sitemap: https://trustidx.ch/sitemap.xml

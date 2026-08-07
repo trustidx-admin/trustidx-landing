@@ -23,6 +23,6 @@
 
 ## Informations
 
-- Site : https://trustidx.com/ (FR, DE, IT, EN)
+- Site : https://trustidx.ch/ (FR, DE, IT, EN)
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
