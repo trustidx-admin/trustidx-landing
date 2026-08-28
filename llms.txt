@@ -1,19 +1,23 @@
 # TrustIDX
 
 > TrustIDX est une autorité de certification documentaire suisse. Elle ancre l'empreinte
-> cryptographique (SHA-256) de documents sur une blockchain publique (Base, layer 2
-> d'Ethereum), rendant leur authenticité, leur intégrité et leur horodatage vérifiables
-> par quiconque, gratuitement et pour toujours, sans compte ni wallet.
+> cryptographique (SHA-256) de documents sur deux registres publics indépendants : Base
+> (layer 2 d'Ethereum, via Ethereum Attestation Service) puis Bitcoin (via OpenTimestamps).
+> Authenticité, intégrité et horodatage restent vérifiables par quiconque, gratuitement et
+> pour toujours, sans compte ni wallet.
 
 ## Ce que fait TrustIDX
 
 - Certifie n'importe quel fichier numérique (PDF, Word, Excel, image, vidéo, audio…)
-  sans conversion : seule l'empreinte du fichier est utilisée, le fichier ne quitte
-  jamais l'organisation qui le détient.
-- Rattache chaque certification au nom de domaine de l'organisation émettrice
-  (preuve de contrôle du domaine, modèle ACME DNS-01).
+  sans conversion : seule l'empreinte du fichier est utilisée, calculée dans le
+  navigateur ; le fichier ne quitte jamais l'organisation qui le détient.
+- Prouve la provenance : chaque certification provient du nom de domaine que
+  l'organisation émettrice a prouvé contrôler (enregistrement DNS ou fichier déposé
+  sur le site, modèle ACME).
+- Inscrit chaque empreinte sur Base (attestation horodatée, provenance) puis sur
+  Bitcoin (existence à une date) : deux inscriptions distinctes, vérifiables séparément.
 - Permet une vérification publique et permanente, y compris sans les serveurs TrustIDX,
-  via Ethereum Attestation Service (EAS) sur Base.
+  via Ethereum Attestation Service (EAS) sur Base et l'outillage OpenTimestamps standard.
 
 ## Ce que TrustIDX n'est pas
 
@@ -24,5 +28,6 @@
 ## Informations
 
 - Site : https://trustidx.ch/ (FR, DE, IT, EN)
+- Contact : https://trustidx.ch/#contact
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
