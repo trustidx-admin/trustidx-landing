@@ -262,9 +262,9 @@
   :root[data-theme="light"] .brand .logo-l,:root[data-theme="light"] .fbrand .logo-l{display:block}
 
   /* ---- Hero ---- */
-  /* Pas de padding bas : le padding haut de la section suivante (104px) fournit
-     l'écart du rythme commun, comme entre toutes les autres paires de chapitres. */
-  .hero{position:relative;padding:92px 0 0;overflow:hidden}
+  /* Pas de padding bas : la fresque puis la section suivante fournissent l'écart.
+     Padding haut resserré pour que le premier chapitre tienne sur un écran. */
+  .hero{position:relative;padding:64px 0 0;overflow:hidden}
   .hero h1{
     font-size:clamp(2.2rem,4.8vw,3.4rem);line-height:1.14;font-weight:800;letter-spacing:-.03em;
     background:linear-gradient(120deg,var(--title-1) 25%,var(--title-2) 75%,var(--title-3) 100%);
@@ -300,6 +300,12 @@
   /* ---- Illustrations entre les chapitres ---- */
   .interlude{display:flex;justify-content:center;margin-bottom:104px}
   .interlude svg{width:100%;max-width:430px;height:auto;display:block}
+
+  /* ---- Fresque d'ouverture : image sombre, carte arrondie dans les deux thèmes.
+     En nuit elle se fond dans la page ; en jour le cadre et l'ombre l'assoient. ---- */
+  .fresque{margin:88px auto 104px}
+  .fresque img{width:100%;height:auto;display:block;border-radius:28px;
+    border:1px solid var(--line-2);box-shadow:0 30px 80px var(--shadow-lg)}
 
   /* ---- How it works ---- */
   .steps-wrap{margin-top:48px;position:relative}
@@ -404,8 +410,10 @@
   }
   @media (max-width:560px){
     section{padding:72px 0}
-    .hero{padding:64px 0 0}
+    .hero{padding:48px 0 0}
     .interlude{margin-bottom:72px}
+    .fresque{margin:56px auto 72px}
+    .fresque img{border-radius:16px}
   }
 
   /* ---- Reduced motion ---- */
@@ -502,8 +510,16 @@
         </ul>
         <p class="soon-badge"><span class="dot" aria-hidden="true"></span><span data-i18n="footSoon">Coming soon</span></p>
       </div>
-
     </div>
+  </div>
+
+  <!-- La fresque d'ouverture : le document analysé, le sceau suisse, la chaîne de blocs -->
+  <div class="wrap fresque reveal" aria-hidden="true">
+    <picture>
+      <source srcset="/fresque.avif" type="image/avif">
+      <source srcset="/fresque.webp" type="image/webp">
+      <img src="/fresque.jpg" alt="" width="1915" height="821" loading="lazy" decoding="async">
+    </picture>
   </div>
 
   <!-- ================= PROBLEM ================= -->
