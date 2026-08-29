@@ -349,15 +349,17 @@
 
   /* ---- Pourquoi TrustIDX + Contact ---- */
   .whycards{margin-top:48px}
+  /* Sans cadre : l'adresse est un lien, pas un bouton. Un filet discret sous le
+     texte, qui s'allume au survol, suffit à dire qu'elle se clique. */
   .contact-mail{margin-top:32px}
-  .contact-mail a{display:inline-flex;align-items:center;gap:12px;
+  .contact-mail a{display:inline-flex;align-items:center;gap:10px;
     font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:clamp(1.02rem,2.4vw,1.4rem);font-weight:600;letter-spacing:.02em;
-    color:var(--cyan);text-decoration:none;border:1px solid var(--line-2);
-    border-radius:999px;padding:14px 26px;background:var(--surface-soft);
-    transition:transform .25s,border-color .25s}
-  .contact-mail a:hover{transform:translateY(-2px);border-color:var(--accent-ring-2)}
-  .contact-mail svg{width:20px;height:20px;flex:none}
+    font-size:1.05rem;font-weight:600;letter-spacing:.02em;
+    color:var(--cyan);text-decoration:none;padding-bottom:6px;
+    border-bottom:1px solid rgb(var(--accent-rgb) / .35);
+    transition:color .25s,border-color .25s}
+  .contact-mail a:hover{color:var(--hover-ink);border-color:var(--cyan)}
+  .contact-mail svg{width:18px;height:18px;flex:none}
 
   /* ---- Footer ---- */
   footer{border-top:1px solid var(--line);padding:52px 0;
