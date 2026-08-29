@@ -108,9 +108,8 @@
     --text:#e9eef7; --muted:#9db0c8; --muted-2:#7d90aa;
     --heading:#ffffff; --hover-ink:#ffffff;
     --cyan:#67e8f9; --sky:#38bdf8; --blue:#3b82f6; --indigo:#818cf8;
-    --red:#e63946; --red-2:#ff5a64;
+    --red:#e63946;
     --line:rgba(148,180,230,.14); --line-2:rgba(148,180,230,.3);
-    --line-hover:rgba(148,190,255,.55); --line-hover-2:rgba(148,190,255,.4);
     --glass:rgba(15,26,48,.55);
     --radius:20px;
     /* Texte posé SUR un accent (bouton plein). Sombre sur cyan clair en nuit,
@@ -120,7 +119,7 @@
        Garder une ombre noire à 50 % sur fond blanc donnerait des cartes sales. */
     --shadow-lg:rgba(2,6,16,.5); --shadow-hover:rgba(2,6,16,.6);
     --header-bg:rgba(7,11,20,.42); --header-bg-scrolled:rgba(7,11,20,.8);
-    --surface-soft:rgba(13,23,42,.6); --surface-soft-2:rgba(10,18,34,.55);
+    --surface-soft:rgba(13,23,42,.6);
     --steps-track:rgba(148,180,230,.1);
     --accent-ring:rgba(103,232,249,.4); --accent-ring-2:rgba(103,232,249,.5);
     --accent-ring-3:rgba(103,232,249,.28);
@@ -151,14 +150,13 @@
     --text:#26364d; --muted:#4a5c78; --muted-2:#64748b;
     --heading:#0a1120; --hover-ink:#0a1120;
     --cyan:#0e7490; --sky:#0369a1; --blue:#1d4ed8; --indigo:#4338ca;
-    --red:#dc2626; --red-2:#b91c1c;
+    --red:#dc2626;
     --line:rgba(20,50,110,.13); --line-2:rgba(20,50,110,.24);
-    --line-hover:rgba(20,50,110,.45); --line-hover-2:rgba(20,50,110,.34);
     --glass:rgba(255,255,255,.74);
     --on-accent:#ffffff;
     --shadow-lg:rgba(18,40,90,.09); --shadow-hover:rgba(18,40,90,.14);
     --header-bg:rgba(247,250,255,.6); --header-bg-scrolled:rgba(247,250,255,.88);
-    --surface-soft:rgba(255,255,255,.72); --surface-soft-2:rgba(255,255,255,.62);
+    --surface-soft:rgba(255,255,255,.72);
     --steps-track:rgba(20,50,110,.12);
     --accent-ring:rgba(14,116,144,.42); --accent-ring-2:rgba(14,116,144,.5);
     --accent-ring-3:rgba(14,116,144,.26);
@@ -242,7 +240,6 @@
   /* Un seul des deux pictogrammes à la fois : on montre la DESTINATION, pas l'état
      courant — c'est ce que le visiteur va obtenir en cliquant. */
   .ico-sun{display:none}
-  :root[data-theme="light"] .ico-sun{display:none}
   :root[data-theme="light"] .ico-moon{display:block}
   :root[data-theme="dark"] .ico-moon{display:none}
   :root[data-theme="dark"] .ico-sun{display:block}
@@ -258,24 +255,22 @@
   :root[data-theme="light"] .brand .logo-l,:root[data-theme="light"] .fbrand .logo-l{display:block}
 
   /* ---- Hero ---- */
-  .hero{position:relative;padding:92px 0 96px;overflow:hidden}
+  /* Pas de padding bas : le padding haut de la section suivante (104px) fournit
+     l'écart du rythme commun, comme entre toutes les autres paires de chapitres. */
+  .hero{position:relative;padding:92px 0 0;overflow:hidden}
   .hero h1{
     font-size:clamp(2.2rem,4.8vw,3.4rem);line-height:1.14;font-weight:800;letter-spacing:-.03em;
     background:linear-gradient(120deg,var(--title-1) 25%,var(--title-2) 75%,var(--title-3) 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
   /* Une phrase par ligne : le titre est la promesse, il se lit en deux temps. */
   .hero h1 span{display:block}
-  .hero .lead{margin-top:26px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--muted);max-width:640px;font-weight:300}
-  @media (prefers-reduced-motion: reduce){
-    .flow,.pulse{animation:none}
-  }
-
-  /* ---- Badge de disponibilité (hero) ---- */
-  .soon-badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:24px;
-    font-size:.95rem;font-weight:700;color:var(--sky);letter-spacing:.04em;
+  .hero .lead{margin-top:24px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--muted);max-width:700px;font-weight:300}
+  /* ---- Badge de disponibilité (hero, sous la liste : jamais devant le titre) ---- */
+  .soon-badge{display:inline-flex;align-items:center;gap:9px;margin-top:40px;
+    font-size:.9rem;font-weight:600;color:var(--sky);letter-spacing:.04em;
     border:1px solid rgb(var(--blue-rgb) / .35);border-radius:999px;padding:9px 20px;
     background:rgb(var(--blue-rgb) / .08)}
-  .soon-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);
+  .soon-badge .dot,footer .soon .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);
     box-shadow:0 0 10px var(--cyan)}
 
   /* ---- SVG animations ---- */
@@ -290,16 +285,19 @@
   .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--sky);font-weight:700;
     text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;margin-bottom:18px}
   .kicker::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent);flex:none}
-  h2{font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--heading);max-width:780px}
+  /* Les titres prennent toute la largeur définie de la page (demande client) :
+     aucune largeur maximale propre, seule la gouttière du .wrap les borne. */
+  h2{font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--heading)}
   .sub{margin-top:20px;color:var(--muted);font-size:1.06rem;max-width:700px;font-weight:300}
 
-  /* ---- Problem ---- */
-  .prob-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-  .prob-art svg{width:100%;max-width:400px;height:auto;display:block;margin:0 auto}
+  /* ---- Illustrations entre les chapitres ---- */
+  .interlude{display:flex;justify-content:center;margin-bottom:104px}
+  .interlude svg{width:100%;max-width:430px;height:auto;display:block}
 
   /* ---- How it works ---- */
-  .steps-wrap{margin-top:64px;position:relative}
-  .steps-line{position:absolute;top:35px;left:16.66%;right:16.66%;height:2px;
+  .steps-wrap{margin-top:48px;position:relative}
+  /* 69px = padding haut des cartes (34) + demi-icône (35) : la ligne relie les CENTRES. */
+  .steps-line{position:absolute;top:69px;left:16.66%;right:16.66%;height:2px;
     background:var(--steps-track);border-radius:2px;overflow:hidden}
   .steps-line i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;
     background:linear-gradient(90deg,var(--cyan),var(--blue),var(--indigo));
@@ -321,16 +319,14 @@
   .step p{color:var(--muted);font-size:.94rem;font-weight:300}
 
   /* ---- Domain prerequisite ---- */
-  .dom-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   /* Deux lignes fixes : la coupure se fait après les deux-points, jamais au hasard. */
-  .dom-grid h2 span{display:block}
-  .dom-art svg{width:100%;max-width:440px;height:auto;display:block;margin:0 auto}
-  .ticks{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:14px}
-  .ticks li{display:flex;align-items:center;gap:12px;color:var(--text);font-size:.98rem;font-weight:400}
-  .ticks svg{width:19px;height:19px;flex:none}
+  #domaine h2 span{display:block}
+  .ticks{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:14px}
+  .ticks li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:.98rem;font-weight:400}
+  .ticks svg{width:19px;height:19px;flex:none;margin-top:3px}
 
   /* ---- Hash explainer + privacy ---- */
-  .hashbox{margin-top:56px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;
+  .hashbox{margin-top:48px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;
     border:1px solid var(--line);border-radius:var(--radius);
     background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     padding:46px 42px;box-shadow:0 20px 50px var(--shadow-lg)}
@@ -340,39 +336,40 @@
   .privcards{margin-top:24px}
 
   /* ---- No speculation : pictogrammes barrés ---- */
-  /* Le titre tient sur UNE ligne : la largeur commune des h2 (780px) le repliait. */
-  #nospec h2{max-width:none}
   .strike{stroke-dasharray:52;stroke-dashoffset:52;transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1) .45s}
   .in .strike{stroke-dashoffset:0}
 
   /* ---- Abonnements ---- */
-  .step .plan-name{color:var(--heading);font-size:1.35rem;font-weight:800;letter-spacing:-.01em;margin-bottom:0}
+  .step .plan-name{color:var(--heading);font-size:1.32rem;font-weight:700;letter-spacing:-.01em;margin-bottom:0}
   .step .plan-for{margin-top:6px;color:var(--muted-2);font-size:.9rem;font-weight:300}
   .plan-list{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
-  .plan-list li{display:flex;align-items:flex-start;gap:10px;color:var(--text);font-size:.93rem;font-weight:300}
+  .plan-list li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:.94rem;font-weight:400}
   .plan-list svg{width:17px;height:17px;flex:none;margin-top:3px}
-  .plan-price{margin-top:30px;font-size:1.04rem;color:var(--heading);font-weight:500}
+  .plan-price{margin-top:24px;font-size:1.06rem;color:var(--heading);font-weight:500}
 
   /* ---- Pourquoi TrustIDX + Contact ---- */
   .whycards{margin-top:48px}
-  .contact-mail{margin-top:36px}
+  .contact-mail{margin-top:32px}
   .contact-mail a{display:inline-flex;align-items:center;gap:12px;
     font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
     font-size:clamp(1.02rem,2.4vw,1.4rem);font-weight:600;letter-spacing:.02em;
     color:var(--cyan);text-decoration:none;border:1px solid var(--line-2);
-    border-radius:14px;padding:14px 26px;background:var(--surface-soft);
+    border-radius:999px;padding:14px 26px;background:var(--surface-soft);
     transition:transform .25s,border-color .25s}
   .contact-mail a:hover{transform:translateY(-2px);border-color:var(--accent-ring-2)}
   .contact-mail svg{width:20px;height:20px;flex:none}
 
   /* ---- Footer ---- */
-  footer{border-top:1px solid var(--line);padding:52px 0;margin-top:20px;
+  footer{border-top:1px solid var(--line);padding:52px 0;
     background:linear-gradient(180deg,transparent,var(--footer-fade))}
   footer .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
-  .fbrand{display:inline-flex;align-items:center;gap:10px}
+  .fbrand{display:inline-flex;align-items:center}
   .fbrand .flogo{height:26px;width:auto;display:block}
-  footer .soon{font-size:.88rem;color:var(--sky);border:1px solid rgb(var(--blue-rgb) / .3);
-    border-radius:999px;padding:6px 16px;background:rgb(var(--blue-rgb) / .06)}
+  /* Même langage que le badge du hero : pilule, point lumineux, mêmes alphas. */
+  footer .soon{display:inline-flex;align-items:center;gap:9px;
+    font-size:.85rem;font-weight:600;letter-spacing:.04em;color:var(--sky);
+    border:1px solid rgb(var(--blue-rgb) / .35);
+    border-radius:999px;padding:6px 16px;background:rgb(var(--blue-rgb) / .08)}
   footer .legal{font-size:.85rem;color:var(--muted-2)}
 
   /* ---- Scroll reveal ---- */
@@ -384,10 +381,7 @@
 
   /* ---- Responsive ---- */
   @media (max-width:980px){
-    .prob-grid{grid-template-columns:1fr}
-    .prob-art{order:-1}
     .steps{grid-template-columns:1fr}
-    .dom-grid{grid-template-columns:1fr}
     .hashbox{grid-template-columns:1fr;padding:36px 28px}
     .steps-line{display:none}
     .navlinks{display:none}
@@ -401,7 +395,8 @@
   }
   @media (max-width:560px){
     section{padding:72px 0}
-    .hero{padding:64px 0 72px}
+    .hero{padding:64px 0 0}
+    .interlude{margin-bottom:72px}
   }
 
   /* ---- Reduced motion ---- */
@@ -468,7 +463,6 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <p class="soon-badge"><span class="dot" aria-hidden="true"></span><span data-i18n="footSoon">Presto disponibile</span></p>
         <div class="kicker" data-i18n="heroTag">Certificare una volta. Verificabile da tutti, per sempre.</div>
         <h1>
           <span data-i18n="heroTitle1">Chiunque può imitare i vostri documenti.</span>
@@ -497,6 +491,7 @@
             <span data-i18n="heroPoint5">Un servizio svizzero, senza token né speculazione</span>
           </li>
         </ul>
+        <p class="soon-badge"><span class="dot" aria-hidden="true"></span><span data-i18n="footSoon">Presto disponibile</span></p>
       </div>
 
     </div>
@@ -504,14 +499,18 @@
 
   <!-- ================= PROBLEM ================= -->
   <section id="probleme">
-    <div class="wrap prob-grid">
+    <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="probKicker">Il contesto</div>
         <h2 data-i18n="probTitle">Nell'era dell'IA, ogni documento può essere imitato, falsificato o retrodatato.</h2>
         <p class="sub" data-i18n="probText">Contratti, diplomi, attestati, rapporti, fatture, ma anche foto, video o file audio: gli strumenti per produrre falsi convincenti non sono mai stati così accessibili. La domanda non è più se un documento sembri autentico, ma se sia possibile dimostrarlo. TrustIDX fornisce questa prova.</p>
       </div>
-      <div class="prob-art reveal" data-delay="1" aria-hidden="true">
-        <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+    </div>
+  </section>
+
+  <!-- Illustration entre les chapitres : le document scellé devant le faux barré -->
+  <div class="wrap interlude reveal" aria-hidden="true">
+    <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
           <!-- fake document, blurred / glitched behind -->
           <g opacity=".45" transform="rotate(-7 130 170)">
             <rect x="55" y="70" width="150" height="190" rx="14" fill="rgb(var(--card-rgb) / .7)" stroke="rgb(var(--faint-rgb) / .2)" stroke-width="1.2" stroke-dasharray="6 5"/>
@@ -537,10 +536,8 @@
           </g>
           <!-- scan line -->
           <line x1="30" y1="300" x2="370" y2="300" stroke="rgb(var(--accent-rgb) / .25)" stroke-width="1" stroke-dasharray="2 6" class="flow"/>
-        </svg>
-      </div>
-    </div>
-  </section>
+    </svg>
+  </div>
 
   <!-- ================= HOW ================= -->
   <section id="comment" style="padding-top:0">
@@ -747,7 +744,7 @@
 
   <!-- ================= DOMAIN PREREQUISITE ================= -->
   <section id="domaine" style="padding-top:0">
-    <div class="wrap dom-grid">
+    <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="domKicker">Il prerequisito</div>
         <h2>
@@ -766,8 +763,12 @@
           </li>
         </ul>
       </div>
-      <div class="dom-art reveal" data-delay="1" aria-hidden="true">
-        <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+    </div>
+  </section>
+
+  <!-- Illustration entre les chapitres : du domaine au sceau de certification -->
+  <div class="wrap interlude reveal" aria-hidden="true">
+    <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
           <!-- stylised address bar -->
           <g>
             <rect x="30" y="46" width="360" height="58" rx="29" fill="rgb(var(--card-rgb) / .94)" stroke="url(#gCyan)" stroke-width="1.4"/>
@@ -796,10 +797,8 @@
           <line x1="302" y1="228" x2="248" y2="240" stroke="rgb(var(--sky-rgb) / .16)" stroke-width="1"/>
           <circle class="pulse d2" cx="118" cy="252" r="2.6" fill="var(--cyan)"/>
           <circle class="pulse d4" cx="302" cy="228" r="2.6" fill="var(--cyan)"/>
-        </svg>
-      </div>
-    </div>
-  </section>
+    </svg>
+  </div>
 
   <!-- ================= PLANS ================= -->
   <section id="abonnements" style="padding-top:0">
@@ -926,6 +925,7 @@
       <div class="reveal">
         <div class="kicker" data-i18n="ctKicker">Contatto</div>
         <h2 data-i18n="ctTitle">Interessati? Avete bisogno di maggiori informazioni?</h2>
+        <p class="sub" data-i18n="ctSub">Una domanda sulla certificazione, sugli abbonamenti o sull'integrazione: scriveteci.</p>
         <p class="contact-mail">
           <a id="contact-mail" href="#">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -948,7 +948,7 @@
       <img class="logo flogo logo-d" src="/logo.svg" alt="TrustIDX" width="167" height="40">
       <img class="logo flogo logo-l" src="/logo-light.svg" alt="TrustIDX" width="167" height="40">
     </div>
-    <div class="soon" data-i18n="footSoon">Presto disponibile</div>
+    <div class="soon"><span class="dot" aria-hidden="true"></span><span data-i18n="footSoon">Presto disponibile</span></div>
     <div class="legal">© 2026 TrustIDX · <span data-i18n="footCh">Concepito e gestito in Svizzera</span></div>
   </div>
 </footer>
