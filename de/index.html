@@ -134,8 +134,7 @@
     /* Titres en dégradé : blanc → bleu clair en nuit. En jour il faut l'inverse
        (encre → bleu profond), sinon le titre disparaît dans la page. */
     --title-1:#ffffff; --title-2:#b9d6ff; --title-3:#8fc7ff;
-    /* Traits des illustrations SVG. Le cyan pur est le trait de 30 dessins : c'est LUI
-       qui décide si les illustrations existent encore en mode jour. */
+    /* Traits des pictogrammes SVG des cartes. */
     --svg-ink:#eaf2ff; --svg-ink-2:#cfe6ff;
     --aurora-1:rgba(59,130,246,.16); --aurora-2:rgba(34,211,238,.09); --aurora-3:rgba(129,140,248,.10);
     --bg-grad-1:#070b14; --bg-grad-2:#0b1220;
@@ -202,6 +201,10 @@
   }
 
   .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  /* Largeur de lecture du corps de texte. Les titres, eux, prennent toute la largeur
+     du .wrap (demande client) : ce reglage ne borne QUE les paragraphes, et il est
+     unique pour qu'aucun paragraphe n'ait sa propre largeur. */
+  :root{--measure:900px}
   a{color:var(--cyan)}
   :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
 
@@ -269,7 +272,7 @@
     -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
   /* Une phrase par ligne : le titre est la promesse, il se lit en deux temps. */
   .hero h1 span{display:block}
-  .hero .lead{margin-top:24px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--muted);max-width:700px;font-weight:300}
+  .hero .lead{margin-top:24px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--muted);max-width:var(--measure);font-weight:300}
   /* ---- Badge de disponibilité (hero, sous la liste : jamais devant le titre) ---- */
   .soon-badge{display:inline-flex;align-items:center;gap:9px;margin-top:40px;
     font-size:.9rem;font-weight:600;color:var(--sky);letter-spacing:.04em;
@@ -286,7 +289,7 @@
   /* Les titres prennent toute la largeur définie de la page (demande client) :
      aucune largeur maximale propre, seule la gouttière du .wrap les borne. */
   h2{font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--heading)}
-  .sub{margin-top:20px;color:var(--muted);font-size:1.06rem;max-width:700px;font-weight:300}
+  .sub{margin-top:20px;color:var(--muted);font-size:1.06rem;max-width:var(--measure);font-weight:300}
 
   /* ---- How it works ---- */
   .steps-wrap{margin-top:48px;position:relative}
@@ -325,7 +328,7 @@
     background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     padding:46px 42px;box-shadow:0 20px 50px var(--shadow-lg)}
   .hashbox h3{color:var(--heading);font-size:1.32rem;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
-  .hashbox p{color:var(--muted);font-weight:300;font-size:.98rem;max-width:760px}
+  .hashbox p{color:var(--muted);font-weight:300;font-size:.98rem;max-width:var(--measure)}
   .privcards{margin-top:24px}
 
   /* ---- No speculation : pictogrammes barrés ---- */
@@ -338,7 +341,7 @@
   .plan-list{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
   .plan-list li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:.94rem;font-weight:400}
   .plan-list svg{width:17px;height:17px;flex:none;margin-top:3px}
-  .plan-price{margin-top:24px;font-size:1.06rem;color:var(--heading);font-weight:500}
+  .plan-price{margin-top:24px;font-size:1.06rem;color:var(--heading);font-weight:500;max-width:var(--measure)}
 
   /* ---- Pourquoi TrustIDX + Contact ---- */
   .whycards{margin-top:48px}
@@ -391,6 +394,15 @@
   @media (max-width:560px){
     section{padding:72px 0}
     .hero{padding:48px 0 0}
+    /* En-tete sur telephone : logo, quatre langues et la bascule de theme ne
+       tiennent pas en 375 px avec les valeurs du bureau. On reprend la gouttiere,
+       la taille du logo et les paddings du selecteur, sans rien retirer. */
+    .wrap{padding:0 16px}
+    .nav{gap:12px}
+    .brand .logo{height:26px}
+    .navtools{gap:8px}
+    .langs{gap:2px}
+    .langs button,.langs a{padding:5px 8px;font-size:.72rem;letter-spacing:.04em}
   }
 
   /* ---- Reduced motion ---- */
