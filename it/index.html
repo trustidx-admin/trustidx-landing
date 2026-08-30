@@ -201,10 +201,10 @@
   }
 
   .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-  /* Largeur de lecture du corps de texte. Les titres, eux, prennent toute la largeur
-     du .wrap (demande client) : ce reglage ne borne QUE les paragraphes, et il est
-     unique pour qu'aucun paragraphe n'ait sa propre largeur. */
-  :root{--measure:900px}
+  /* Largeur du corps de texte. Demande client : les paragraphes vont jusqu'au bord
+     des titres et des cartes, aucune colonne de lecture plus etroite. Un seul
+     reglage pour que rien ne reprenne sa propre largeur en douce. */
+  :root{--measure:100%}
   a{color:var(--cyan)}
   :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
 
