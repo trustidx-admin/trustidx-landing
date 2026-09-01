@@ -342,6 +342,10 @@
   .plan-list li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:.94rem;font-weight:400}
   .plan-list svg{width:17px;height:17px;flex:none;margin-top:3px}
   .plan-price{margin-top:24px;font-size:1.06rem;color:var(--heading);font-weight:500;max-width:var(--measure)}
+  .plan-volume{margin-top:18px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .plan-volume b{color:var(--heading);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .plan-volume span{color:var(--muted);font-size:.9rem;font-weight:300}
+  .plan-note{margin-top:24px;color:var(--muted-2);font-size:.92rem;font-weight:300}
 
   /* ---- Pourquoi TrustIDX + Contact ---- */
   .whycards{margin-top:48px}
@@ -700,70 +704,85 @@
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="planKicker">Abonnements</div>
-        <h2 data-i18n="planTitle">Trois abonnements mais une même preuve.</h2>
-        <p class="sub" data-i18n="planSub">Les abonnements se distinguent par le volume, les sièges et l'intégration, jamais par la preuve : chaque document certifié reçoit le même double ancrage et la même vérification publique, gratuite et permanente.</p>
+        <h2 data-i18n="planTitle">Trois abonnements, une seule et même preuve.</h2>
+        <p class="sub" data-i18n="planSub">Les abonnements se distinguent par le volume, les sièges et les fonctions, jamais par la preuve : chaque document certifié reçoit le même double ancrage et la même vérification publique, gratuite et permanente.</p>
       </div>
       <div class="steps whycards">
         <div class="step reveal" data-delay="1">
           <h3 class="plan-name">Essentiel</h3>
           <p class="plan-for" data-i18n="plan1For">Pour commencer à certifier.</p>
+          <p class="plan-volume"><b>5&nbsp;000</b><span data-i18n="plan1Vol">documents certifiés par an</span></p>
           <ul class="plan-list">
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F1">Volume annuel de départ</span>
+              <span data-i18n="plan1F1">3 sièges</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F2">Sièges pour une petite équipe</span>
+              <span data-i18n="plan1F2">10 certifications simultanées</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F3">Toutes les fonctions de certification, sans restriction</span>
+              <span data-i18n="plan1F3">Toutes les fonctions de certification et la vérification publique, sans restriction</span>
             </li>
           </ul>
         </div>
         <div class="step reveal" data-delay="2">
           <h3 class="plan-name">Business</h3>
           <p class="plan-for" data-i18n="plan2For">Pour certifier en volume, en équipe.</p>
+          <p class="plan-volume"><b>50&nbsp;000</b><span data-i18n="plan2Vol">documents certifiés par an</span></p>
           <ul class="plan-list">
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F1">Volume annuel étendu</span>
+              <span data-i18n="plan2F1">50 sièges</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F2">Davantage de sièges</span>
+              <span data-i18n="plan2F2">100 certifications simultanées</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F3">Davantage de certifications simultanées</span>
+              <span data-i18n="plan2F3">Répertoires de classement</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="plan2F4">Page de vérification à votre domaine</span>
             </li>
           </ul>
         </div>
         <div class="step reveal" data-delay="3">
           <h3 class="plan-name">Infinity</h3>
           <p class="plan-for" data-i18n="plan3For">Pour intégrer la certification à vos systèmes.</p>
+          <p class="plan-volume"><b>600&nbsp;000</b><span data-i18n="plan3Vol">documents par an, puis sur mesure</span></p>
           <ul class="plan-list">
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F1">Les volumes les plus élevés</span>
+              <span data-i18n="plan3F1">Sièges illimités</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F2">API d'intégration machine à machine</span>
+              <span data-i18n="plan3F2">1&nbsp;000 certifications simultanées</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F3">SSO et provisionnement d'annuaire (SCIM)</span>
+              <span data-i18n="plan3F3">API machine à machine et webhooks</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F4">Plusieurs domaines prouvés</span>
+              <span data-i18n="plan3F4">SSO et provisionnement d'annuaire (SCIM)</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="plan3F5">Plusieurs domaines prouvés</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="plan3F6">Répertoires et page de vérification à votre domaine</span>
             </li>
           </ul>
         </div>
       </div>
-      <p class="plan-price reveal" data-i18n="planPrice">Le prix de départ pour la certification d'un document sera de quelques centimes (CHF) seulement.</p>
+      <p class="plan-note reveal" data-i18n="planNote">Ces volumes et ces fonctions sont indicatifs et restent à confirmer. La tarification définitive sera publiée au lancement ; au-delà du volume inclus, une recharge dégressive reste possible.</p>
     </div>
   </section>
 

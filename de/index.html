@@ -342,6 +342,10 @@
   .plan-list li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:.94rem;font-weight:400}
   .plan-list svg{width:17px;height:17px;flex:none;margin-top:3px}
   .plan-price{margin-top:24px;font-size:1.06rem;color:var(--heading);font-weight:500;max-width:var(--measure)}
+  .plan-volume{margin-top:18px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .plan-volume b{color:var(--heading);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .plan-volume span{color:var(--muted);font-size:.9rem;font-weight:300}
+  .plan-note{margin-top:24px;color:var(--muted-2);font-size:.92rem;font-weight:300}
 
   /* ---- Pourquoi TrustIDX + Contact ---- */
   .whycards{margin-top:48px}
@@ -700,70 +704,85 @@
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="planKicker">Abonnemente</div>
-        <h2 data-i18n="planTitle">Drei Abonnemente, aber ein und derselbe Beweis.</h2>
-        <p class="sub" data-i18n="planSub">Die Abonnemente unterscheiden sich nach Volumen, Arbeitsplätzen und Integration, nie nach dem Beweis: Jedes zertifizierte Dokument erhält dieselbe doppelte Verankerung und dieselbe öffentliche, kostenlose und dauerhafte Überprüfung.</p>
+        <h2 data-i18n="planTitle">Drei Abonnemente, ein und derselbe Beweis.</h2>
+        <p class="sub" data-i18n="planSub">Die Abonnemente unterscheiden sich nach Volumen, Arbeitsplätzen und Funktionen, nie nach dem Beweis: Jedes zertifizierte Dokument erhält dieselbe doppelte Verankerung und dieselbe öffentliche, kostenlose und dauerhafte Überprüfung.</p>
       </div>
       <div class="steps whycards">
         <div class="step reveal" data-delay="1">
           <h3 class="plan-name">Essentiel</h3>
           <p class="plan-for" data-i18n="plan1For">Für den Einstieg ins Zertifizieren.</p>
+          <p class="plan-volume"><b>5'000</b><span data-i18n="plan1Vol">zertifizierte Dokumente pro Jahr</span></p>
           <ul class="plan-list">
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F1">Jahresvolumen für den Einstieg</span>
+              <span data-i18n="plan1F1">3 Arbeitsplätze</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F2">Arbeitsplätze für ein kleines Team</span>
+              <span data-i18n="plan1F2">10 gleichzeitige Zertifizierungen</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F3">Alle Zertifizierungsfunktionen, ohne Einschränkung</span>
+              <span data-i18n="plan1F3">Alle Zertifizierungsfunktionen und die öffentliche Überprüfung, ohne Einschränkung</span>
             </li>
           </ul>
         </div>
         <div class="step reveal" data-delay="2">
           <h3 class="plan-name">Business</h3>
           <p class="plan-for" data-i18n="plan2For">Für Organisationen, die im Volumen zertifizieren.</p>
+          <p class="plan-volume"><b>50'000</b><span data-i18n="plan2Vol">zertifizierte Dokumente pro Jahr</span></p>
           <ul class="plan-list">
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F1">Erweitertes Jahresvolumen</span>
+              <span data-i18n="plan2F1">50 Arbeitsplätze</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F2">Mehr Arbeitsplätze</span>
+              <span data-i18n="plan2F2">100 gleichzeitige Zertifizierungen</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F3">Mehr gleichzeitige Zertifizierungen</span>
+              <span data-i18n="plan2F3">Ablageordner</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="plan2F4">Überprüfungsseite unter Ihrer Domain</span>
             </li>
           </ul>
         </div>
         <div class="step reveal" data-delay="3">
           <h3 class="plan-name">Infinity</h3>
           <p class="plan-for" data-i18n="plan3For">Für die Integration in Ihre Systeme.</p>
+          <p class="plan-volume"><b>600'000</b><span data-i18n="plan3Vol">Dokumente pro Jahr, danach individuell</span></p>
           <ul class="plan-list">
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F1">Die höchsten Volumen</span>
+              <span data-i18n="plan3F1">Unbegrenzte Arbeitsplätze</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F2">Integrations-API (Maschine zu Maschine)</span>
+              <span data-i18n="plan3F2">1'000 gleichzeitige Zertifizierungen</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F3">SSO und Verzeichnis-Provisionierung (SCIM)</span>
+              <span data-i18n="plan3F3">API (Maschine zu Maschine) und Webhooks</span>
             </li>
             <li>
               <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F4">Mehrere nachgewiesene Domains</span>
+              <span data-i18n="plan3F4">SSO und Verzeichnis-Provisionierung (SCIM)</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="plan3F5">Mehrere nachgewiesene Domains</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="plan3F6">Ablageordner und Überprüfungsseite unter Ihrer Domain</span>
             </li>
           </ul>
         </div>
       </div>
-      <p class="plan-price reveal" data-i18n="planPrice">Der Einstiegspreis für die Zertifizierung eines Dokuments wird nur wenige Rappen (CHF) betragen.</p>
+      <p class="plan-note reveal" data-i18n="planNote">Diese Volumen und Funktionen sind Richtwerte und noch zu bestätigen. Die endgültige Preisgestaltung wird zum Start veröffentlicht; über das enthaltene Volumen hinaus ist eine degressive Aufstockung möglich.</p>
     </div>
   </section>
 
