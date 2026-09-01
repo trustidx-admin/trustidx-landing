@@ -115,7 +115,7 @@
     --text:#e9eef7; --muted:#9db0c8; --muted-2:#7d90aa;
     --heading:#ffffff; --hover-ink:#ffffff;
     --cyan:#67e8f9; --sky:#38bdf8; --blue:#3b82f6; --indigo:#818cf8;
-    --red:#e63946;
+    --red:#e63946; --green:#34d399;
     --line:rgba(148,180,230,.14); --line-2:rgba(148,180,230,.3);
     --glass:rgba(15,26,48,.55);
     --radius:20px;
@@ -155,7 +155,7 @@
     --text:#26364d; --muted:#4a5c78; --muted-2:#64748b;
     --heading:#0a1120; --hover-ink:#0a1120;
     --cyan:#0e7490; --sky:#0369a1; --blue:#1d4ed8; --indigo:#4338ca;
-    --red:#dc2626;
+    --red:#dc2626; --green:#059669;
     --line:rgba(20,50,110,.13); --line-2:rgba(20,50,110,.24);
     --glass:rgba(255,255,255,.74);
     --on-accent:#ffffff;
@@ -346,6 +346,33 @@
   .plan-volume b{color:var(--heading);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1}
   .plan-volume span{color:var(--muted);font-size:.9rem;font-weight:300}
   .plan-note{margin-top:24px;color:var(--muted-2);font-size:.92rem;font-weight:300}
+  /* ---- Tableau comparatif des abonnements ---- */
+  .plan-table-wrap{margin-top:40px;overflow-x:auto}
+  .plan-table{width:100%;border-collapse:collapse;min-width:540px}
+  .plan-table th,.plan-table td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+  .plan-table thead th{border-bottom:1px solid var(--line-2);vertical-align:bottom;padding-bottom:18px}
+  .plan-table tbody tr:last-child td{border-bottom:0}
+  .plan-table th:first-child,.plan-table td:first-child{text-align:left;width:40%}
+  .plan-table .ph-name{display:block;color:var(--heading);font-size:1.18rem;font-weight:700;letter-spacing:-.01em}
+  .plan-table .ph-for{display:block;color:var(--muted-2);font-size:.8rem;font-weight:300;margin-top:5px;line-height:1.35}
+  .plan-table td.pt-label{color:var(--text);font-weight:500;font-size:.95rem}
+  .plan-table td.pt-num{color:var(--heading);font-weight:700;font-size:1.1rem}
+  .plan-table td.pt-num small{display:block;color:var(--muted-2);font-weight:300;font-size:.72rem;margin-top:3px}
+  .plan-table .pt-ico{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px}
+  .plan-table .pt-ico svg{width:22px;height:22px}
+  .plan-table .pt-yes{color:var(--green)}
+  .plan-table .pt-no{color:var(--red);opacity:.6}
+  @media (max-width:560px){
+    .plan-table{min-width:0}
+    .plan-table th,.plan-table td{padding:10px 4px}
+    .plan-table th:first-child,.plan-table td:first-child{width:31%}
+    .plan-table td.pt-label{font-size:.82rem;overflow-wrap:break-word;hyphens:auto}
+    .plan-table .ph-name{font-size:.8rem}
+    .plan-table .ph-for{display:none}
+    .plan-table td.pt-num{font-size:.82rem}
+    .plan-table td.pt-num small{font-size:.66rem}
+    .plan-table .pt-ico,.plan-table .pt-ico svg{width:18px;height:18px}
+  }
 
   /* ---- Pourquoi TrustIDX + Contact ---- */
   .whycards{margin-top:48px}
@@ -579,208 +606,73 @@
         <h2 data-i18n="whyTitle">Une preuve qui ne dépend pas de nous.</h2>
         <p class="sub" data-i18n="whySub">Les registres sur lesquels TrustIDX inscrit vos empreintes sont publics : personne ne les contrôle, personne ne peut les réécrire. Ce qui est certifié aujourd'hui restera vérifiable demain, avec ou sans TrustIDX.</p>
       </div>
-      <div class="steps whycards">
-        <div class="step reveal" data-delay="1">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="6" width="17" height="17" rx="5"/>
-              <path d="M10.5 14.8l3 3 5.5-6.5"/>
-              <rect x="25" y="25" width="17" height="17" rx="5"/>
-              <path d="M29.5 33.8l3 3 5.5-6.5"/>
-            </svg>
-          </div>
-          <h3 data-i18n="why1Title">Deux registres indépendants</h3>
-          <p data-i18n="why1Text">Les deux registres attestent l'existence de l'empreinte à une date. Base porte en plus la provenance : le domaine prouvé de votre organisation. Deux inscriptions distinctes, qui ne dépendent pas l'une de l'autre.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="21" cy="21" r="12"/>
-              <path d="M30 30l10 10"/>
-              <path d="M16 21.5l3.5 3.5 6.5-7.5"/>
-            </svg>
-          </div>
-          <h3 data-i18n="why2Title">Vérifiable avec les outils publics</h3>
-          <p data-i18n="why2Text">Les inscriptions se lisent avec l'outillage public de chaque registre : Ethereum Attestation Service pour Base, OpenTimestamps pour Bitcoin. Aucun outil propriétaire n'est nécessaire.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <rect x="8" y="8" width="32" height="32" rx="9" fill="var(--red)"/>
-              <path d="M24 15.5v17M15.5 24h17" stroke="#ffffff" stroke-width="6.4"/>
-            </svg>
-          </div>
-          <h3 data-i18n="why3Title">Un service suisse</h3>
-          <p data-i18n="why3Text">TrustIDX est conçu et opéré à Fribourg, en Suisse.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= HASH EXPLAINER + PRIVACY ================= -->
-  <section id="confidentialite" style="padding-top:0">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="privKicker">Confidentialité</div>
-        <h2 data-i18n="privTitle">Vos données restent chez vous. Toujours.</h2>
-        <p class="sub" data-i18n="privText">Seule l'empreinte de votre document est inscrite sur les registres publics. Le fichier et son contenu ne quittent pas votre organisation.</p>
-      </div>
-
-      <div class="hashbox reveal">
-        <div>
-          <h3 data-i18n="hashTitle">Qu'est-ce qu'une empreinte numérique ?</h3>
-          <p data-i18n="hashText">Une empreinte (ou hash) est un code unique de longueur fixe, calculé à partir de votre fichier, comme une empreinte digitale. Modifiez une virgule ou un pixel, et l'empreinte devient totalement différente. Impossible de reconstituer le document à partir de son empreinte : le calcul ne fonctionne que dans un sens. Et en pratique, deux fichiers différents ne peuvent pas produire la même empreinte. En résumé : l'empreinte prouve tout sur votre document, mais ne révèle rien de lui.</p>
-        </div>
-      </div>
-
-      <div class="steps privcards">
-        <div class="step reveal" data-delay="1">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round">
-              <circle cx="22" cy="22" r="6"  stroke-dasharray="8 5"/>
-              <circle cx="22" cy="22" r="12" stroke-dasharray="14 7 10 8"/>
-              <circle cx="22" cy="22" r="18" stroke-dasharray="20 9 14 10"/>
-              <circle cx="37" cy="37" r="8" fill="rgb(var(--card-rgb) / .95)" stroke="var(--cyan)" stroke-width="1.6"/>
-              <path d="M33.5 37.2l2.4 2.5 4.4-5" stroke="var(--cyan)" stroke-width="1.7" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 data-i18n="priv1Title">L'empreinte suffit</h3>
-          <p data-i18n="priv1Text">Pas besoin d'accéder au fichier source pour le certifier : posséder son empreinte suffit, avec les éventuelles métadonnées associées. Celui qui certifie n'est pas forcément celui qui détient le document.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13.5 33.5a7.5 7.5 0 01.9-14.9A10.5 10.5 0 0134.8 20.6 7 7 0 0133.5 34"/>
-              <path d="M24 39V27M19.5 31.5L24 27l4.5 4.5"/>
-              <line x1="9" y1="41" x2="41" y2="9"/>
-            </svg>
-          </div>
-          <h3 data-i18n="priv2Title">Votre fichier ne nous est jamais transmis</h3>
-          <p data-i18n="priv2Text">L'empreinte est calculée directement dans votre navigateur. Le document lui-même n'est jamais téléversé : il ne transite ni par nos serveurs, ni par la blockchain.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 20V9.5A2.5 2.5 0 019.5 7H20l19 19-13.5 13.5L7 20z"/>
-              <circle cx="15" cy="15" r="2.6"/>
-              <rect x="28" y="30" width="13" height="10" rx="2.5" fill="rgb(var(--card-rgb) / .95)" stroke="var(--cyan)" stroke-width="1.5"/>
-              <path d="M31 30v-3a3.5 3.5 0 017 0v3" stroke="var(--cyan)" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <h3 data-i18n="priv3Title">Vos métadonnées vous appartiennent</h3>
-          <p data-i18n="priv3Text">Vous choisissez librement les métadonnées associées à un document. Elles ne sont jamais publiées : seule leur empreinte est ancrée. Leur intégrité est prouvée, leur contenu jamais exposé.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= DOMAIN PREREQUISITE ================= -->
-  <section id="domaine" style="padding-top:0">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="domKicker">Le prérequis</div>
-        <h2>
-          <span data-i18n="domTitle1">Un seul prérequis :</span>
-          <span data-i18n="domTitle2">votre nom de domaine.</span>
-        </h2>
-        <p class="sub" data-i18n="domText">Votre domaine est votre identité. C'est lui qui prouve la provenance de chaque document certifié, publiquement et sans ambiguïté. Si votre organisation possède et contrôle un nom de domaine, elle est prête à certifier.</p>
-        <ul class="ticks">
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="domPoint1">Rien à installer, aucune infrastructure à déployer</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="domPoint3">La preuve s'établit une fois et reste acquise</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================= PLANS ================= -->
-  <section id="abonnements" style="padding-top:0">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="planKicker">Abonnements</div>
-        <h2 data-i18n="planTitle">Trois abonnements, une seule et même preuve.</h2>
-        <p class="sub" data-i18n="planSub">Les abonnements se distinguent par le volume, les sièges et les fonctions, jamais par la preuve : chaque document certifié reçoit le même double ancrage et la même vérification publique, gratuite et permanente.</p>
-      </div>
-      <div class="steps whycards">
-        <div class="step reveal" data-delay="1">
-          <h3 class="plan-name">Essentiel</h3>
-          <p class="plan-for" data-i18n="plan1For">Pour commencer à certifier.</p>
-          <p class="plan-volume"><b>5&nbsp;000</b><span data-i18n="plan1Vol">documents certifiés par an</span></p>
-          <ul class="plan-list">
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F1">3 sièges</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F2">10 certifications simultanées</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan1F3">Toutes les fonctions de certification et la vérification publique, sans restriction</span>
-            </li>
-          </ul>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <h3 class="plan-name">Business</h3>
-          <p class="plan-for" data-i18n="plan2For">Pour certifier en volume, en équipe.</p>
-          <p class="plan-volume"><b>50&nbsp;000</b><span data-i18n="plan2Vol">documents certifiés par an</span></p>
-          <ul class="plan-list">
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F1">50 sièges</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F2">100 certifications simultanées</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F3">Répertoires de classement</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan2F4">Page de vérification à votre domaine</span>
-            </li>
-          </ul>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <h3 class="plan-name">Infinity</h3>
-          <p class="plan-for" data-i18n="plan3For">Pour intégrer la certification à vos systèmes.</p>
-          <p class="plan-volume"><b>600&nbsp;000</b><span data-i18n="plan3Vol">documents par an, puis sur mesure</span></p>
-          <ul class="plan-list">
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F1">Sièges illimités</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F2">1&nbsp;000 certifications simultanées</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F3">API machine à machine et webhooks</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F4">SSO et provisionnement d'annuaire (SCIM)</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F5">Plusieurs domaines prouvés</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="plan3F6">Répertoires et page de vérification à votre domaine</span>
-            </li>
-          </ul>
-        </div>
+      <div class="plan-table-wrap reveal">
+        <table class="plan-table">
+          <thead>
+            <tr>
+              <th></th>
+            <th scope="col"><span class="ph-name">Essentiel</span><span class="ph-for">Pour commencer à certifier</span></th>
+            <th scope="col"><span class="ph-name">Business</span><span class="ph-for">Pour certifier en volume, en équipe</span></th>
+            <th scope="col"><span class="ph-name">Infinity</span><span class="ph-for">Pour intégrer la certification à vos systèmes</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pt-label">Documents par an</td>
+              <td class="pt-num">5&nbsp;000</td>
+              <td class="pt-num">50&nbsp;000</td>
+              <td class="pt-num">600&nbsp;000<small>puis sur mesure</small></td>
+            </tr>
+            <tr>
+              <td class="pt-label">Sièges</td>
+              <td class="pt-num">3</td>
+              <td class="pt-num">50</td>
+              <td class="pt-num">Illimités</td>
+            </tr>
+            <tr>
+              <td class="pt-label">Certifications simultanées</td>
+              <td class="pt-num">10</td>
+              <td class="pt-num">100</td>
+              <td class="pt-num">1&nbsp;000</td>
+            </tr>
+          <tr>
+            <td class="pt-label">Certification et vérification publique</td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="pt-label">Répertoires de classement</td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="pt-label">Page de vérification à votre domaine</td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="pt-label">API machine à machine et webhooks</td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="pt-label">SSO et provisionnement d'annuaire (SCIM)</td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="pt-label">Plusieurs domaines prouvés</td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Non inclus"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <p class="plan-note reveal" data-i18n="planNote">Ces volumes et ces fonctions sont indicatifs et restent à confirmer. La tarification définitive sera publiée au lancement ; au-delà du volume inclus, une recharge dégressive reste possible.</p>
     </div>
