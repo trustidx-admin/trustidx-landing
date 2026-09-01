@@ -22,6 +22,13 @@
 ## Ce que TrustIDX n'est pas
 
 - Pas un projet crypto : aucun token, aucun wallet, aucune spéculation.
+- TrustIDX ne vérifie PAS l'identité légale des organisations : la
+  garantie porte sur le contrôle prouvé d'un nom de domaine, jamais sur la
+  raison sociale. Le certificat TLS du domaine peut corroborer cette identité,
+  il ne la remplace pas.
+- Les deux registres ne prouvent pas la même chose : Bitcoin atteste l'existence
+  d'une empreinte à une date, jamais la provenance. La provenance vient du
+  domaine prouvé, inscrit sur Base.
 - Aucune donnée personnelle ni contenu de document n'est publié on-chain :
   seule l'empreinte (hash), illisible et non inversible, est inscrite.
 
@@ -29,5 +36,12 @@
 
 - Site : https://trustidx.ch/ (FR, DE, IT, EN)
 - Contact : https://trustidx.ch/#contact
+- Abonnements : Essentiel, Business, Infinity. Ils se distinguent par le volume,
+  les sièges et les fonctions, jamais par la preuve ; l'API machine à machine
+  et le SSO sont réservés à Infinity. Volumes indicatifs, tarification
+  publiée au lancement.
+- Sans nom de domaine, une organisation certifie depuis un compte TrustIDX :
+  existence, intégrité et date restent prouvées, la provenance se limite
+  à la continuité du compte.
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
