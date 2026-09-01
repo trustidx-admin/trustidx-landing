@@ -45,7 +45,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <script>
-/* Thème : posé AVANT le premier pixel. Inline et synchrone à dessein — un thème appliqué
+/* Thème : posé AVANT le premier pixel. Inline et synchrone à dessein : un thème appliqué
    après le rendu ferait clignoter la page en noir chez les visiteurs en mode jour. */
 (function(){
   /* Marqueur JS : c'est LUI qui autorise le masquage des blocs a reveler.
@@ -191,7 +191,7 @@
 
   /* MODE JOUR. Ce n'est pas l'inverse du mode nuit : c'est un second jeu de valeurs,
      recalculé pour le contraste. Les accents descendent (cyan-700, blue-700) parce que
-     le cyan de la nuit sur du blanc, c'est 1,4:1 — invisible. */
+     le cyan de la nuit sur du blanc, c'est 1,4:1, invisible. */
   :root[data-theme="light"]{
     color-scheme:light;
     --bg0:#f7faff; --bg1:#eaf1fb;
@@ -340,13 +340,13 @@
   .themebtn:hover{color:var(--hover-ink);border-color:var(--line-2)}
   .themebtn svg{width:17px;height:17px}
   /* Un seul des deux pictogrammes à la fois : on montre la DESTINATION, pas l'état
-     courant — c'est ce que le visiteur va obtenir en cliquant. */
+     courant : c'est ce que le visiteur va obtenir en cliquant. */
   .ico-sun{display:none}
   :root[data-theme="light"] .ico-moon{display:block}
   :root[data-theme="dark"] .ico-moon{display:none}
   :root[data-theme="dark"] .ico-sun{display:block}
 
-  /* Logo : deux fichiers vectoriels distincts, pas un filter:invert — l'inversion
+  /* Logo : deux fichiers vectoriels distincts, pas un filter:invert : l'inversion
      retournerait aussi la teinte et donnerait un logo orange. La bascule vaut pour
      l'en-tête ET le pied de page (le pied restait blanc sur fond clair, défaut
      signalé le 2026-08-01). Le préfixe :root donne aux règles une spécificité
@@ -631,7 +631,7 @@
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint2">A 100% web application: nothing to install, easy to use</span>
+            <span data-i18n="heroPoint2">A 100% web application: nothing to install, nothing to configure</span>
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -639,7 +639,7 @@
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint4">The proof outlives everything, even TrustIDX: the ledgers are public</span>
+            <span data-i18n="heroPoint4">The proof stands even without TrustIDX: the ledgers are public</span>
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -655,7 +655,7 @@
   <section id="probleme">
     <div class="wrap">
       <div class="reveal">
-        <div class="kicker" data-i18n="probKicker">The problem</div>
+        <div class="kicker" data-i18n="probKicker">The situation</div>
         <h2 data-i18n="probTitle">In the AI era, any document can be imitated, forged or backdated.</h2>
         <p class="sub" data-i18n="probText">Contracts, diplomas, certificates, reports, invoices, but also photos, videos or audio files: the tools to produce convincing fakes have never been this accessible. The question is no longer whether a document looks genuine, but whether you can prove it. TrustIDX establishes that proof: the document's integrity, its date, and the domain it comes from.</p>
       </div>
@@ -668,7 +668,7 @@
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="howKicker">How it works</div>
-        <h2 data-i18n="howTitle">A simple, public, permanent proof.</h2>
+        <h2 data-i18n="howTitle">A public, permanent proof.</h2>
       </div>
       <div class="steps-wrap reveal">
         <div class="steps-line" aria-hidden="true"><i></i></div>
@@ -910,7 +910,7 @@
             <td aria-label="Included"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
-            <th scope="row" class="pt-label">Document revocation and update</th>
+            <th scope="row" class="pt-label">Revocation and correction by re-issue</th>
             <td aria-label="Included"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Included"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Included"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -1001,7 +1001,7 @@
             </svg>
           </div>
           <h3 data-i18n="ns2Title">No wallet</h3>
-          <p data-i18n="ns2Text">No crypto wallet to install, nothing to manage. Web3 without the Web3.</p>
+          <p data-i18n="ns2Text">No crypto wallet to install, nothing to manage.</p>
         </div>
         <div class="step reveal" data-delay="3">
           <div class="icon" aria-hidden="true">
@@ -1023,7 +1023,7 @@
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="ctKicker">Contact</div>
-        <h2 data-i18n="ctTitle">Interested? Need more information?</h2>
+        <h2 data-i18n="ctTitle">We answer your questions.</h2>
         <p class="sub" data-i18n="ctSub">A question about certification, plans or integration: write to us.</p>
         <p class="contact-mail">
           <a id="contact-mail" href="#contact">

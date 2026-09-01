@@ -45,7 +45,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <script>
-/* Thème : posé AVANT le premier pixel. Inline et synchrone à dessein — un thème appliqué
+/* Thème : posé AVANT le premier pixel. Inline et synchrone à dessein : un thème appliqué
    après le rendu ferait clignoter la page en noir chez les visiteurs en mode jour. */
 (function(){
   /* Marqueur JS : c'est LUI qui autorise le masquage des blocs a reveler.
@@ -191,7 +191,7 @@
 
   /* MODE JOUR. Ce n'est pas l'inverse du mode nuit : c'est un second jeu de valeurs,
      recalculé pour le contraste. Les accents descendent (cyan-700, blue-700) parce que
-     le cyan de la nuit sur du blanc, c'est 1,4:1 — invisible. */
+     le cyan de la nuit sur du blanc, c'est 1,4:1, invisible. */
   :root[data-theme="light"]{
     color-scheme:light;
     --bg0:#f7faff; --bg1:#eaf1fb;
@@ -340,13 +340,13 @@
   .themebtn:hover{color:var(--hover-ink);border-color:var(--line-2)}
   .themebtn svg{width:17px;height:17px}
   /* Un seul des deux pictogrammes à la fois : on montre la DESTINATION, pas l'état
-     courant — c'est ce que le visiteur va obtenir en cliquant. */
+     courant : c'est ce que le visiteur va obtenir en cliquant. */
   .ico-sun{display:none}
   :root[data-theme="light"] .ico-moon{display:block}
   :root[data-theme="dark"] .ico-moon{display:none}
   :root[data-theme="dark"] .ico-sun{display:block}
 
-  /* Logo : deux fichiers vectoriels distincts, pas un filter:invert — l'inversion
+  /* Logo : deux fichiers vectoriels distincts, pas un filter:invert : l'inversion
      retournerait aussi la teinte et donnerait un logo orange. La bascule vaut pour
      l'en-tête ET le pied de page (le pied restait blanc sur fond clair, défaut
      signalé le 2026-08-01). Le préfixe :root donne aux règles une spécificité
@@ -631,7 +631,7 @@
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint2">Une application 100 % web : rien à installer, simple d'utilisation</span>
+            <span data-i18n="heroPoint2">Une application 100 % web : rien à installer, rien à configurer</span>
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -639,7 +639,7 @@
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint4">La preuve survit à tout, même à TrustIDX : les registres sont publics</span>
+            <span data-i18n="heroPoint4">La preuve subsiste même sans TrustIDX : les registres sont publics</span>
           </li>
           <li>
             <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -668,7 +668,7 @@
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="howKicker">Le principe</div>
-        <h2 data-i18n="howTitle">Une preuve simple, publique et permanente.</h2>
+        <h2 data-i18n="howTitle">Une preuve publique et permanente.</h2>
       </div>
       <div class="steps-wrap reveal">
         <div class="steps-line" aria-hidden="true"><i></i></div>
@@ -910,7 +910,7 @@
             <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
-            <th scope="row" class="pt-label">Révocation et mise à jour de document</th>
+            <th scope="row" class="pt-label">Révocation et correction par ré-émission</th>
             <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -935,7 +935,7 @@
           </tr>
           <tr class="pt-group"><td colspan="4">Fonctions avancées</td></tr>
           <tr>
-            <th scope="row" class="pt-label">Répertoires de classement</th>
+            <th scope="row" class="pt-label">Dossiers de classement</th>
             <td aria-label="Non inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
             <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -1001,7 +1001,7 @@
             </svg>
           </div>
           <h3 data-i18n="ns2Title">Pas de portefeuille</h3>
-          <p data-i18n="ns2Text">Aucun portefeuille crypto à installer, rien à gérer. Du Web3 sans le Web3.</p>
+          <p data-i18n="ns2Text">Aucun portefeuille crypto à installer, rien à gérer.</p>
         </div>
         <div class="step reveal" data-delay="3">
           <div class="icon" aria-hidden="true">
@@ -1023,7 +1023,7 @@
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="ctKicker">Contact</div>
-        <h2 data-i18n="ctTitle">Intéressé ? Besoin de plus d'informations ?</h2>
+        <h2 data-i18n="ctTitle">Nous répondons à vos questions.</h2>
         <p class="sub" data-i18n="ctSub">Une question sur la certification, les abonnements ou l'intégration : écrivez-nous.</p>
         <p class="contact-mail">
           <a id="contact-mail" href="#contact">
