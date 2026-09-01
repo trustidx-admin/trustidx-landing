@@ -347,31 +347,29 @@
   .plan-volume span{color:var(--muted);font-size:.9rem;font-weight:300}
   .plan-note{margin-top:24px;color:var(--muted-2);font-size:.92rem;font-weight:300}
   /* ---- Tableau comparatif des abonnements ---- */
-  .plan-table-wrap{margin-top:40px;overflow-x:auto}
-  .plan-table{width:100%;border-collapse:collapse;min-width:540px}
+  .plan-table-wrap{margin-top:40px;background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:4px 24px;overflow-x:auto}
+  .plan-table{width:100%;border-collapse:collapse}
   .plan-table th,.plan-table td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
-  .plan-table thead th{border-bottom:1px solid var(--line-2);vertical-align:bottom;padding-bottom:18px}
+  .plan-table thead th{border-bottom:1px solid var(--line-2);vertical-align:bottom;padding-bottom:16px}
   .plan-table tbody tr:last-child td{border-bottom:0}
   .plan-table th:first-child,.plan-table td:first-child{text-align:left;width:40%}
-  .plan-table .ph-name{display:block;color:var(--heading);font-size:1.18rem;font-weight:700;letter-spacing:-.01em}
+  .plan-table .ph-name{display:block;color:var(--heading);font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
   .plan-table .ph-for{display:block;color:var(--muted-2);font-size:.8rem;font-weight:300;margin-top:5px;line-height:1.35}
-  .plan-table td.pt-label{color:var(--text);font-weight:500;font-size:.95rem}
-  .plan-table td.pt-num{color:var(--heading);font-weight:700;font-size:1.1rem}
+  .plan-table td.pt-label{color:var(--text);font-weight:400;font-size:.95rem}
+  .plan-table td.pt-num{color:var(--heading);font-weight:400;font-size:1.05rem}
   .plan-table td.pt-num small{display:block;color:var(--muted-2);font-weight:300;font-size:.72rem;margin-top:3px}
-  .plan-table .pt-ico{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px}
-  .plan-table .pt-ico svg{width:22px;height:22px}
-  .plan-table .pt-yes{color:var(--green)}
-  .plan-table .pt-no{color:var(--red);opacity:.6}
+  .plan-table .pt-ico{display:inline-flex}
+  .plan-table .pt-ico svg{width:20px;height:20px}
   @media (max-width:560px){
-    .plan-table{min-width:0}
-    .plan-table th,.plan-table td{padding:10px 4px}
-    .plan-table th:first-child,.plan-table td:first-child{width:31%}
-    .plan-table td.pt-label{font-size:.82rem;overflow-wrap:break-word;hyphens:auto}
-    .plan-table .ph-name{font-size:.8rem}
+    .plan-table-wrap{padding:2px 10px}
+    .plan-table th,.plan-table td{padding:11px 5px}
+    .plan-table th:first-child,.plan-table td:first-child{width:34%}
+    .plan-table td.pt-label{font-size:.84rem;overflow-wrap:break-word;hyphens:auto}
+    .plan-table .ph-name{font-size:.82rem}
     .plan-table .ph-for{display:none}
-    .plan-table td.pt-num{font-size:.82rem}
-    .plan-table td.pt-num small{font-size:.66rem}
-    .plan-table .pt-ico,.plan-table .pt-ico svg{width:18px;height:18px}
+    .plan-table td.pt-num{font-size:.9rem}
+    .plan-table td.pt-num small{font-size:.68rem}
+    .plan-table .pt-ico svg{width:19px;height:19px}
   }
 
   /* ---- Pourquoi TrustIDX + Contact ---- */
@@ -606,6 +604,134 @@
         <h2 data-i18n="whyTitle">Una prova che non dipende da noi.</h2>
         <p class="sub" data-i18n="whySub">I registri su cui TrustIDX inscrive le vostre impronte sono pubblici: nessuno li controlla, nessuno può riscriverli. Ciò che è certificato oggi resterà verificabile domani, con o senza TrustIDX.</p>
       </div>
+      <div class="steps whycards">
+        <div class="step reveal" data-delay="1">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="6" width="17" height="17" rx="5"/>
+              <path d="M10.5 14.8l3 3 5.5-6.5"/>
+              <rect x="25" y="25" width="17" height="17" rx="5"/>
+              <path d="M29.5 33.8l3 3 5.5-6.5"/>
+            </svg>
+          </div>
+          <h3 data-i18n="why1Title">Due registri indipendenti</h3>
+          <p data-i18n="why1Text">Entrambi i registri attestano l'esistenza dell'impronta a una data. Base porta in più la provenienza: il dominio provato della vostra organizzazione. Due registrazioni distinte, che non dipendono l'una dall'altra.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="21" cy="21" r="12"/>
+              <path d="M30 30l10 10"/>
+              <path d="M16 21.5l3.5 3.5 6.5-7.5"/>
+            </svg>
+          </div>
+          <h3 data-i18n="why2Title">Verificabile con strumenti pubblici</h3>
+          <p data-i18n="why2Text">Le registrazioni si leggono con gli strumenti pubblici di ciascun registro: Ethereum Attestation Service per Base, OpenTimestamps per Bitcoin. Nessuno strumento proprietario è necessario.</p>
+        </div>
+        <div class="step reveal" data-delay="3">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="8" width="32" height="32" rx="9" fill="var(--red)"/>
+              <path d="M24 15.5v17M15.5 24h17" stroke="#ffffff" stroke-width="6.4"/>
+            </svg>
+          </div>
+          <h3 data-i18n="why3Title">Un servizio svizzero</h3>
+          <p data-i18n="why3Text">TrustIDX è concepito e gestito a Friburgo, in Svizzera.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HASH EXPLAINER + PRIVACY ================= -->
+  <section id="confidentialite" style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker" data-i18n="privKicker">Riservatezza</div>
+        <h2 data-i18n="privTitle">I vostri dati restano da voi. Sempre.</h2>
+        <p class="sub" data-i18n="privText">Sui registri pubblici viene registrata solo l'impronta del vostro documento. Il file e il suo contenuto non lasciano la vostra organizzazione.</p>
+      </div>
+
+      <div class="hashbox reveal">
+        <div>
+          <h3 data-i18n="hashTitle">Che cos'è un'impronta digitale?</h3>
+          <p data-i18n="hashText">Un'impronta (o hash) è un codice unico di lunghezza fissa, calcolato a partire dal vostro file, come un'impronta digitale umana. Modificate una virgola o un pixel, e l'impronta diventa totalmente diversa. Impossibile ricostruire il documento a partire dalla sua impronta: il calcolo funziona in un solo senso. E in pratica, due file diversi non possono produrre la stessa impronta. In sintesi: l'impronta prova tutto sul vostro documento, ma non ne rivela nulla.</p>
+        </div>
+      </div>
+
+      <div class="steps privcards">
+        <div class="step reveal" data-delay="1">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="22" cy="22" r="6"  stroke-dasharray="8 5"/>
+              <circle cx="22" cy="22" r="12" stroke-dasharray="14 7 10 8"/>
+              <circle cx="22" cy="22" r="18" stroke-dasharray="20 9 14 10"/>
+              <circle cx="37" cy="37" r="8" fill="rgb(var(--card-rgb) / .95)" stroke="var(--cyan)" stroke-width="1.6"/>
+              <path d="M33.5 37.2l2.4 2.5 4.4-5" stroke="var(--cyan)" stroke-width="1.7" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 data-i18n="priv1Title">L'impronta è sufficiente</h3>
+          <p data-i18n="priv1Text">Per certificare non serve accedere al file sorgente: basta possederne l'impronta, con gli eventuali metadati associati. Chi certifica non è necessariamente chi detiene il documento.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13.5 33.5a7.5 7.5 0 01.9-14.9A10.5 10.5 0 0134.8 20.6 7 7 0 0133.5 34"/>
+              <path d="M24 39V27M19.5 31.5L24 27l4.5 4.5"/>
+              <line x1="9" y1="41" x2="41" y2="9"/>
+            </svg>
+          </div>
+          <h3 data-i18n="priv2Title">Il vostro file non ci viene mai trasmesso</h3>
+          <p data-i18n="priv2Text">L'impronta viene calcolata direttamente nel vostro browser. Il documento stesso non viene mai caricato: non passa né dai nostri server né dalla blockchain.</p>
+        </div>
+        <div class="step reveal" data-delay="3">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 20V9.5A2.5 2.5 0 019.5 7H20l19 19-13.5 13.5L7 20z"/>
+              <circle cx="15" cy="15" r="2.6"/>
+              <rect x="28" y="30" width="13" height="10" rx="2.5" fill="rgb(var(--card-rgb) / .95)" stroke="var(--cyan)" stroke-width="1.5"/>
+              <path d="M31 30v-3a3.5 3.5 0 017 0v3" stroke="var(--cyan)" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 data-i18n="priv3Title">I vostri metadati vi appartengono</h3>
+          <p data-i18n="priv3Text">Scegliete liberamente i metadati associati a un documento. Non vengono mai pubblicati: viene ancorata solo la loro impronta. La loro integrità è provata, il loro contenuto mai esposto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOMAIN PREREQUISITE ================= -->
+  <section id="domaine" style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker" data-i18n="domKicker">Il prerequisito</div>
+        <h2>
+          <span data-i18n="domTitle1">Un solo prerequisito:</span>
+          <span data-i18n="domTitle2">il vostro nome di dominio.</span>
+        </h2>
+        <p class="sub" data-i18n="domText">Il vostro dominio è la vostra identità. È ciò che prova la provenienza di ogni documento certificato, pubblicamente e senza ambiguità. Se la vostra organizzazione possiede e controlla un nome di dominio, è pronta a certificare.</p>
+        <ul class="ticks">
+          <li>
+            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="domPoint1">Niente da installare, nessuna infrastruttura da distribuire</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="domPoint3">La prova si stabilisce una volta e resta acquisita</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= PLANS ================= -->
+  <section id="abonnements" style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker" data-i18n="planKicker">Abbonamenti</div>
+        <h2 data-i18n="planTitle">Tre abbonamenti, un'unica e medesima prova.</h2>
+        <p class="sub" data-i18n="planSub">Gli abbonamenti si distinguono per volume, postazioni e funzioni, mai per la prova: ogni documento certificato riceve lo stesso doppio ancoraggio e la stessa verifica pubblica, gratuita e permanente.</p>
+      </div>
       <div class="plan-table-wrap reveal">
         <table class="plan-table">
           <thead>
@@ -637,39 +763,39 @@
             </tr>
           <tr>
             <td class="pt-label">Certificazione e verifica pubblica</td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <td class="pt-label">Cartelle di archiviazione</td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <td class="pt-label">Pagina di verifica sul vostro dominio</td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <td class="pt-label">API (macchina a macchina) e webhook</td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <td class="pt-label">SSO e provisioning di directory (SCIM)</td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <td class="pt-label">Più domini provati</td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Non incluso"><span class="pt-ico pt-no"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Incluso"><span class="pt-ico pt-yes"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l3.8 3.8L16 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           </tbody>
         </table>
