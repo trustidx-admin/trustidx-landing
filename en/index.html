@@ -339,6 +339,9 @@ document.documentElement.classList.add('js');
   .plan-volume b{color:var(--heading);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1}
   .plan-volume span{color:var(--muted);font-size:.9rem;font-weight:300}
   .plan-note{margin-top:24px;color:var(--muted-2);font-size:.92rem;font-weight:300}
+  /* ---- Énergie : deux cartes ---- */
+  .steps.eco-cards{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:980px){.steps.eco-cards{grid-template-columns:1fr}}
   /* ---- Tableau comparatif des abonnements ---- */
   .plan-table-wrap{margin-top:40px;background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:4px 24px;overflow-x:auto}
   .plan-table{width:100%;border-collapse:collapse}
@@ -490,6 +493,7 @@ document.documentElement.classList.add('js');
       <a href="#pourquoi" data-i18n="navWhy">Why TrustIDX</a>
       <a href="#confidentialite" data-i18n="navPriv">Privacy</a>
       <a href="#abonnements" data-i18n="navPlans">Plans</a>
+      <a href="#energie" data-i18n="navEnergy">Energy</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
     <div class="navtools">
@@ -903,6 +907,43 @@ document.documentElement.classList.add('js');
           </div>
           <h3 data-i18n="ns3Title">No speculation</h3>
           <p data-i18n="ns3Text">Nothing to stake, nothing to win, nothing to lose. Only the proof matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ÉNERGIE ================= -->
+  <section id="energie" aria-labelledby="t-energie" style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker" data-i18n="ecoKicker">Energy</div>
+        <h2 id="t-energie" data-i18n="ecoTitle">Two ledgers, a marginal energy cost.</h2>
+        <p class="sub" data-i18n="ecoSub">The word ‘blockchain’ brings mining and its electricity consumption to mind. The question is legitimate. The answer comes down to two facts: on Bitcoin, TrustIDX adds no transaction at all; on Base, the share of one certified document counts in fractions of a watt-hour.</p>
+      </div>
+      <div class="steps whycards eco-cards">
+        <div class="step reveal" data-delay="1">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="6" width="8" height="8" rx="2"/>
+              <rect x="20" y="6" width="8" height="8" rx="2"/>
+              <rect x="34" y="6" width="8" height="8" rx="2"/>
+              <path d="M10 14v5h28v-5M24 14v12"/>
+              <rect x="18" y="26" width="12" height="10" rx="3"/>
+              <path d="M24 36v6"/>
+            </svg>
+          </div>
+          <h3 data-i18n="eco1Title">On Bitcoin: no transaction added</h3>
+          <p data-i18n="eco1Text">Fingerprints join a public aggregation tree (OpenTimestamps) whose root is recorded on Bitcoin regardless: a single transaction for thousands of fingerprints from around the world. A thousand or a million documents: not one more transaction, not a penny paid to mining. Bitcoin's consumption depends on mining, not on our use: it would be identical without TrustIDX.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="16"/>
+              <path d="M26 13l-8 13h7l-3 9 8-13h-7z"/>
+            </svg>
+          </div>
+          <h3 data-i18n="eco2Title">On Base: no mining, fractions of a watt-hour</h3>
+          <p data-i18n="eco2Text">Base is built on Ethereum, which has run on proof of stake since 2022: no mining, no computing race. The entire Ethereum network draws 0.9 MW continuously, the power of nine thousand 100 W light bulbs, more than ten thousand times less than Bitcoin (Cambridge, June 2026). Spread over the transactions it settles, layer 2s included (L2BEAT, September 2026), its consumption amounts, for one certified document, to an LED bulb switched on for a few seconds.</p>
         </div>
       </div>
     </div>

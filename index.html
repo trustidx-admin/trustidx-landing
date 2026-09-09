@@ -339,6 +339,9 @@ document.documentElement.classList.add('js');
   .plan-volume b{color:var(--heading);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1}
   .plan-volume span{color:var(--muted);font-size:.9rem;font-weight:300}
   .plan-note{margin-top:24px;color:var(--muted-2);font-size:.92rem;font-weight:300}
+  /* ---- Énergie : deux cartes ---- */
+  .steps.eco-cards{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:980px){.steps.eco-cards{grid-template-columns:1fr}}
   /* ---- Tableau comparatif des abonnements ---- */
   .plan-table-wrap{margin-top:40px;background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:4px 24px;overflow-x:auto}
   .plan-table{width:100%;border-collapse:collapse}
@@ -490,6 +493,7 @@ document.documentElement.classList.add('js');
       <a href="#pourquoi" data-i18n="navWhy">Pourquoi TrustIDX</a>
       <a href="#confidentialite" data-i18n="navPriv">Confidentialité</a>
       <a href="#abonnements" data-i18n="navPlans">Abonnements</a>
+      <a href="#energie" data-i18n="navEnergy">Énergie</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
     <div class="navtools">
@@ -903,6 +907,43 @@ document.documentElement.classList.add('js');
           </div>
           <h3 data-i18n="ns3Title">Pas de spéculation</h3>
           <p data-i18n="ns3Text">Rien à miser, rien à gagner, rien à perdre. Seule compte la preuve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ÉNERGIE ================= -->
+  <section id="energie" aria-labelledby="t-energie" style="padding-top:0">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker" data-i18n="ecoKicker">Énergie</div>
+        <h2 id="t-energie" data-i18n="ecoTitle">Deux registres, un coût énergétique marginal.</h2>
+        <p class="sub" data-i18n="ecoSub">Le mot « blockchain » évoque le minage et sa consommation d'électricité. La question est légitime. La réponse tient en deux faits : sur Bitcoin, TrustIDX n'ajoute aucune transaction ; sur Base, la part d'un document certifié se compte en fractions de wattheure.</p>
+      </div>
+      <div class="steps whycards eco-cards">
+        <div class="step reveal" data-delay="1">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="6" width="8" height="8" rx="2"/>
+              <rect x="20" y="6" width="8" height="8" rx="2"/>
+              <rect x="34" y="6" width="8" height="8" rx="2"/>
+              <path d="M10 14v5h28v-5M24 14v12"/>
+              <rect x="18" y="26" width="12" height="10" rx="3"/>
+              <path d="M24 36v6"/>
+            </svg>
+          </div>
+          <h3 data-i18n="eco1Title">Sur Bitcoin : aucune transaction ajoutée</h3>
+          <p data-i18n="eco1Text">Les empreintes rejoignent un arbre d'agrégation public (OpenTimestamps) dont la racine est inscrite sur Bitcoin de toute façon : une seule transaction pour des milliers d'empreintes venues du monde entier. Mille ou un million de documents : pas une transaction de plus, pas un centime versé au minage. La consommation de Bitcoin dépend du minage, pas de notre usage : elle serait identique sans TrustIDX.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="16"/>
+              <path d="M26 13l-8 13h7l-3 9 8-13h-7z"/>
+            </svg>
+          </div>
+          <h3 data-i18n="eco2Title">Sur Base : sans minage, des fractions de wattheure</h3>
+          <p data-i18n="eco2Text">Base est adossée à Ethereum, qui fonctionne en preuve d'enjeu depuis 2022 : aucun minage, aucune compétition de calcul. Le réseau Ethereum entier consomme 0,9&nbsp;MW en continu, la puissance de neuf mille ampoules de 100&nbsp;W, plus de dix mille fois moins que Bitcoin (Cambridge, juin 2026). Rapportée aux transactions qu'il règle, couches 2 comprises (L2BEAT, septembre 2026), sa consommation représente, pour un document certifié, une ampoule LED allumée quelques secondes.</p>
         </div>
       </div>
     </div>

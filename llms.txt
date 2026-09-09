@@ -32,6 +32,16 @@
 - Aucune donnée personnelle ni contenu de document n'est publié on-chain :
   seule l'empreinte (hash), illisible et non inversible, est inscrite.
 
+## Énergie
+
+- Coût énergétique marginal, jamais présenté comme nul. Sur Bitcoin, TrustIDX n'émet
+  aucune transaction : les empreintes sont agrégées (OpenTimestamps) et une transaction
+  mutualisée porte des milliers d'empreintes, quel que soit le volume certifié. Sur Base,
+  adossée à Ethereum en preuve d'enjeu (7,87 GWh par an pour tout le réseau, soit 0,9 MW
+  en continu, Cambridge 2026), la consommation d'Ethereum rapportée aux transactions qu'il
+  règle, couches 2 comprises (L2BEAT 2026), vaut 0,16 Wh par transaction ; une
+  transaction TrustIDX porte jusqu'à cinquante documents.
+
 ## Informations
 
 - Site : https://trustidx.ch/ (FR, DE, IT, EN)
