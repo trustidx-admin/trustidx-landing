@@ -29,8 +29,11 @@
 - Les deux registres ne prouvent pas la même chose : Bitcoin atteste l'existence
   d'une empreinte à une date, jamais la provenance. La provenance vient du
   domaine prouvé, inscrit sur Base.
-- Aucune donnée personnelle ni contenu de document n'est publié on-chain :
-  seule l'empreinte (hash), illisible et non inversible, est inscrite.
+- Aucun contenu de document n'est publié on-chain, ni aucune donnée personnelle à
+  l'initiative de TrustIDX : l'empreinte (hash), illisible et non inversible, est
+  inscrite. L'organisation peut y ajouter, champ par champ et de façon définitive,
+  quatre détails déclarés (nom, type, date de dernière modification, description),
+  sous sa responsabilité ; le signataire n'est jamais inscrit.
 
 ## Énergie
 
@@ -40,7 +43,7 @@
   adossée à Ethereum en preuve d'enjeu (7,87 GWh par an pour tout le réseau, soit 0,9 MW
   en continu, Cambridge 2026), la consommation d'Ethereum rapportée aux transactions qu'il
   règle, couches 2 comprises (L2BEAT 2026), vaut 0,16 Wh par transaction ; une
-  transaction TrustIDX porte jusqu'à cinquante documents.
+  transaction TrustIDX porte jusqu'à une trentaine de documents.
 
 ## Informations
 
