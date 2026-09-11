@@ -53,8 +53,5 @@
   les sièges et les fonctions, jamais par la preuve ; l'API machine à machine
   et le SSO sont réservés à Infinity. Volumes indicatifs, tarification
   publiée au lancement.
-- Sans nom de domaine, une organisation certifie depuis un compte TrustIDX :
-  existence, intégrité et date restent prouvées, la provenance se limite
-  à la continuité du compte.
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
