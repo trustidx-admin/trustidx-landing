@@ -346,13 +346,14 @@ document.documentElement.classList.add('js');
   .plan-table-wrap{margin-top:40px;background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:4px 24px;overflow-x:auto}
   .plan-table{width:100%;border-collapse:collapse}
   .plan-table th,.plan-table td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
-  .plan-table thead th{border-bottom:1px solid var(--line-2);vertical-align:bottom;padding-bottom:16px}
+  .plan-table thead th{border-bottom:1px solid var(--line-2);vertical-align:top;padding-bottom:16px}
   .plan-table tbody tr:last-child td,.plan-table tbody tr:last-child th{border-bottom:0}
   .plan-table th:first-child,.plan-table td:first-child{text-align:left;width:40%}
   .plan-table .ph-name{display:block;color:var(--heading);font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
   .plan-table .ph-for{display:block;color:var(--muted-2);font-size:.8rem;font-weight:300;margin-top:5px;line-height:1.35}
   .plan-table th.pt-label{color:var(--text);font-weight:400;font-size:.95rem;text-align:left}
   .plan-table td.pt-num{color:var(--heading);font-weight:400;font-size:1.05rem}
+  .plan-table td.pt-tbd{color:var(--muted);font-weight:300;font-size:.84rem;line-height:1.3}
   .plan-table td.pt-num small{display:block;color:var(--muted-2);font-weight:300;font-size:.72rem;margin-top:3px}
   .plan-table .pt-ico{display:inline-flex}
   .plan-table .pt-ico svg{width:20px;height:20px}
@@ -361,6 +362,11 @@ document.documentElement.classList.add('js');
     .plan-table-wrap{padding:2px 10px}
     .plan-table th,.plan-table td{padding:11px 5px}
     .plan-table th:first-child,.plan-table td:first-child{width:34%}
+    /* Quatre abonnements ne tiennent pas en 375 px : le cadre defile, et la
+       colonne des libelles reste en place pour que chaque ligne se lise. */
+    .plan-table tbody th:first-child,.plan-table thead th:first-child{position:sticky;left:0;z-index:1;
+      background:var(--bg0);box-shadow:1px 0 0 var(--line)}
+    .plan-table td.pt-tbd{font-size:.74rem}
     .plan-table th.pt-label{font-size:.84rem;overflow-wrap:break-word;hyphens:auto}
     .plan-table .ph-name{font-size:.82rem}
     .plan-table .ph-for{display:none}
@@ -748,38 +754,36 @@ document.documentElement.classList.add('js');
       </div>
       <div class="plan-table-wrap reveal" role="region" tabindex="0" aria-label="Vergleich der Abonnemente">
         <table class="plan-table">
-            <caption class="sr-only">Vergleich der Abonnemente Essentiel, Business und Infinity</caption>
+            <caption class="sr-only">Vergleich der Abonnemente Essentiel, Business, Premium und Infinity</caption>
           <thead>
             <tr>
               <th></th>
             <th scope="col"><span class="ph-name">Essentiel</span><span class="ph-for">Für den Einstieg ins Zertifizieren</span></th>
             <th scope="col"><span class="ph-name">Business</span><span class="ph-for">Für Organisationen, die im Volumen zertifizieren</span></th>
-            <th scope="col"><span class="ph-name">Infinity</span><span class="ph-for">Für die Integration in Ihre Systeme</span></th>
+            <th scope="col"><span class="ph-name">Premium</span><span class="ph-for">Für grosse Organisationen</span></th>
+            <th scope="col"><span class="ph-name">Infinity</span><span class="ph-for">Für individuell vereinbarte Volumen und Konditionen</span></th>
             </tr>
           </thead>
           <tbody>
-          <tr class="pt-group"><td colspan="4">Volumen und Kapazität</td></tr>
+          <tr class="pt-group"><td colspan="5">Volumen und Kapazität</td></tr>
           <tr>
-            <th scope="row" class="pt-label">Dokumente pro Jahr</th>
-            <td class="pt-num">Noch festzulegen</td>
-            <td class="pt-num">Noch festzulegen</td>
-            <td class="pt-num">Noch festzulegen</td>
+            <th scope="row" class="pt-label">Enthaltene Credits pro Jahr</th>
+            <td class="pt-num">3'000</td>
+            <td class="pt-num">10'000</td>
+            <td class="pt-num">40'000</td>
+            <td class="pt-num">Ab 200'000</td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">Arbeitsplätze</th>
-            <td class="pt-num">Noch festzulegen</td>
-            <td class="pt-num">Noch festzulegen</td>
-            <td class="pt-num">Individuell</td>
+            <td class="pt-num">5</td>
+            <td class="pt-num">20</td>
+            <td class="pt-num">50</td>
+            <td class="pt-num">Unbegrenzt</td>
           </tr>
-          <tr>
-            <th scope="row" class="pt-label">Gleichzeitige Zertifizierungen</th>
-            <td class="pt-num">Noch festzulegen</td>
-            <td class="pt-num">Noch festzulegen</td>
-            <td class="pt-num">Noch festzulegen</td>
-          </tr>
-          <tr class="pt-group"><td colspan="4">Basisfunktionen</td></tr>
+          <tr class="pt-group"><td colspan="5">Basisfunktionen</td></tr>
           <tr>
             <th scope="row" class="pt-label">Zertifizierung per Datei oder per Fingerabdruck</th>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -789,9 +793,11 @@ document.documentElement.classList.add('js');
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">PDF-Echtheitszertifikat</th>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -801,9 +807,11 @@ document.documentElement.classList.add('js');
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">Widerruf und Korrektur durch Neuausstellung</th>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -813,9 +821,11 @@ document.documentElement.classList.add('js');
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">Zwei-Faktor-Authentifizierung (2FA)</th>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
@@ -825,11 +835,13 @@ document.documentElement.classList.add('js');
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
-          <tr class="pt-group"><td colspan="4">Erweiterte Funktionen</td></tr>
+          <tr class="pt-group"><td colspan="5">Erweiterte Funktionen</td></tr>
           <tr>
             <th scope="row" class="pt-label">Ablageordner</th>
             <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
@@ -838,29 +850,33 @@ document.documentElement.classList.add('js');
             <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">API (Maschine zu Maschine) und Webhooks</th>
             <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td class="pt-tbd">Noch festzulegen</td>
+            <td class="pt-tbd">Noch festzulegen</td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">SSO und Verzeichnis-Provisionierung (SCIM)</th>
             <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td class="pt-tbd">Noch festzulegen</td>
+            <td class="pt-tbd">Noch festzulegen</td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">Mehrere nachgewiesene Domains</th>
             <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Nicht enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td class="pt-tbd">Noch festzulegen</td>
+            <td class="pt-tbd">Noch festzulegen</td>
             <td aria-label="Enthalten"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           </tbody>
         </table>
       </div>
-      <p class="plan-note reveal" data-i18n="planNote">Volumen und Funktionen der einzelnen Abonnemente sind noch festzulegen. Die endgültige Preisgestaltung wird zum Start veröffentlicht; über das enthaltene Volumen hinaus ist eine degressive Aufstockung möglich.</p>
+      <p class="plan-note reveal" data-i18n="planNote">Ein Credit entspricht einem zertifizierten Dokument. Jede eingetragene Version seines PDF-Zertifikats verbraucht einen weiteren Credit, jede im öffentlichen Register eingetragene Angabe einen Zuschlag je nach Länge. Über die enthaltenen Credits hinaus ergänzen Aufladungen mit zwölf Monaten Gültigkeit das Abonnement. Die mit «Noch festzulegen» markierten Funktionen stehen noch nicht fest; die Preisgestaltung wird zum Start veröffentlicht.</p>
     </div>
   </section>
 
