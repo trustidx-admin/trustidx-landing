@@ -353,7 +353,6 @@ document.documentElement.classList.add('js');
   .plan-table .ph-for{display:block;color:var(--muted-2);font-size:.8rem;font-weight:300;margin-top:5px;line-height:1.35}
   .plan-table th.pt-label{color:var(--text);font-weight:400;font-size:.95rem;text-align:left}
   .plan-table td.pt-num{color:var(--heading);font-weight:400;font-size:1.05rem}
-  .plan-table td.pt-tbd{color:var(--muted);font-weight:300;font-size:.84rem;line-height:1.3}
   .plan-table td.pt-num small{display:block;color:var(--muted-2);font-weight:300;font-size:.72rem;margin-top:3px}
   .plan-table .pt-ico{display:inline-flex}
   .plan-table .pt-ico svg{width:20px;height:20px}
@@ -366,7 +365,6 @@ document.documentElement.classList.add('js');
        colonne des libelles reste en place pour que chaque ligne se lise. */
     .plan-table tbody th:first-child,.plan-table thead th:first-child{position:sticky;left:0;z-index:1;
       background:var(--bg0);box-shadow:1px 0 0 var(--line)}
-    .plan-table td.pt-tbd{font-size:.74rem}
     .plan-table th.pt-label{font-size:.84rem;overflow-wrap:break-word;hyphens:auto}
     .plan-table .ph-name{font-size:.82rem}
     .plan-table .ph-for{display:none}
@@ -853,30 +851,30 @@ document.documentElement.classList.add('js');
             <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
-            <th scope="row" class="pt-label">API (macchina a macchina) e webhook</th>
+            <th scope="row" class="pt-label">Più domini comprovati</th>
             <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td class="pt-tbd">Da definire</td>
-            <td class="pt-tbd">Da definire</td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">SSO e provisioning di directory (SCIM)</th>
             <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td class="pt-tbd">Da definire</td>
-            <td class="pt-tbd">Da definire</td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
-            <th scope="row" class="pt-label">Più domini comprovati</th>
+            <th scope="row" class="pt-label">API (macchina a macchina) e webhook</th>
             <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td class="pt-tbd">Da definire</td>
-            <td class="pt-tbd">Da definire</td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Non incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
             <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           </tbody>
         </table>
       </div>
-      <p class="plan-note reveal" data-i18n="planNote">Un credito corrisponde a un documento certificato. Ogni versione iscritta del suo certificato PDF consuma un credito in più; ogni dettaglio iscritto nel registro pubblico, un supplemento secondo la sua lunghezza. Oltre ai crediti inclusi, ricariche valide dodici mesi completano l'abbonamento. Le funzioni indicate con «Da definire» restano da stabilire; la tariffazione sarà pubblicata al lancio.</p>
+      <p class="plan-note reveal" data-i18n="planNote">Un credito corrisponde a un documento certificato. Ogni versione iscritta del suo certificato PDF consuma un credito in più; ogni dettaglio iscritto nel registro pubblico, un supplemento secondo la sua lunghezza. Oltre ai crediti inclusi, ricariche valide dodici mesi completano l'abbonamento. La tariffazione sarà pubblicata al lancio.</p>
     </div>
   </section>
 

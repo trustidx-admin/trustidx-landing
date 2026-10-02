@@ -51,8 +51,9 @@
 - Contact : https://trustidx.ch/#contact
 - Abonnements : Essentiel, Business, Premium, Infinity. Ils se distinguent par
   les crédits inclus par an (un crédit correspond à un document certifié), les
-  sièges et les fonctions, jamais par la preuve. L'API machine à machine, le SSO
-  et les domaines multiples sont compris dans Infinity ; pour Business et
-  Premium, ils restent à déterminer. Tarification publiée au lancement.
+  sièges et les fonctions, jamais par la preuve. Les dossiers de classement, la
+  page de vérification personnalisée et les domaines multiples sont compris dès
+  Business, le SSO dès Premium, l'API machine à machine dans Infinity seulement.
+  Tarification publiée au lancement.
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
