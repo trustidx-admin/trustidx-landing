@@ -52,8 +52,9 @@
 - Abonnements : Essentiel, Business, Premium, Infinity. Ils se distinguent par
   les crédits inclus par an (un crédit correspond à un document certifié), les
   sièges et les fonctions, jamais par la preuve. Les dossiers de classement, la
-  page de vérification personnalisée et les domaines multiples sont compris dès
-  Business, le SSO dès Premium, l'API machine à machine dans Infinity seulement.
-  Tarification publiée au lancement.
+  page de vérification personnalisée, la certification de répertoires et les
+  domaines multiples sont compris dès Business, le SSO dès Premium, l'API machine
+  à machine dans Infinity seulement. Abonnements dès 1 490 CHF par an, hors TVA ;
+  le détail de la tarification sera publié au lancement.
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
