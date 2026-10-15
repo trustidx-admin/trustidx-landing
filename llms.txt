@@ -31,9 +31,10 @@
   domaine prouvé, inscrit sur Base.
 - Aucun contenu de document n'est publié on-chain, ni aucune donnée personnelle à
   l'initiative de TrustIDX : l'empreinte (hash), illisible et non inversible, est
-  inscrite. L'organisation peut y ajouter, champ par champ et de façon définitive,
-  quatre détails déclarés (nom, type, date de dernière modification, description),
-  sous sa responsabilité ; le signataire n'est jamais inscrit.
+  inscrite. Dès l'abonnement Business, l'organisation peut y ajouter, champ par
+  champ et de façon définitive, quatre détails déclarés (nom, type, date de
+  dernière modification, description), sous sa responsabilité ; le signataire
+  n'est jamais inscrit.
 
 ## Énergie
 
@@ -52,9 +53,10 @@
 - Abonnements : Essentiel, Business, Premium, Infinity. Ils se distinguent par
   les crédits inclus par an (un crédit correspond à un document certifié), les
   sièges et les fonctions, jamais par la preuve. Les dossiers de classement, la
-  page de vérification personnalisée, la certification de répertoires et les
-  domaines multiples sont compris dès Business, le SSO dès Premium, l'API machine
-  à machine dans Infinity seulement. Abonnements dès 1 490 CHF par an, hors TVA ;
+  page de vérification personnalisée, la certification de répertoires, les
+  domaines multiples et l'inscription de détails sur le registre public sont
+  compris dès Business, le SSO dès Premium, l'API machine à machine dans Infinity
+  seulement. Abonnements dès 1 490 CHF par an, hors TVA ;
   le détail de la tarification sera publié au lancement.
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
