@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-cV0mYPp8FBaUvWSx9eaC6CPULQx2L4DvxIQlGKn9Les='; style-src 'sha256-6VnBIhyRxy9HdeTxki+DKpEH5NeaHNnaVI3220s7uIU=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-cV0mYPp8FBaUvWSx9eaC6CPULQx2L4DvxIQlGKn9Les='; style-src 'sha256-64/8HugLQ/zKQ1cLXKJDGmh6A3H/WEw+uJDm6oxA6Hw=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Dokumentenzertifizierung auf der Blockchain</title>
 <meta name="description" content="TrustIDX zertifiziert die Echtheit Ihrer Dokumente: Fingerabdruck auf zwei öffentlichen Registern, Base und Bitcoin. Ohne Token, ohne Spekulation. Schweiz.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -429,8 +429,8 @@ document.documentElement.classList.add('js');
     .step{padding:24px 22px 26px}
   }
   @media (max-width:560px){
-    /* En-tete sur telephone : logo et quatre langues sur la premiere ligne, les ancres
-       sur la seconde. L'Espace client reste au pied de page. */
+    /* En-tete sur telephone : logo, quatre langues et « Vérifier » sur la premiere ligne, les
+       ancres sur la seconde. L'Espace client reste au pied de page. */
     header .espace-client{display:none}
     .nav{gap:12px}
     .brand .logo{height:26px}
@@ -452,6 +452,12 @@ document.documentElement.classList.add('js');
     .plan-table td.pt-num{font-size:.9rem}
     .plan-table .pt-ico svg{width:19px;height:19px}
     .plan-table tr.pt-group td{padding:17px 6px 7px;font-size:.66rem;letter-spacing:.1em}
+  }
+  @media (max-width:380px){
+    /* Sous 380 px, le bouton « Vérifier » doit tenir sur la ligne du logo et des langues :
+       on resserre les langues et le bouton plutôt que de faire passer l'en-tete a deux etages. */
+    .langs button,.langs a{padding:5px 6px}
+    header .verifier{padding:0 10px}
   }
 
   /* ---- Impression : tout le texte, sans en-tete collant ni decor ---- */
@@ -521,9 +527,11 @@ document.documentElement.classList.add('js');
       <a href="/en/" data-lang="en" hreflang="en" lang="en">EN</a>
     </nav>
       <!-- Passages vers l'application : l'origine (`@app`) et les libellés (`data-portail`,
-           clés des catalogues du portail) sont posés par build-i18n, jamais écrits ici. Le lien
-           de vérification vit dans la carte « La vérification » et au pied de page : avec le
-           libellé du portail, il ne tient pas dans la largeur commune de l'en-tête. -->
+           clés des catalogues du portail) sont posés par build-i18n, jamais écrits ici. Deux
+           boutons (demande du client du 2026-10-17) : « Vérifier », libellé court du portail
+           (`verify.byHashSubmit`), et « Espace client » ; le lien long de vérification reste dans
+           la carte « La vérification » et au pied de page. -->
+      <a class="btn btn-primary btn-sm verifier" href="https://app.trustidx.ch/verify" data-portail="verify.byHashSubmit">Prüfen</a>
       <a class="btn btn-edge btn-sm espace-client" href="https://app.trustidx.ch/login" data-portail="header.clientArea">Kundenbereich</a>
     </div>
   </div>
