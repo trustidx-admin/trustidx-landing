@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-cV0mYPp8FBaUvWSx9eaC6CPULQx2L4DvxIQlGKn9Les='; style-src 'sha256-6VnBIhyRxy9HdeTxki+DKpEH5NeaHNnaVI3220s7uIU=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Document certification on the blockchain</title>
 <meta name="description" content="TrustIDX certifies the authenticity of your documents by anchoring their fingerprint on two public ledgers, Base and Bitcoin. No token, no speculation. A Swiss project.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -11,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://trustidx.ch/en/">
 <link rel="alternate" hreflang="x-default" href="https://trustidx.ch/">
 <link rel="canonical" href="https://trustidx.ch/en/">
-<meta name="theme-color" content="#f7faff">
+<meta name="theme-color" content="#f6f9fa">
 <meta name="geo.region" content="CH-FR">
 <meta name="geo.placename" content="Fribourg">
 
@@ -142,320 +143,331 @@ document.documentElement.classList.add('js');
 }
 </script>
 <style>
-  /* UN SEUL THEME : CLAIR. Decision client du 2026-09-01.
-     Le registre des pairs suisses (autorites de certification, banques,
-     etudes notariales) est le clair ; et un theme unique evite d'avoir a
-     produire chaque visuel en deux versions. Les valeurs ci-dessous sont
-     celles de l'ancien mode jour, inchangees. */
+  /* UN SEUL THEME : CLAIR. Decision client du 2026-09-01, confirmee pour la refonte le
+     2026-10-16. Habillage de la refonte (PR 11b, plan §5.7) d'apres la maquette
+     3-site-vitrine.html, theme clair « plus de contraste » : fond gris bleute, surfaces
+     blanches detachees par un trait net et une ombre douce, accent cyan de la marque. Seul
+     l'habillage change : les textes, l'ordre des sections et les ancres restent ceux du site.
+     Polices systeme : DM Sans et Space Grotesk de la maquette attendent la decision sur leur
+     hebergement (plan §5.4), aucune police n'est chargee d'ailleurs. */
   :root{
     color-scheme:light;
-    --bg0:#f7faff; --bg1:#eaf1fb;
-    --text:#26364d; --muted:#4a5c78; --muted-2:#556173;
-    --heading:#0a1120; --hover-ink:#0a1120;
-    --cyan:#0e7490; --sky:#0369a1; --blue:#1d4ed8; --indigo:#4338ca;
-    --red:#dc2626; --green:#059669;
-    --line:rgba(20,50,110,.13); --line-2:rgba(20,50,110,.24);
-    --glass:rgba(255,255,255,.74);
-    --on-accent:#ffffff;
-    --shadow-lg:rgba(18,40,90,.09); --shadow-hover:rgba(18,40,90,.14);
-    --header-bg:rgba(247,250,255,.6); --header-bg-scrolled:rgba(247,250,255,.88);
-    --surface-soft:rgba(255,255,255,.72);
-    --steps-track:rgba(20,50,110,.12);
-    --accent-ring:rgba(14,116,144,.42); --accent-ring-2:rgba(14,116,144,.5);
-    --accent-ring-3:rgba(14,116,144,.26);
-    --icon-grad-a:rgba(14,116,144,.10); --icon-grad-b:rgba(29,78,216,.07);
-    --title-1:#0a1120; --title-2:#1e40af; --title-3:#0369a1;
-    --svg-ink:#334155; --svg-ink-2:#475569;
-    --aurora-1:rgba(59,130,246,.10); --aurora-2:rgba(14,165,233,.07); --aurora-3:rgba(99,102,241,.07);
-    --bg-grad-1:#f7faff; --bg-grad-2:#e9f0fb;
-    --footer-fade:rgba(226,236,250,.85);
-    --noise-op:.02;
-    --selection:rgba(29,78,216,.22); --selection-ink:#0a1120;
-    --card-rgb:255 255 255; --faint-rgb:20 50 110; --ink-rgb:14 26 46;
-    --accent-rgb:14 116 144; --sky-rgb:3 105 161; --blue-rgb:29 78 216;
-    --indigo-rgb:67 56 202;
+    /* Largeur commune du contenu, en-tete et pied compris (plan, decision 4). */
+    --largeur-page:1120px;
+    /* Largeur du corps de texte. Demande client : les paragraphes vont jusqu'au bord
+       des titres et des cartes, aucune colonne de lecture plus etroite. Un seul
+       reglage pour que rien ne reprenne sa propre largeur en douce. */
+    --measure:100%;
+    --font-texte:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --font-mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+    --bg:#e8eef1; --top:rgba(246,249,250,.94);
+    --panel:#ffffff; --panel-2:#f0f4f6; --neutral-bg:#e6edf0;
+    --line:#d0dbe0; --line-strong:#b7c7cf;
+    --text:#0d2430; --strong:#031725; --muted:#364f5d; --muted-2:#465f6d;
+    --accent:#0a6680; --accent-hi:#0e7490;
+    --primary-bg:#67e8f9; --primary-hover:#a5f3fc; --on-primary:#06121f; --primary-line:#0e93ad;
+    --edge-rest:rgba(10,40,70,.3); --edge-soft:rgba(8,118,148,.5); --halo:rgba(8,145,178,.16);
+    --success:#05603f; --flag-red:#dc2626;
+    --radius:12px; --radius-lg:14px; --radius-ctl:5px;
+    --ombre-surface:0 1px 2px rgba(6,28,42,.07),0 6px 18px rgba(6,28,42,.07);
+    --ombre-survol:0 2px 4px rgba(6,28,42,.08),0 16px 36px rgba(6,28,42,.12);
+    --page-glow:radial-gradient(70rem 40rem at 85% -10%,rgba(8,145,178,.1),transparent 60%);
+    --ease:cubic-bezier(.4,0,.2,1);
+    --selection:rgba(8,145,178,.22);
+    /* Noms lus par les pictogrammes du balisage (attributs stroke et fill) : gardes et
+       revalorises sur l'accent, pour ne pas reecrire les lignes que traduit le generateur. */
+    --cyan:var(--accent); --green:var(--success); --red:var(--flag-red);
+    --svg-ink:#334155;
+    --accent-rgb:10 102 128; --faint-rgb:20 50 110; --card-rgb:255 255 255;
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    transition:background-color .3s ease,color .3s ease;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    color:var(--text);background-color:var(--bg0);line-height:1.65;
+    font-family:var(--font-texte);font-size:15px;line-height:1.65;
+    color:var(--text);background-color:var(--bg);
     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
     overflow-x:hidden;
   }
-  ::selection{background:var(--selection);color:var(--selection-ink)}
+  ::selection{background:var(--selection);color:var(--strong)}
 
-  /* ---- Ambient background : aurora + noise ---- */
-  .bg{position:fixed;inset:0;z-index:-2;pointer-events:none;
-    background:
-      radial-gradient(1100px 750px at 82% -12%, var(--aurora-1), transparent 62%),
-      radial-gradient(900px 680px at -12% 22%, var(--aurora-2), transparent 60%),
-      radial-gradient(1000px 800px at 55% 118%, var(--aurora-3), transparent 60%),
-      linear-gradient(180deg,var(--bg-grad-1) 0%,var(--bg-grad-2) 55%,var(--bg-grad-1) 100%);
-  }
-  .bg::after{content:"";position:absolute;inset:0;opacity:var(--noise-op);mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+  /* Fond : un halo tres discret, jamais de rupture (maquette). */
+  .bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--page-glow)}
+  /* Degrades des pictogrammes, declares une fois pour toute la page. */
+  .svg-defs{position:absolute;width:0;height:0;overflow:hidden}
 
-  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-  /* Largeur du corps de texte. Demande client : les paragraphes vont jusqu'au bord
-     des titres et des cartes, aucune colonne de lecture plus etroite. Un seul
-     reglage pour que rien ne reprenne sa propre largeur en douce. */
-  :root{--measure:100%}
+  .wrap{max-width:calc(var(--largeur-page) + 48px);margin:0 auto;padding:0 24px}
 
   /* Contenu reserve aux technologies d'assistance : present dans l'arbre
      d'accessibilite, invisible a l'ecran. Jamais display:none, qui le retirerait
      aussi des lecteurs d'ecran. */
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
     overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  /* Lien d'evitement : neuf liens et un bouton precedent le contenu sur chaque
+  /* Lien d'evitement : les liens de l'en-tete precedent le contenu sur chaque
      page. Hors ecran tant qu'il n'a pas le focus. */
   .skiplink{position:absolute;left:-9999px;top:0;z-index:200;
-    background:var(--bg1);color:var(--heading);padding:10px 18px;
-    border:1px solid var(--line);border-radius:0 0 12px 0;text-decoration:none;
-    font-size:.9rem;font-weight:600}
+    background:var(--panel);color:var(--strong);padding:10px 18px;
+    border:1px solid var(--line-strong);border-radius:0 0 var(--radius-ctl) 0;text-decoration:none;
+    font-size:14px;font-weight:600}
   .skiplink:focus{left:0}
-  /* Ancres : l'en-tete est collant, sans cette marge le titre de la section
-     visee arrive SOUS l'en-tete et le visiteur atterrit au milieu d'un texte. */
-  section{scroll-margin-top:88px}
-  a{color:var(--cyan)}
-  :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+  a{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+  /* Lien qui se souligne au survol : le trait se dessine de gauche a droite. */
+  .navlinks a,.carte-lien,.vers-app-pied a{text-decoration:none;
+    background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;
+    background-position:0 100%;background-size:0 1px;transition:color .2s,background-size .3s ease}
+  .navlinks a:hover,.carte-lien:hover,.vers-app-pied a:hover{background-size:100% 1px}
+
+  /* ---- Boutons ---- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    height:42px;padding:0 20px;border-radius:var(--radius-ctl);border:1px solid transparent;
+    font-size:13px;font-weight:600;line-height:1;letter-spacing:.01em;white-space:nowrap;
+    text-decoration:none;cursor:pointer;transition:background-color .2s,box-shadow .25s,transform .2s}
+  .btn-sm{height:34px;padding:0 14px}
+  .btn-primary{background:var(--primary-bg);color:var(--on-primary);box-shadow:inset 0 0 0 1px var(--primary-line)}
+  .btn-primary:hover{background:var(--primary-hover);transform:translateY(-2px);
+    box-shadow:inset 0 0 0 1px var(--primary-line),0 10px 28px var(--halo),0 0 22px var(--halo)}
+  .btn-primary:active{transform:none}
+  .btn-edge{color:var(--text);
+    background:linear-gradient(var(--panel),var(--panel)) padding-box,
+      linear-gradient(110deg,var(--edge-rest),var(--edge-soft),var(--edge-rest)) border-box}
+  .btn-edge:hover{color:var(--strong);box-shadow:0 0 18px var(--halo)}
 
   /* ---- Scroll progress ---- */
   #progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:120;
-    background:linear-gradient(90deg,var(--cyan),var(--blue),var(--indigo));
-    box-shadow:0 0 12px rgb(var(--blue-rgb) / .6)}
+    background:linear-gradient(90deg,var(--accent),var(--accent-hi));
+    box-shadow:0 0 10px var(--halo)}
 
   /* ---- Header ---- */
   header{position:sticky;top:0;z-index:100;
-    background:var(--header-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid transparent;transition:background .35s,border-color .35s}
-  header.scrolled{background:var(--header-bg-scrolled);border-bottom-color:var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px;transition:height .35s}
-  header.scrolled .nav{height:60px}
-  .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none}
-  /* Logo : le vrai lockup vectoriel. Remplace l'ancien montage (pastille claire + mot
-     reconstruit en CSS) : l'icone source etait sombre, d'ou la pastille ; le SVG est
-     transparent et concu pour fond sombre, elle n'a plus lieu d'etre. Le background-clip
-     sur le "IDX" est supprime : c'est ce mecanisme qui faisait disparaitre le IDX. */
-  .brand .logo{height:30px;width:auto;display:block;transition:height .35s}
-  header.scrolled .brand .logo{height:26px}
-  .navlinks{display:flex;gap:28px;align-items:center}
-  .navlinks a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.02em;transition:color .25s}
-  .navlinks a:hover{color:var(--hover-ink)}
-  .langs{display:flex;gap:4px;background:var(--surface-soft);border:1px solid var(--line);border-radius:999px;padding:3px}
+    background:var(--top);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-strong);transition:box-shadow .35s}
+  header.scrolled{box-shadow:0 6px 18px rgba(6,28,42,.07)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+  .brand{display:inline-flex;align-items:center;flex:none;text-decoration:none}
+  /* Logo : le vrai lockup vectoriel (logo-light.svg, servi par le depot de publication). */
+  .brand .logo{height:30px;width:auto;display:block}
+  /* Filet de securite : si une police plus large que prevu ne tient pas sur la ligne, la
+     navigation defile au lieu de deborder de la largeur commune. */
+  .navlinks{display:flex;gap:18px;align-items:center;min-width:0;overflow-x:auto;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    /* Le defilement rogne ce qui deborde : 6 px de marge interne, rendus par une marge
+       negative, laissent entier l'anneau de focus (2 px a 3 px du lien). */
+    padding:6px;margin:-6px}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{padding:4px 0;color:var(--muted);font-size:13px;font-weight:500;white-space:nowrap}
+  .navlinks a:hover{color:var(--strong)}
+  .langs{display:flex;gap:2px;background:var(--panel);border:1px solid var(--line-strong);border-radius:999px;padding:3px}
   .langs a{text-decoration:none;display:inline-block}
   .langs button,.langs a{border:0;background:transparent;color:var(--muted);
-    padding:5px 11px;border-radius:999px;font-size:.76rem;font-weight:700;cursor:pointer;letter-spacing:.06em;transition:color .2s,background .2s}
-  .langs button:hover,.langs a:hover{color:var(--hover-ink)}
-  .langs button.active,.langs a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:var(--on-accent)}
+    padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.06em;transition:color .2s,background .2s}
+  .langs button:hover,.langs a:hover{color:var(--strong);background:var(--panel-2)}
+  .langs button.active,.langs a.active{background:var(--primary-bg);color:var(--on-primary);box-shadow:inset 0 0 0 1px var(--primary-line)}
 
-  /* ---- Outils d'en-tete ---- */
-  .navtools{display:flex;align-items:center;gap:10px}
+  /* ---- Outils d'en-tete : langues et passages vers l'application ----
+     Les liens vers l'application s'ouvrent dans le meme onglet : c'est le meme produit. */
+  .navtools{display:flex;align-items:center;gap:14px;flex:none}
 
   /* ---- Hero ---- */
-  /* Pas de padding bas : le padding haut de la section suivante fournit l'écart.
-     Padding haut resserré pour que le premier chapitre tienne sur un écran. */
-  .hero{position:relative;padding:64px 0 0;overflow:hidden}
-  .hero h1{
-    font-size:clamp(2.2rem,4.8vw,3.4rem);line-height:1.14;font-weight:800;letter-spacing:-.03em;
-    background:linear-gradient(120deg,var(--title-1) 25%,var(--title-2) 75%,var(--title-3) 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-  /* Une phrase par ligne : le titre est la promesse, il se lit en deux temps. */
+  .hero{position:relative;padding:56px 0 80px}
+  .kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;color:var(--accent);
+    font-size:11px;font-weight:700;line-height:1.4;letter-spacing:.16em;text-transform:uppercase}
+  .kicker::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--accent),transparent);flex:none}
+  /* Une phrase par ligne : le titre est la promesse, il se lit en deux temps. Meme taille
+     et meme couleur que tous les titres de page (maquette, 2026-10-16). */
+  .hero h1{font-size:40px;font-weight:400;line-height:1.12;letter-spacing:-.03em;color:var(--strong)}
   .hero h1 span{display:block}
-  .hero .lead{margin-top:24px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--muted);max-width:var(--measure);font-weight:300}
-  /* ---- Badge de disponibilité (hero, sous la liste : jamais devant le titre) ---- */
-  .soon-badge{display:inline-flex;align-items:center;gap:9px;margin-top:40px;
-    font-size:.9rem;font-weight:600;color:var(--sky);letter-spacing:.04em;
-    border:1px solid rgb(var(--blue-rgb) / .35);border-radius:999px;padding:9px 20px;
-    background:rgb(var(--blue-rgb) / .08)}
-  .soon-badge .dot,footer .soon .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);
-    box-shadow:0 0 10px var(--cyan)}
+  .hero .lead{margin-top:22px;font-size:17px;line-height:1.65;color:var(--muted);max-width:var(--measure)}
+  .ticks{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:13px}
+  .ticks li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:15px;line-height:1.55}
+  .ticks svg{width:20px;height:20px;flex:none;margin-top:1px}
+  /* ---- Badge de disponibilite (hero, sous la liste : jamais devant le titre) ---- */
+  .soon-badge,footer .soon{display:inline-flex;align-items:center;gap:9px;border-radius:999px;
+    border:1px solid var(--edge-soft);background:var(--halo);color:var(--accent);
+    font-weight:600;letter-spacing:.04em}
+  .soon-badge{margin-top:40px;padding:8px 18px;font-size:13px}
+  .soon-badge .dot,footer .soon .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 10px var(--accent)}
 
-  /* ---- Sections ---- */
-  section{padding:104px 0;position:relative}
-  .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--sky);font-weight:700;
-    text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;margin-bottom:18px}
-  .kicker::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent);flex:none}
-  /* Les titres prennent toute la largeur définie de la page (demande client) :
-     aucune largeur maximale propre, seule la gouttière du .wrap les borne. */
-  h2{font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--heading)}
-  .sub{margin-top:20px;color:var(--muted);font-size:1.06rem;max-width:var(--measure);font-weight:300}
+  /* ---- Sections : des blocs separes par un filet a la largeur du contenu ---- */
+  /* Ancres : l'en-tete est collant, sans cette marge le titre de la section
+     visee arrive SOUS l'en-tete et le visiteur atterrit au milieu d'un texte. */
+  section{position:relative}
+  section,main{scroll-margin-top:84px}
+  section > .wrap{position:relative;padding-top:80px;padding-bottom:80px}
+  section > .wrap::before{content:"";position:absolute;top:0;left:24px;right:24px;border-top:1px solid var(--line)}
+  /* Les titres prennent toute la largeur definie de la page (demande client) :
+     aucune largeur maximale propre, seule la gouttiere du .wrap les borne. */
+  h2{font-size:32px;font-weight:400;letter-spacing:-.025em;line-height:1.18;color:var(--strong)}
+  .sub{margin-top:18px;color:var(--muted);font-size:16px;line-height:1.7;max-width:var(--measure)}
 
-  /* ---- How it works ---- */
-  .steps-wrap{margin-top:48px;position:relative}
-  /* 69px = padding haut des cartes (34) + demi-icône (35) : la ligne relie les CENTRES. */
-  .steps-line{position:absolute;top:69px;left:16.66%;right:16.66%;height:2px;
-    background:var(--steps-track);border-radius:2px;overflow:hidden}
-  .steps-line i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;
-    background:linear-gradient(90deg,var(--cyan),var(--blue),var(--indigo));
-    transition:transform 1.6s cubic-bezier(.4,0,.2,1) .3s}
-  .steps-wrap.in .steps-line i{transform:scaleX(1)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
-  .step{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);
-    padding:34px 28px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    box-shadow:0 20px 50px var(--shadow-lg);transition:transform .35s,border-color .35s,box-shadow .35s}
-  .step:hover{transform:translateY(-6px);border-color:var(--accent-ring);box-shadow:0 30px 60px var(--shadow-hover)}
-  .step .icon{width:70px;height:70px;border-radius:18px;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(160deg,var(--icon-grad-a),var(--icon-grad-b));
-    border:1px solid var(--accent-ring-3);margin-bottom:22px;position:relative;z-index:1}
-  .step .icon svg{width:38px;height:38px}
-  .step .num{font-size:.72rem;font-weight:800;letter-spacing:.24em;margin-bottom:10px;
-    background:linear-gradient(90deg,var(--cyan),var(--sky));
-    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-  .step h3{color:var(--heading);font-size:1.18rem;margin-bottom:10px;font-weight:700;letter-spacing:-.01em}
-  .step p{color:var(--muted);font-size:.94rem;font-weight:300}
+  /* ---- Cartes ---- */
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;position:relative}
+  .steps-wrap,.whycards{margin-top:40px}
+  /* La tete de carte (pictogramme a gauche, numero a droite) se range par la grille,
+     sans balisage de plus. */
+  .step{display:grid;grid-template-columns:auto 1fr;align-content:start;
+    background:var(--panel);border:1px solid var(--line-strong);border-radius:var(--radius);
+    padding:28px 28px 30px;box-shadow:var(--ombre-surface);
+    transition:translate .25s ease,box-shadow .3s ease,border-color .3s ease}
+  .step > *{grid-column:1 / -1}
+  .step .icon{grid-column:1;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    color:var(--accent);background:var(--halo);margin-bottom:22px}
+  /* Pictogrammes dessines pour 38 px : a 28 px, le trait general est epaissi (les traits
+     poses sur un element gardent leur epaisseur). */
+  .step .icon svg{width:28px;height:28px;stroke-width:2.2}
+  /* Drapeau suisse et pictogrammes barres : tuile neutre, comme dans la maquette. */
+  .step .icon.suisse,#nospec .step .icon{background:var(--neutral-bg)}
+  .step .icon.suisse svg{width:30px;height:30px}
+  .step .num{grid-column:2;justify-self:end;align-self:center;margin-bottom:22px;
+    font-size:12px;font-weight:700;line-height:1;letter-spacing:.24em;color:var(--accent)}
+  .step h3{color:var(--strong);font-size:19px;font-weight:500;line-height:1.3;letter-spacing:-.015em}
+  .step p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.7}
+  .carte-lien{justify-self:start;margin-top:14px;padding:2px 0;font-size:13.5px;font-weight:600;color:var(--accent)}
 
   /* ---- Domain prerequisite ---- */
   /* Titre sur une seule ligne (demande client) : les deux segments restent des
-     cles i18n distinctes, mais ils se suivent au fil du texte. */
-  .ticks{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:14px}
-  .ticks li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:.98rem;font-weight:400}
-  .ticks svg{width:19px;height:19px;flex:none;margin-top:3px}
+     cles i18n distinctes, mais ils se suivent au fil du texte. Les deux points du
+     prerequis sont des tuiles, chacune dans sa carte. */
+  #domaine .ticks{margin-top:40px;gap:10px}
+  #domaine .ticks li{align-items:center;gap:16px;padding:14px 18px;background:var(--panel);
+    border:1px solid var(--line-strong);border-radius:var(--radius);box-shadow:var(--ombre-surface)}
 
   /* ---- Hash explainer + privacy ---- */
-  .hashbox{margin-top:48px;
-    border:1px solid var(--line);border-radius:var(--radius);
-    background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    padding:46px 42px;box-shadow:0 20px 50px var(--shadow-lg)}
-  .hashbox h3{color:var(--heading);font-size:1.32rem;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
-  .hashbox p{color:var(--muted);font-weight:300;font-size:.98rem;max-width:var(--measure)}
-  .privcards{margin-top:24px}
+  .hashbox{margin-top:40px;padding:34px 36px 36px;
+    border:1px solid var(--line-strong);border-radius:var(--radius-lg);
+    background:radial-gradient(60% 120% at 100% 0%,var(--halo),transparent 70%),var(--panel);
+    box-shadow:var(--ombre-surface)}
+  .hashbox h3{color:var(--strong);font-size:21px;font-weight:500;line-height:1.3;letter-spacing:-.015em}
+  .hashbox p{margin-top:12px;color:var(--muted);font-size:15.5px;line-height:1.7;max-width:var(--measure)}
+  .privcards{margin-top:18px}
 
-  /* ---- No speculation : pictogrammes barrés ---- */
-  .strike{stroke-dasharray:52;stroke-dashoffset:52;transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1) .45s}
+  /* ---- No speculation : pictogrammes barres ---- */
+  .strike{stroke-dasharray:52;stroke-dashoffset:52;transition:stroke-dashoffset 1s var(--ease) .45s}
   .in .strike{stroke-dashoffset:0}
 
-  /* ---- Abonnements ---- */
-  .step .plan-name{color:var(--heading);font-size:1.32rem;font-weight:700;letter-spacing:-.01em;margin-bottom:0}
-  .step .plan-for{margin-top:6px;color:var(--muted-2);font-size:.9rem;font-weight:300}
-  .plan-list{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
-  .plan-list li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:.94rem;font-weight:400}
-  .plan-list svg{width:17px;height:17px;flex:none;margin-top:3px}
-  .plan-price{margin-top:24px;font-size:1.06rem;color:var(--heading);font-weight:500;max-width:var(--measure)}
-  .plan-volume{margin-top:18px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-  .plan-volume b{color:var(--heading);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1}
-  .plan-volume span{color:var(--muted);font-size:.9rem;font-weight:300}
-  .plan-note{margin-top:24px;color:var(--muted-2);font-size:.92rem;font-weight:300}
-  .plan-from{margin-top:18px;color:var(--heading);font-size:1.05rem;font-weight:600}
   /* ---- Énergie : deux cartes ---- */
-  .steps.eco-cards{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:980px){.steps.eco-cards{grid-template-columns:1fr}}
+  .steps.eco-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+  /* ---- Abonnements ---- */
+  .plan-from{margin-top:18px;color:var(--strong);font-size:16px;font-weight:600}
+  .plan-note{margin-top:22px;color:var(--muted-2);font-size:14px;line-height:1.7}
   /* ---- Tableau comparatif des abonnements ---- */
-  .plan-table-wrap{margin-top:40px;background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:4px 24px;overflow-x:auto}
-  .plan-table{width:100%;border-collapse:collapse}
-  .plan-table th,.plan-table td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
-  .plan-table thead th{border-bottom:1px solid var(--line-2);vertical-align:top;padding-bottom:16px}
+  .plan-table-wrap{margin-top:40px;background:var(--panel);border:1px solid var(--line-strong);
+    border-radius:var(--radius-lg);box-shadow:var(--ombre-surface);overflow-x:auto}
+  .plan-table{width:100%;border-collapse:collapse;font-size:14px}
+  .plan-table th,.plan-table td{padding:13px 20px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+  .plan-table thead th{padding:20px 14px 18px;background:var(--panel-2);border-bottom:1px solid var(--line-strong);vertical-align:top}
   .plan-table tbody tr:last-child td,.plan-table tbody tr:last-child th{border-bottom:0}
   .plan-table th:first-child,.plan-table td:first-child{text-align:left;width:40%}
-  .plan-table .ph-name{display:block;color:var(--heading);font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
-  .plan-table .ph-for{display:block;color:var(--muted-2);font-size:.8rem;font-weight:300;margin-top:5px;line-height:1.35}
-  .plan-table th.pt-label{color:var(--text);font-weight:400;font-size:.95rem;text-align:left}
-  .plan-table td.pt-num{color:var(--heading);font-weight:400;font-size:1.05rem}
-  .plan-table td.pt-num small{display:block;color:var(--muted-2);font-weight:300;font-size:.72rem;margin-top:3px}
-  .plan-table .pt-ico{display:inline-flex}
+  .plan-table .ph-name{display:block;color:var(--strong);font-size:18px;font-weight:500;letter-spacing:-.01em}
+  .plan-table .ph-for{display:block;color:var(--muted-2);font-size:12px;font-weight:400;margin-top:5px;line-height:1.4}
+  .plan-table th.pt-label{color:var(--text);font-weight:400;font-size:14px;text-align:left}
+  .plan-table td.pt-num{color:var(--strong);font-weight:500;font-variant-numeric:tabular-nums}
+  .plan-table td.pt-num small{display:block;color:var(--muted-2);font-weight:400;font-size:12px;margin-top:3px}
+  .plan-table tbody tr:not(.pt-group):hover > *{background:var(--panel-2)}
+  .plan-table .pt-ico{display:inline-flex;vertical-align:middle}
   .plan-table .pt-ico svg{width:20px;height:20px}
-  .plan-table tr.pt-group td{padding:24px 14px 9px;text-align:left;color:var(--muted-2);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line-2)}
-  @media (max-width:560px){
-    .plan-table-wrap{padding:2px 10px}
-    .plan-table th,.plan-table td{padding:11px 5px}
-    .plan-table th:first-child,.plan-table td:first-child{width:34%}
-    /* Quatre abonnements ne tiennent pas en 375 px : le cadre defile, et la
-       colonne des libelles reste en place pour que chaque ligne se lise. */
-    .plan-table tbody th:first-child,.plan-table thead th:first-child{position:sticky;left:0;z-index:1;
-      background:var(--bg0);box-shadow:1px 0 0 var(--line)}
-    .plan-table th.pt-label{font-size:.84rem;overflow-wrap:break-word;hyphens:auto}
-    .plan-table .ph-name{font-size:.82rem}
-    .plan-table .ph-for{display:none}
-    .plan-table td.pt-num{font-size:.9rem}
-    .plan-table td.pt-num small{font-size:.68rem}
-    .plan-table .pt-ico svg{width:19px;height:19px}
-    .plan-table tr.pt-group td{padding:17px 5px 7px;font-size:.66rem;letter-spacing:.1em}
-  }
+  /* « Non inclus » se lit en gris, jamais comme une alarme (maquette) : la couleur suit le
+     trait de la croix, identique dans les quatre langues, sans toucher aux lignes traduites. */
+  .plan-table .pt-ico path[stroke="var(--red)"]{stroke:var(--muted-2)}
+  .plan-table tr.pt-group td{padding:24px 20px 9px;text-align:left;color:var(--muted-2);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line-strong)}
 
-  /* ---- Pourquoi TrustIDX + Contact ---- */
-  .whycards{margin-top:48px}
-  /* Sans cadre : l'adresse est un lien, pas un bouton. Un filet discret sous le
-     texte, qui s'allume au survol, suffit à dire qu'elle se clique. */
+  /* ---- Contact ---- */
+  /* L'adresse est un bouton principal (maquette) ; elle n'est jamais ecrite dans le HTML. */
   .contact-mail{margin-top:32px}
-  .contact-mail a{display:inline-flex;align-items:center;gap:10px;
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:1.05rem;font-weight:600;letter-spacing:.02em;
-    color:var(--cyan);text-decoration:none;padding-bottom:6px;
-    border-bottom:1px solid rgb(var(--accent-rgb) / .35);
-    transition:color .25s,border-color .25s}
-  .contact-mail a:hover{color:var(--hover-ink);border-color:var(--cyan)}
-  .contact-mail svg{width:18px;height:18px;flex:none}
+  .contact-mail .btn{height:46px;padding:0 22px;font-size:14px}
+  .contact-mail svg{width:16px;height:16px;flex:none}
 
   /* ---- Footer ---- */
-  footer{border-top:1px solid var(--line);padding:52px 0;
-    background:linear-gradient(180deg,transparent,var(--footer-fade))}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+  footer{border-top:1px solid var(--line);padding:28px 0 40px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
   .fbrand{display:inline-flex;align-items:center}
   .fbrand .flogo{height:26px;width:auto;display:block}
-  /* Même langage que le badge du hero : pilule, point lumineux, mêmes alphas. */
-  footer .soon{display:inline-flex;align-items:center;gap:9px;
-    font-size:.85rem;font-weight:600;letter-spacing:.04em;color:var(--sky);
-    border:1px solid rgb(var(--blue-rgb) / .35);
-    border-radius:999px;padding:6px 16px;background:rgb(var(--blue-rgb) / .08)}
-  footer .legal{font-size:.85rem;color:var(--muted-2)}
+  footer .soon{padding:6px 16px;font-size:12.5px}
+  .vers-app-pied{display:flex;flex-wrap:wrap;gap:8px 20px}
+  .vers-app-pied a{padding:2px 0;font-weight:600;color:var(--accent)}
+  footer .legal{font-size:13px;color:var(--muted)}
 
   /* ---- Scroll reveal ---- */
   /* Masquage conditionne a `.js` : sans JavaScript, 89 % du texte de la page
-     restait a opacity:0, donc invisible au visiteur comme au moteur de rendu. */
-  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}
+     restait a opacity:0, donc invisible au visiteur comme au moteur de rendu.
+     Le survol des cartes passe par `translate`, distinct du `transform` de
+     l'apparition, et garde sa propre duree. */
+  .js .reveal{opacity:0;transform:translateY(26px);
+    transition:opacity .8s var(--ease),transform .8s var(--ease),translate .25s ease,box-shadow .3s ease,border-color .3s ease}
   .reveal.in{opacity:1;transform:none}
-  .reveal[data-delay="1"]{transition-delay:.12s}
-  .reveal[data-delay="2"]{transition-delay:.24s}
-  .reveal[data-delay="3"]{transition-delay:.36s}
+  .reveal[data-delay="1"]{transition-delay:.12s,.12s,0s,0s,0s}
+  .reveal[data-delay="2"]{transition-delay:.24s,.24s,0s,0s,0s}
+  .reveal[data-delay="3"]{transition-delay:.36s,.36s,0s,0s,0s}
+  .step:hover{translate:0 -2px;border-color:var(--edge-soft);box-shadow:var(--ombre-survol)}
 
   /* ---- Responsive ---- */
+  /* La ligne d'en-tete demande environ 1060 px (mesure du 2026-10-17, francais, police
+     systeme) : en dessous de 1180 px de fenetre, la navigation ne DISPARAIT pas, elle passe
+     sur une deuxieme ligne, defilable horizontalement. Les ancres restent atteignables au
+     doigt comme au clavier. Rien n'est retire. */
+  @media (max-width:1180px){
+    /* Haut et bas seulement : un `padding` complet effaçait la gouttiere laterale du
+       .wrap (logo colle au bord entre 560 et 980 px sur le site d'avant la refonte). */
+    .nav{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:10px;row-gap:8px}
+    .navlinks{order:3;width:100%;gap:20px}
+    section,main{scroll-margin-top:124px}
+  }
   @media (max-width:980px){
-    .steps{grid-template-columns:1fr}
-    .hashbox{padding:36px 28px}
-    .steps-line{display:none}
-    /* La navigation ne DISPARAIT plus sous 980 px : elle passe sur une
-       deuxieme ligne, defilable horizontalement. Les cinq ancres restent
-       atteignables au doigt comme au clavier. Rien n'est retire. */
-    .nav{flex-wrap:wrap;height:auto;padding:12px 0;row-gap:10px}
-    header.scrolled .nav{height:auto}
-    .navlinks{order:3;width:100%;gap:20px;overflow-x:auto;
-      scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .navlinks::-webkit-scrollbar{display:none}
-    .navlinks a{white-space:nowrap;font-size:.84rem}
-    section{scroll-margin-top:124px}
-    /* Sur mobile/tablette, le texte en dégradé (background-clip:text) peut rester
-       invisible selon le navigateur : on force un texte plein bien lisible. */
-    .hero h1{
-      background:none;
-      color:var(--heading);
-      -webkit-text-fill-color:var(--heading);
-    }
+    .steps,.steps.eco-cards{grid-template-columns:1fr;gap:14px}
+  }
+  @media (max-width:860px){
+    .wrap{padding:0 16px}
+    section > .wrap{padding-top:56px;padding-bottom:56px}
+    section > .wrap::before{left:16px;right:16px}
+    .hero{padding:32px 0 56px}
+    .hero h1{font-size:32px}
+    h2{font-size:26px}
+    .hashbox{padding:26px 22px 28px}
+    .step{padding:24px 22px 26px}
   }
   @media (max-width:560px){
-    section{padding:72px 0}
-    .hero{padding:48px 0 0}
-    /* En-tete sur telephone : logo, quatre langues et la bascule de theme ne
-       tiennent pas en 375 px avec les valeurs du bureau. On reprend la gouttiere,
-       la taille du logo et les paddings du selecteur, sans rien retirer. */
-    .wrap{padding:0 16px}
+    /* En-tete sur telephone : logo et quatre langues sur la premiere ligne, les ancres
+       sur la seconde. L'Espace client reste au pied de page. */
+    header .espace-client{display:none}
     .nav{gap:12px}
     .brand .logo{height:26px}
     .navtools{gap:8px}
     .langs{gap:2px}
     .langs button,.langs a{padding:5px 8px;font-size:.72rem;letter-spacing:.04em}
+    .hero .lead{font-size:16px}
+    .plan-table th,.plan-table td{padding:11px 6px}
+    .plan-table thead th{padding:14px 5px 12px}
+    .plan-table th:first-child,.plan-table td:first-child{width:34%}
+    /* Quatre abonnements ne tiennent pas en 375 px : le cadre defile, et la
+       colonne des libelles reste en place pour que chaque ligne se lise. */
+    .plan-table tbody th:first-child,.plan-table thead th:first-child{position:sticky;left:0;z-index:1;
+      background:var(--panel);box-shadow:1px 0 0 var(--line)}
+    .plan-table thead th:first-child{background:var(--panel-2)}
+    .plan-table th.pt-label{font-size:.84rem;overflow-wrap:break-word;hyphens:auto}
+    .plan-table .ph-name{font-size:.86rem}
+    .plan-table .ph-for{display:none}
+    .plan-table td.pt-num{font-size:.9rem}
+    .plan-table .pt-ico svg{width:19px;height:19px}
+    .plan-table tr.pt-group td{padding:17px 6px 7px;font-size:.66rem;letter-spacing:.1em}
   }
 
+  /* ---- Impression : tout le texte, sans en-tete collant ni decor ---- */
+  @media print{
+    .js .reveal{opacity:1 !important;transform:none !important}
+    header{position:static;backdrop-filter:none}
+    #progress,.bg{display:none}
+    .step,.hashbox,.plan-table-wrap{box-shadow:none}
+  }
 
   /* ---- Contraste force (Windows) ---- */
-  /* Les titres en degrade utilisent background-clip:text avec une couleur de
-     remplissage transparente : en contraste force, le fond est neutralise et le
-     texte disparait. On rend l'encre au systeme. */
+  /* Les surfaces se distinguent par leur bord : en contraste force, le fond est
+     neutralise, le bord rendu au systeme garde la structure lisible. */
   @media (forced-colors: active){
-    .hero h1,.step .num{background:none;-webkit-text-fill-color:currentColor;color:CanvasText}
-    .langs,.plan-table-wrap{border-color:CanvasText}
+    .langs,.plan-table-wrap,.step,.hashbox,.btn,#domaine .ticks li{border-color:CanvasText}
+    .soon-badge,footer .soon{border-color:CanvasText}
   }
 
   /* ---- Reduced motion ---- */
@@ -463,7 +475,7 @@ document.documentElement.classList.add('js');
     html{scroll-behavior:auto}
     *,*::before,*::after{animation:none !important;transition:none !important}
     .reveal{opacity:1 !important;transform:none !important}
-    .steps-wrap .steps-line i{transform:scaleX(1)}
+    .step:hover,.btn-primary:hover{translate:none;transform:none}
     .strike{stroke-dasharray:none;stroke-dashoffset:0}
   }
 </style>
@@ -476,10 +488,10 @@ document.documentElement.classList.add('js');
 <div class="bg" aria-hidden="true"></div>
 <div id="progress" aria-hidden="true"></div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg class="svg-defs" width="0" height="0" aria-hidden="true">
   <defs>
     <linearGradient id="gCyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="var(--cyan)"/><stop offset="1" stop-color="var(--blue)"/>
+      <stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-hi)"/>
     </linearGradient>
     <filter id="fGlow" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="5" result="b"/>
@@ -508,6 +520,11 @@ document.documentElement.classList.add('js');
       <a href="/it/" data-lang="it" hreflang="it" lang="it">IT</a>
       <a href="/en/" data-lang="en" hreflang="en" lang="en" class="active">EN</a>
     </nav>
+      <!-- Passages vers l'application : l'origine (`@app`) et les libellés (`data-portail`,
+           clés des catalogues du portail) sont posés par build-i18n, jamais écrits ici. Le lien
+           de vérification vit dans la carte « La vérification » et au pied de page : avec le
+           libellé du portail, il ne tient pas dans la largeur commune de l'en-tête. -->
+      <a class="btn btn-edge btn-sm espace-client" href="https://app.trustidx.ch/login" data-portail="header.clientArea">Client area</a>
     </div>
   </div>
 </header>
@@ -577,14 +594,13 @@ document.documentElement.classList.add('js');
 
 
   <!-- ================= HOW ================= -->
-  <section id="comment" aria-labelledby="t-comment" style="padding-top:0">
+  <section id="comment" aria-labelledby="t-comment">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="howKicker">How it works</div>
         <h2 id="t-comment" data-i18n="howTitle">A public, permanent proof.</h2>
       </div>
       <div class="steps-wrap reveal">
-        <div class="steps-line" aria-hidden="true"><i></i></div>
         <div class="steps">
           <div class="step reveal" data-delay="1">
             <div class="icon" aria-hidden="true">
@@ -622,6 +638,7 @@ document.documentElement.classList.add('js');
             <div class="num">03</div>
             <h3 data-i18n="how3Title">The verification</h3>
             <p data-i18n="how3Text">Anyone can verify, freely and forever, that a document is authentic, dated, and was certified from the issuing organisation's proven domain.</p>
+            <a class="carte-lien" href="https://app.trustidx.ch/verify" data-portail="verify.title">Verify a document's authenticity</a>
           </div>
         </div>
       </div>
@@ -630,7 +647,7 @@ document.documentElement.classList.add('js');
   </section>
 
   <!-- ================= WHY TRUSTIDX ================= -->
-  <section id="pourquoi" aria-labelledby="t-pourquoi" style="padding-top:0">
+  <section id="pourquoi" aria-labelledby="t-pourquoi">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="whyKicker">Why TrustIDX</div>
@@ -662,7 +679,7 @@ document.documentElement.classList.add('js');
           <p data-i18n="why2Text">The records can be read with each ledger's public tooling: Ethereum Attestation Service for Base, OpenTimestamps for Bitcoin. No proprietary tool is required.</p>
         </div>
         <div class="step reveal" data-delay="3">
-          <div class="icon" aria-hidden="true">
+          <div class="icon suisse" aria-hidden="true">
             <svg viewBox="0 0 48 48" fill="none">
               <rect x="8" y="8" width="32" height="32" rx="9" fill="var(--red)"/>
               <path d="M24 15.5v17M15.5 24h17" stroke="#ffffff" stroke-width="6.4"/>
@@ -676,7 +693,7 @@ document.documentElement.classList.add('js');
   </section>
 
   <!-- ================= HASH EXPLAINER + PRIVACY ================= -->
-  <section id="confidentialite" aria-labelledby="t-confidentialite" style="padding-top:0">
+  <section id="confidentialite" aria-labelledby="t-confidentialite">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="privKicker">Privacy</div>
@@ -733,7 +750,7 @@ document.documentElement.classList.add('js');
   </section>
 
   <!-- ================= DOMAIN PREREQUISITE ================= -->
-  <section id="domaine" aria-labelledby="t-domaine" style="padding-top:0">
+  <section id="domaine" aria-labelledby="t-domaine">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="domKicker">The prerequisite</div>
@@ -758,7 +775,7 @@ document.documentElement.classList.add('js');
 
 
   <!-- ================= PLANS ================= -->
-  <section id="abonnements" aria-labelledby="t-abonnements" style="padding-top:0">
+  <section id="abonnements" aria-labelledby="t-abonnements">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="planKicker">Plans</div>
@@ -916,7 +933,7 @@ document.documentElement.classList.add('js');
   </section>
 
   <!-- ================= NO SPECULATION ================= -->
-  <section id="nospec" aria-labelledby="t-nospec" style="padding-top:0">
+  <section id="nospec" aria-labelledby="t-nospec">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="nsKicker">Our conviction</div>
@@ -963,7 +980,7 @@ document.documentElement.classList.add('js');
   </section>
 
   <!-- ================= ÉNERGIE ================= -->
-  <section id="energie" aria-labelledby="t-energie" style="padding-top:0">
+  <section id="energie" aria-labelledby="t-energie">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="ecoKicker">Energy</div>
@@ -1000,14 +1017,14 @@ document.documentElement.classList.add('js');
   </section>
 
   <!-- ================= CONTACT ================= -->
-  <section id="contact" aria-labelledby="t-contact" style="padding-top:0">
+  <section id="contact" aria-labelledby="t-contact">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="ctKicker">Contact</div>
         <h2 id="t-contact" data-i18n="ctTitle">Interested? Need more information?</h2>
         <p class="sub" data-i18n="ctSub">A question about certification, plans or integration: write to us.</p>
         <p class="contact-mail">
-          <a id="contact-mail" href="#contact">
+          <a id="contact-mail" class="btn btn-primary" href="#contact">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="3"/>
               <path d="M3.5 7l8.5 6 8.5-6"/>
@@ -1028,6 +1045,10 @@ document.documentElement.classList.add('js');
       <img class="logo flogo" src="/logo-light.svg" alt="TrustIDX" width="167" height="40">
     </div>
     <div class="soon"><span class="dot" aria-hidden="true"></span><span data-i18n="footSoon">Coming soon</span></div>
+    <p class="vers-app-pied">
+      <a href="https://app.trustidx.ch/verify" data-portail="verify.title">Verify a document's authenticity</a>
+      <a href="https://app.trustidx.ch/login" data-portail="header.clientArea">Client area</a>
+    </p>
     <div class="legal">© 2026 TrustIDX · <span data-i18n="footCh">Designed and operated in Switzerland</span></div>
   </div>
 </footer>
