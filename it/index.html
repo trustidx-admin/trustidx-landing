@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-cV0mYPp8FBaUvWSx9eaC6CPULQx2L4DvxIQlGKn9Les='; style-src 'sha256-5Wpom+lhlv6ZyNiSharZ4lTBiMmvvTFExxdWYGnQBLc=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-cV0mYPp8FBaUvWSx9eaC6CPULQx2L4DvxIQlGKn9Les='; style-src 'sha256-05szKkQdljmigwqw/FLWcds+I3nCPFrwgPZJFV76fgE=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Certificazione di documenti sulla blockchain</title>
 <meta name="description" content="TrustIDX certifica l'autenticità dei Suoi documenti ancorandone l'impronta su due registri pubblici, Base e Bitcoin. Senza token, senza speculazione. Un progetto svizzero.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -143,6 +143,18 @@ document.documentElement.classList.add('js');
 }
 </script>
 <style>
+  /* LA POLICE DE L'APPLICATION (2026-10-17, demande du client) : DM Sans, servie par le site
+     lui-même (`landing/fonts`, fichiers du paquet @fontsource-variable/dm-sans 5.3.0 que le portail
+     emploie, licence OFL dans `fonts/OFL.txt`), aucun service tiers ; mêmes plages que le paquet.
+     La CSP l'admet par `font-src 'self'`, et le générateur refuse toute autre ressource appelée
+     depuis les styles. */
+  @font-face{font-family:"DM Sans Variable";font-style:normal;font-display:swap;font-weight:100 1000;
+    src:url("/fonts/dm-sans-latin-ext-wght-normal.woff2") format("woff2-variations");
+    unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"DM Sans Variable";font-style:normal;font-display:swap;font-weight:100 1000;
+    src:url("/fonts/dm-sans-latin-wght-normal.woff2") format("woff2-variations");
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
   /* UN SEUL THEME : CLAIR. Decision client du 2026-09-01, confirmee pour la refonte le
      2026-10-16. Habillage de la refonte (PR 11b, plan §5.7) d'apres la maquette
      3-site-vitrine.html, theme clair « plus de contraste » : fond gris bleute, surfaces
@@ -158,7 +170,7 @@ document.documentElement.classList.add('js');
        des titres et des cartes, aucune colonne de lecture plus etroite. Un seul
        reglage pour que rien ne reprenne sa propre largeur en douce. */
     --measure:100%;
-    --font-texte:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --font-texte:"DM Sans Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     --font-mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
     --bg:#e8eef1; --top:rgba(246,249,250,.94);
     --panel:#ffffff; --panel-2:#f0f4f6; --neutral-bg:#e6edf0;
