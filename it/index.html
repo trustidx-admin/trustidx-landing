@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-cV0mYPp8FBaUvWSx9eaC6CPULQx2L4DvxIQlGKn9Les='; style-src 'sha256-05szKkQdljmigwqw/FLWcds+I3nCPFrwgPZJFV76fgE=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-KyW7z+6ARCh6XQ5cMqWV6RlWyIGjnpf77BR7x2jKChk='; style-src 'sha256-mW6jSEmVtlPeVItR8EFHjQUrbiCIkxkfToswtJycRbk=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Certificazione di documenti sulla blockchain</title>
 <meta name="description" content="TrustIDX certifica l'autenticità dei Suoi documenti ancorandone l'impronta su due registri pubblici, Base e Bitcoin. Senza token, senza speculazione. Un progetto svizzero.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -180,8 +180,8 @@ document.documentElement.classList.add('js');
     --primary-bg:#67e8f9; --primary-hover:#a5f3fc; --on-primary:#06121f; --primary-line:#0e93ad;
     --edge-rest:rgba(10,40,70,.3); --edge-soft:rgba(8,118,148,.5); --halo:rgba(8,145,178,.16);
     --success:#05603f; --flag-red:#dc2626;
-    --radius:12px; --radius-lg:14px; --radius-ctl:5px; --radius-btn:14px;
-    --primary-edge:#0b7f96; --btn-line:#6c8692; --btn-hover-bg:#e9f0f3; --ring:#0891b2;
+    --radius:12px; --radius-lg:14px; --radius-ctl:5px;
+    --primary-edge:#0b7f96;
     --ombre-surface:0 1px 2px rgba(6,28,42,.07),0 6px 18px rgba(6,28,42,.07);
     --ombre-survol:0 2px 4px rgba(6,28,42,.08),0 16px 36px rgba(6,28,42,.12);
     --page-glow:radial-gradient(70rem 40rem at 85% -10%,rgba(8,145,178,.1),transparent 60%);
@@ -233,24 +233,40 @@ document.documentElement.classList.add('js');
   .navlinks a:hover,.carte-lien:hover,.vers-app-pied a:hover{background-size:100% 1px}
 
   /* ---- Boutons ---- */
-  /* LE DESSIN DES BOUTONS DE L'APPLICATION, EN THÈME CLAIR (2026-10-17, demande du client : « ça
-     ressemble pas à ce qui a été fait dans l'app », et deux tailles à l'oeil). Mesuré dans le
-     portail (`components/ui/button.tsx`) : taille « md » 44 px et « sm » 36 px, marges 20 et 12 px,
-     rayon 14 px, texte en 14 px ; principal cyan à filet, secondaire blanc à bordure. Les deux
-     variantes ont la MÊME boîte (bordure de 1 px, transparente pour le principal), donc la même
-     taille à l'oeil. */
+  /* LES BOUTONS DE LA MAQUETTE VALIDÉE (`3-site-vitrine.html`, 2026-10-17), les mêmes que ceux
+     du portail (`components/ui/button.tsx`, classes `bouton-*`) : 42 px de haut, 34 px en petit,
+     coins de 5 px, texte en 13 px. Principal cyan, qui se soulève et qu'un reflet traverse au
+     survol ; secondaire à contour en dégradé, que la lumière parcourt au survol. Aucun mouvement
+     pour qui a demandé moins d'animations. */
+  @property --angle-contour{syntax:'<angle>';initial-value:0deg;inherits:false}
+  @keyframes tour-contour{to{--angle-contour:360deg}}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;
-    height:44px;padding:0 20px;border-radius:var(--radius-btn);border:1px solid transparent;
-    font-size:14px;font-weight:500;line-height:1;white-space:nowrap;
-    text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s,box-shadow .15s,transform .15s}
-  .btn-sm{height:36px;padding:0 12px}
-  .btn-primary{background:var(--primary-bg);color:var(--on-primary);font-weight:600;
-    box-shadow:inset 0 0 0 1px var(--primary-edge)}
-  .btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px);
-    box-shadow:0 0 0 1px var(--edge-soft),0 8px 24px var(--halo)}
-  .btn-primary:active{transform:none}
-  .btn-edge{background:var(--panel);color:var(--text);border-color:var(--btn-line)}
-  .btn-edge:hover{background:var(--btn-hover-bg);border-color:var(--ring);box-shadow:0 0 14px var(--halo)}
+    height:42px;padding:0 20px;border-radius:5px;border:1px solid transparent;
+    font:600 13px/1 var(--font-texte);letter-spacing:.01em;white-space:nowrap;
+    text-decoration:none;cursor:pointer;transition:background-color .2s,box-shadow .25s,transform .2s}
+  .btn-sm{height:34px;padding:0 12px;font-weight:500}
+  /* Demande du client (2026-10-17) : plus le cyan plein, le bleu de la pastille « Bientôt
+     disponible » (fond `--halo`, trait `--edge-soft`, texte à l'accent), comme le portail. */
+  .btn-primary{position:relative;overflow:hidden;isolation:isolate;color:var(--accent);
+    background:var(--halo);border-color:var(--edge-soft)}
+  .btn-primary::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 48%,transparent 66%);
+    transform:translateX(-120%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .btn-primary:hover{transform:translateY(-2px);
+    box-shadow:0 0 0 1px var(--edge-soft),0 10px 28px var(--halo),0 0 22px var(--halo)}
+  .btn-primary:hover::after{transform:translateX(120%)}
+  .btn-primary:active{transform:translateY(0) scale(.98)}
+  .btn-edge{color:var(--text);
+    background:linear-gradient(var(--bg),var(--bg)) padding-box,
+      linear-gradient(110deg,var(--edge-rest),var(--edge-soft),var(--edge-rest)) border-box}
+  .btn-edge:hover{box-shadow:0 0 18px var(--halo);animation:tour-contour 2.2s linear infinite;
+    background:linear-gradient(var(--bg),var(--bg)) padding-box,
+      conic-gradient(from var(--angle-contour),var(--edge-rest) 0deg,var(--accent) 60deg,var(--edge-rest) 140deg,var(--edge-rest) 360deg) border-box}
+  @media (prefers-reduced-motion:reduce){
+    .btn-primary::after{display:none}
+    .btn-primary:hover,.btn-primary:active{transform:none}
+    .btn-edge:hover{animation:none}
+  }
 
   /* ---- Scroll progress ---- */
   #progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:120;
@@ -277,11 +293,21 @@ document.documentElement.classList.add('js');
   .navlinks a{padding:4px 0;color:var(--muted);font-size:13px;font-weight:500;white-space:nowrap}
   .navlinks a:hover{color:var(--strong)}
   .langs{display:flex;gap:2px;background:var(--panel);border:1px solid var(--line-strong);border-radius:999px;padding:3px}
-  .langs a{text-decoration:none;display:inline-block}
-  .langs button,.langs a{border:0;background:transparent;color:var(--muted);
+  .langs button{border:0;background:transparent;color:var(--muted);
     padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.06em;transition:color .2s,background .2s}
-  .langs button:hover,.langs a:hover{color:var(--strong);background:var(--panel-2)}
-  .langs button.active,.langs a.active{background:var(--primary-bg);color:var(--on-primary);box-shadow:inset 0 0 0 1px var(--primary-line)}
+  .langs button:hover{color:var(--strong);background:var(--panel-2)}
+  /* Le sélecteur de langue des pages produites, celui du portail (2026-10-17) : un globe de
+     16 px, la langue en 13 px, une liste native. */
+  .langue{position:relative;display:inline-flex;align-items:center;gap:6px;color:var(--muted);
+    font-size:13px;font-weight:500}
+  .langue svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  .langue select{appearance:none;-webkit-appearance:none;background:transparent;border:0;
+    color:inherit;font:inherit;cursor:pointer;padding:4px 2px;border-radius:5px}
+  .langue select:hover{color:var(--text)}
+  .langue select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .langue option{background:var(--panel);color:var(--text)}
+  .langs button.active{background:var(--primary-bg);color:var(--on-primary);box-shadow:inset 0 0 0 1px var(--primary-line)}
 
   /* ---- Outils d'en-tete : langues et passages vers l'application ----
      Les liens vers l'application s'ouvrent dans le meme onglet : c'est le meme produit. */
@@ -538,12 +564,15 @@ document.documentElement.classList.add('js');
       <a href="#contact" data-i18n="navContact">Contatto</a>
     </nav>
     <div class="navtools">
-      <nav class="langs" aria-label="Lingue" data-langs>
-      <a href="/" data-lang="fr" hreflang="fr" lang="fr">FR</a>
-      <a href="/de/" data-lang="de" hreflang="de" lang="de">DE</a>
-      <a href="/it/" data-lang="it" hreflang="it" lang="it" class="active">IT</a>
-      <a href="/en/" data-lang="en" hreflang="en" lang="en">EN</a>
-    </nav>
+      <label class="langue" data-langs>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      <select aria-label="Lingua">
+        <option value="/" lang="fr">FR</option>
+        <option value="/de/" lang="de">DE</option>
+        <option value="/it/" lang="it" selected>IT</option>
+        <option value="/en/" lang="en">EN</option>
+      </select>
+    </label>
       <!-- Passages vers l'application : l'origine (`@app`) et les libellés (`data-portail`,
            clés des catalogues du portail) sont posés par build-i18n, jamais écrits ici. Deux
            boutons (demande du client du 2026-10-17) : « Vérifier », libellé court du portail
@@ -1132,16 +1161,11 @@ document.documentElement.classList.add('js');
    lien. Sans cela, passer en allemand depuis la section Abonnements renvoie
    en haut de la page allemande. ---- */
 (function(){
-  var liens = document.querySelectorAll('[data-langs] a');
-  if (!liens.length) return;
-  var base = [];
-  liens.forEach(function(a){ base.push(a.getAttribute('href')); });
-  function suivre(){
-    var h = location.hash || '';
-    liens.forEach(function(a, i){ a.setAttribute('href', base[i] + h); });
-  }
-  window.addEventListener('hashchange', suivre);
-  suivre();
+  var choix = document.querySelector('[data-langs] select');
+  if (!choix) return;
+  choix.addEventListener('change', function(){
+    location.href = choix.value + (location.hash || '');
+  });
 })();
 </script>
 </body>
