@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-KyW7z+6ARCh6XQ5cMqWV6RlWyIGjnpf77BR7x2jKChk='; style-src 'sha256-mW6jSEmVtlPeVItR8EFHjQUrbiCIkxkfToswtJycRbk=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-OG0eg0tzNlLMocK/aowumAmbzS3/OMq617kfTrPcKCI='; style-src 'sha256-mW6jSEmVtlPeVItR8EFHjQUrbiCIkxkfToswtJycRbk=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Document certification on the blockchain</title>
 <meta name="description" content="TrustIDX certifies the authenticity of your documents by anchoring their fingerprint on two public ledgers, Base and Bitcoin. No token, no speculation. A Swiss project.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -1163,6 +1163,10 @@ document.documentElement.classList.add('js');
 (function(){
   var choix = document.querySelector('[data-langs] select');
   if (!choix) return;
+  // Retour arrière : la page restaurée par le navigateur garde la langue qu'on avait choisie
+  // en la quittant ; la liste reprend celle de la page.
+  var langueDeLaPage = choix.value;
+  window.addEventListener('pageshow', function(){ choix.value = langueDeLaPage; });
   choix.addEventListener('change', function(){
     location.href = choix.value + (location.hash || '');
   });
