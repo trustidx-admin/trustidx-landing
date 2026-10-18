@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-k+K2hKSP7refm43R7M8vUAyV8NgAdUunWib9Vx2VTFk='; style-src 'sha256-4/D5stiBh1a3s70on/c3hdb19vQSUjvScPyhfYQeC9w=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-C7d3vOpfszCdRcfN17xM1AvvNt9jg+EV4905s8rPUBc='; style-src 'sha256-g657o6n82fcsppRoI/NOhE5P1YssR6A9J25ipbiUiAQ=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Certificazione di documenti sulla blockchain</title>
 <meta name="description" content="TrustIDX certifica l'autenticità dei Suoi documenti ancorandone l'impronta su due registri pubblici, Base e Bitcoin. Senza token, senza speculazione. Un progetto svizzero.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -460,6 +460,7 @@ document.documentElement.classList.add('js');
   }
   @media (max-width:860px){
     .wrap{padding:0 16px}
+    .js header.raccourcis-menu.menu-ouvert .navlinks{right:16px;width:min(300px,calc(100% - 32px))}
     section > .wrap{padding-top:56px;padding-bottom:56px}
     section > .wrap::before{left:16px;right:16px}
     .hero{padding:32px 0 56px}
@@ -468,11 +469,11 @@ document.documentElement.classList.add('js');
     .hashbox{padding:26px 22px 28px}
     .step{padding:24px 22px 26px}
   }
-  /* MENU DES RACCOURCIS (demande du client du 2026-10-18) : la ligne des six raccourcis ne doit
-     jamais être rognée. Le script pose `raccourcis-menu` sur l'en-tête sous 700 px (téléphone) et,
-     à toute largeur, dès que la ligne déborde (filet : une police ou une traduction plus longue).
-     Fermé, l'en-tête tient sur une ligne ; ouvert, les raccourcis s'empilent en entier sous elle.
-     Sans JavaScript, le bouton reste caché et la ligne défilante demeure. */
+  /* MENU DES RACCOURCIS, LE MÊME PARTOUT (décision du client du 2026-10-18 : « pourquoi faire les
+     choses différemment entre PC et téléphone ? ») : à toutes les largeurs, l'en-tête porte le logo,
+     la langue, les passages vers l'application et le bouton menu ; les six raccourcis s'ouvrent dans
+     un panneau sous le bouton. Le script pose `raccourcis-menu` sur l'en-tête. Sans JavaScript, le
+     bouton reste caché et la ligne des raccourcis demeure. */
   .js header.raccourcis-menu .menu-tel:not([hidden]){display:inline-flex;align-items:center;
     justify-content:center;flex:none;width:36px;height:34px;padding:0;border-radius:5px;
     border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer}
@@ -480,12 +481,21 @@ document.documentElement.classList.add('js');
   .js header.raccourcis-menu .menu-tel[aria-expanded="true"]{color:var(--accent);background:var(--halo);
     border-color:var(--edge-soft)}
   .menu-tel:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .js header.raccourcis-menu .nav{flex-wrap:wrap;row-gap:8px}
+  /* Fermé, l'en-tête tient sur UNE ligne à toutes les largeurs (la seconde ligne des raccourcis,
+     sous 1180 px, n'existe plus qu'en l'absence de script). */
+  .js header.raccourcis-menu .nav{position:relative;flex-wrap:nowrap;height:68px;padding-top:0;
+    padding-bottom:0}
+  .js header.raccourcis-menu .brand{margin-right:auto}
   .js header.raccourcis-menu:not(.menu-ouvert) .navlinks{display:none}
-  .js header.raccourcis-menu.menu-ouvert .navlinks{order:3;flex:0 0 100%;flex-direction:column;
-    align-items:stretch;gap:0;overflow:visible;padding:2px 0 4px;margin:0}
+  /* Ouvert : un panneau aligné sur le bord droit de l'en-tête, posé SUR la page (rien ne bouge
+     dessous), un raccourci par ligne. */
+  .js header.raccourcis-menu.menu-ouvert .navlinks{position:absolute;top:calc(100% + 6px);right:24px;
+    z-index:5;width:min(300px,calc(100% - 48px));flex-direction:column;align-items:stretch;gap:0;
+    overflow:visible;margin:0;padding:6px 18px;background:var(--panel);
+    border:1px solid var(--line-strong);border-radius:10px;box-shadow:0 18px 40px rgba(6,28,42,.14)}
   .js header.raccourcis-menu.menu-ouvert .navlinks a{padding:12px 2px;font-size:15px;
     border-top:1px solid var(--line)}
+  .js header.raccourcis-menu.menu-ouvert .navlinks a:first-child{border-top:0}
   @media (max-width:700px){
     /* Écarts resserrés : le bouton du menu s'ajoute à la ligne. */
     .nav{gap:12px}
@@ -599,15 +609,6 @@ document.documentElement.classList.add('js');
       <a href="#contact" data-i18n="navContact">Contatto</a>
     </nav>
     <div class="navtools">
-      <label class="langue" data-langs>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-      <select aria-label="Lingua">
-        <option value="/" lang="fr">FR</option>
-        <option value="/de/" lang="de">DE</option>
-        <option value="/it/" lang="it" selected>IT</option>
-        <option value="/en/" lang="en">EN</option>
-      </select>
-    </label>
       <!-- Passages vers l'application : l'origine (`@app`) et les libellés (`data-portail`,
            clés des catalogues du portail) sont posés par build-i18n, jamais écrits ici. Deux
            boutons (demande du client du 2026-10-17) : « Vérifier un document » (`header.verifyDocument`,
@@ -617,6 +618,17 @@ document.documentElement.classList.add('js');
         <a class="btn btn-primary btn-sm verifier" href="https://app.trustidx.ch/verify" data-portail="header.verifyDocument">Verificare un documento</a>
         <a class="btn btn-edge btn-sm espace-client" href="https://app.trustidx.ch/login" data-portail="header.clientArea">Area clienti</a>
       </span>
+      <!-- Même ordre que l'en-tête du portail (décision du client du 2026-10-18) : les passages,
+           puis la langue, puis le bouton icône (ici le menu, au portail le thème). -->
+      <label class="langue" data-langs>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      <select aria-label="Lingua">
+        <option value="/" lang="fr">FR</option>
+        <option value="/de/" lang="de">DE</option>
+        <option value="/it/" lang="it" selected>IT</option>
+        <option value="/en/" lang="en">EN</option>
+      </select>
+    </label>
       <button class="menu-tel" type="button" aria-expanded="false" aria-controls="raccourcis" aria-label="Navigazione" hidden>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -1203,26 +1215,19 @@ document.documentElement.classList.add('js');
   var liens = document.getElementById('raccourcis');
   if (!bouton || !entete || !liens) return;
   bouton.hidden = false;
-  var telephone = window.matchMedia('(max-width:700px)');
   function fermer(){
     entete.classList.remove('menu-ouvert');
     bouton.setAttribute('aria-expanded', 'false');
   }
-  // Mode menu sous 700 px, ou dès que la ligne des raccourcis déborde : mesurée hors du mode
-  // menu, puisque le mode menu la cache.
-  function decider(){
-    var ouvert = entete.classList.contains('menu-ouvert');
-    entete.classList.remove('raccourcis-menu', 'menu-ouvert');
-    var menu = telephone.matches || liens.scrollWidth > liens.clientWidth + 1;
-    entete.classList.toggle('raccourcis-menu', menu);
-    if (menu && ouvert) entete.classList.add('menu-ouvert');
-    else bouton.setAttribute('aria-expanded', 'false');
-  }
-  decider();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(decider);
-  var attente;
-  window.addEventListener('resize', function(){ clearTimeout(attente); attente = setTimeout(decider, 120); });
+  // Le même en-tête à toutes les largeurs : les raccourcis vivent dans le menu.
+  entete.classList.add('raccourcis-menu');
+  document.addEventListener('click', function(e){
+    if (entete.classList.contains('menu-ouvert') && !liens.contains(e.target) && !bouton.contains(e.target)) fermer();
+  });
   bouton.addEventListener('click', function(){
+    // Le panneau s'aligne sur le bord droit du bouton, quelle que soit la largeur.
+    var barre = liens.parentElement.getBoundingClientRect();
+    liens.style.right = Math.max(0, Math.round(barre.right - bouton.getBoundingClientRect().right)) + 'px';
     var ouvert = entete.classList.toggle('menu-ouvert');
     bouton.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
   });
