@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-OG0eg0tzNlLMocK/aowumAmbzS3/OMq617kfTrPcKCI='; style-src 'sha256-s4gg68S4Kd2jZg36z0tNdAvqe6wAzTXHBCGNVptWsSg=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-k+K2hKSP7refm43R7M8vUAyV8NgAdUunWib9Vx2VTFk='; style-src 'sha256-4/D5stiBh1a3s70on/c3hdb19vQSUjvScPyhfYQeC9w=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Certificazione di documenti sulla blockchain</title>
 <meta name="description" content="TrustIDX certifica l'autenticità dei Suoi documenti ancorandone l'impronta su due registri pubblici, Base e Bitcoin. Senza token, senza speculazione. Un progetto svizzero.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -245,8 +245,8 @@ document.documentElement.classList.add('js');
     font:600 13px/1 var(--font-texte);letter-spacing:.01em;white-space:nowrap;
     text-decoration:none;cursor:pointer;transition:background-color .2s,box-shadow .25s,transform .2s}
   .btn-sm{height:34px;padding:0 12px;font-weight:500}
-  /* Demande du client (2026-10-17) : plus le cyan plein, le bleu de la pastille « Bientôt
-     disponible » (fond `--halo`, trait `--edge-soft`, texte à l'accent), comme le portail. */
+  /* Demande du client (2026-10-17) : plus le cyan plein, un bleu clair (fond `--halo`, trait
+     `--edge-soft`, texte à l'accent), comme le portail. */
   .btn-primary{position:relative;overflow:hidden;isolation:isolate;color:var(--accent);
     background:var(--halo);border-color:var(--edge-soft)}
   .btn-primary::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
@@ -278,18 +278,19 @@ document.documentElement.classList.add('js');
     background:var(--top);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line-strong);transition:box-shadow .35s}
   header.scrolled{box-shadow:0 6px 18px rgba(6,28,42,.07)}
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
   .brand{display:inline-flex;align-items:center;flex:none;text-decoration:none}
   /* Logo : le vrai lockup vectoriel (logo-light.svg, servi par le depot de publication). */
   .brand .logo{height:30px;width:auto;display:block}
   /* Filet de securite : si une police plus large que prevu ne tient pas sur la ligne, la
      navigation defile au lieu de deborder de la largeur commune. */
-  .navlinks{display:flex;gap:18px;align-items:center;min-width:0;overflow-x:auto;
+  .navlinks{display:flex;gap:12px;align-items:center;min-width:0;overflow-x:auto;
     scrollbar-width:none;-webkit-overflow-scrolling:touch;
     /* Le defilement rogne ce qui deborde : 6 px de marge interne, rendus par une marge
        negative, laissent entier l'anneau de focus (2 px a 3 px du lien). */
     padding:6px;margin:-6px}
   .navlinks::-webkit-scrollbar{display:none}
+  .menu-tel{display:none}
   .navlinks a{padding:4px 0;color:var(--muted);font-size:13px;font-weight:500;white-space:nowrap}
   .navlinks a:hover{color:var(--strong)}
   .langs{display:flex;gap:2px;background:var(--panel);border:1px solid var(--line-strong);border-radius:999px;padding:3px}
@@ -329,13 +330,6 @@ document.documentElement.classList.add('js');
   .ticks{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:13px}
   .ticks li{display:flex;align-items:flex-start;gap:12px;color:var(--text);font-size:15px;line-height:1.55}
   .ticks svg{width:20px;height:20px;flex:none;margin-top:1px}
-  /* ---- Badge de disponibilite (hero, sous la liste : jamais devant le titre) ---- */
-  .soon-badge,footer .soon{display:inline-flex;align-items:center;gap:9px;border-radius:999px;
-    border:1px solid var(--edge-soft);background:var(--halo);color:var(--accent);
-    font-weight:600;letter-spacing:.04em}
-  .soon-badge{margin-top:40px;padding:8px 18px;font-size:13px}
-  .soon-badge .dot,footer .soon .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
-    box-shadow:0 0 10px var(--accent)}
 
   /* ---- Sections : des blocs separes par un filet a la largeur du contenu ---- */
   /* Ancres : l'en-tete est collant, sans cette marge le titre de la section
@@ -432,7 +426,6 @@ document.documentElement.classList.add('js');
   footer .wrap{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
   .fbrand{display:inline-flex;align-items:center}
   .fbrand .flogo{height:26px;width:auto;display:block}
-  footer .soon{padding:6px 16px;font-size:12.5px}
   .vers-app-pied{display:flex;flex-wrap:wrap;gap:8px 20px}
   .vers-app-pied a{padding:2px 0;font-weight:600;color:var(--accent)}
   footer .legal{font-size:13px;color:var(--muted)}
@@ -475,19 +468,41 @@ document.documentElement.classList.add('js');
     .hashbox{padding:26px 22px 28px}
     .step{padding:24px 22px 26px}
   }
+  /* MENU DES RACCOURCIS (demande du client du 2026-10-18) : la ligne des six raccourcis ne doit
+     jamais être rognée. Le script pose `raccourcis-menu` sur l'en-tête sous 700 px (téléphone) et,
+     à toute largeur, dès que la ligne déborde (filet : une police ou une traduction plus longue).
+     Fermé, l'en-tête tient sur une ligne ; ouvert, les raccourcis s'empilent en entier sous elle.
+     Sans JavaScript, le bouton reste caché et la ligne défilante demeure. */
+  .js header.raccourcis-menu .menu-tel:not([hidden]){display:inline-flex;align-items:center;
+    justify-content:center;flex:none;width:36px;height:34px;padding:0;border-radius:5px;
+    border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer}
+  .menu-tel svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .js header.raccourcis-menu .menu-tel[aria-expanded="true"]{color:var(--accent);background:var(--halo);
+    border-color:var(--edge-soft)}
+  .menu-tel:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .js header.raccourcis-menu .nav{flex-wrap:wrap;row-gap:8px}
+  .js header.raccourcis-menu:not(.menu-ouvert) .navlinks{display:none}
+  .js header.raccourcis-menu.menu-ouvert .navlinks{order:3;flex:0 0 100%;flex-direction:column;
+    align-items:stretch;gap:0;overflow:visible;padding:2px 0 4px;margin:0}
+  .js header.raccourcis-menu.menu-ouvert .navlinks a{padding:12px 2px;font-size:15px;
+    border-top:1px solid var(--line)}
+  @media (max-width:700px){
+    /* Écarts resserrés : le bouton du menu s'ajoute à la ligne. */
+    .nav{gap:12px}
+    .navtools{gap:10px}
+    /* L'en-tête garde UNE ligne : base nulle, le bloc des outils reste sur la ligne du logo (un
+       retour à la ligne se décide sur la base) et prend la place qui reste ; ce sont les libellés
+       des passages qui passent à la ligne quand ils ne tiennent pas (décision du client du
+       2026-10-18), les deux à la même hauteur. */
+    .navtools{flex:1 1 0;min-width:0;justify-content:flex-end}
+    header .passages .btn{white-space:normal;height:auto;min-height:34px;padding:5px 10px;
+      line-height:1.25;text-align:center;text-wrap:balance}
+  }
   @media (max-width:560px){
     /* En-tete sur telephone : logo, quatre langues et « Vérifier » sur la premiere ligne, les
        ancres sur la seconde. L'Espace client reste au pied de page. */
     header .espace-client{display:none}
     .nav{gap:12px}
-    /* Seul passage sur téléphone : « Vérifier un document » passe sur deux lignes quand il ne tient
-       pas à côté du logo et de la langue, plutôt que de déborder (décision du client du
-       2026-10-18). Le bloc des outils peut alors céder de la place. */
-    /* Base nulle : le bloc reste sur la ligne du logo (un retour à la ligne se décide sur la
-       base) et prend la place qui reste ; c'est le libellé qui passe à la ligne, pas l'en-tête. */
-    .navtools{flex:1 1 0;min-width:0;justify-content:flex-end}
-    header .verifier{white-space:normal;height:auto;min-height:34px;padding:5px 10px;
-      line-height:1.25;text-align:center;text-wrap:balance}
     .brand .logo{height:26px}
     .navtools{gap:8px}
     .langs{gap:2px}
@@ -514,6 +529,15 @@ document.documentElement.classList.add('js');
        etages. */
     .langs button,.langs a{padding:5px 5px}
     header .verifier{padding:5px 8px}
+    /* Logo un peu plus petit et écarts serrés : « Vérifier un document » tient sur deux lignes à
+       côté du bouton du menu, jamais trois. */
+    .brand .logo{height:22px}
+    .navtools{gap:6px}
+    .js header.raccourcis-menu .menu-tel:not([hidden]){width:32px}
+  }
+  @media (max-width:360px){
+    /* Le globe de la langue est décoratif (la liste garde son nom) : il cède sa place. */
+    .langue svg{display:none}
   }
 
   /* ---- Impression : tout le texte, sans en-tete collant ni decor ---- */
@@ -529,7 +553,6 @@ document.documentElement.classList.add('js');
      neutralise, le bord rendu au systeme garde la structure lisible. */
   @media (forced-colors: active){
     .langs,.plan-table-wrap,.step,.hashbox,.btn,#domaine .ticks li{border-color:CanvasText}
-    .soon-badge,footer .soon{border-color:CanvasText}
   }
 
   /* ---- Reduced motion ---- */
@@ -567,7 +590,7 @@ document.documentElement.classList.add('js');
     <a class="brand" href="/it/" aria-label="TrustIDX">
       <img class="logo" src="/logo-light.svg" alt="" width="167" height="40">
     </a>
-    <nav class="navlinks" aria-label="Navigazione">
+    <nav class="navlinks" id="raccourcis" aria-label="Navigazione">
       <a href="#comment" data-i18n="navHow">Come funziona</a>
       <a href="#pourquoi" data-i18n="navWhy">Perché TrustIDX</a>
       <a href="#confidentialite" data-i18n="navPriv">Riservatezza</a>
@@ -594,6 +617,9 @@ document.documentElement.classList.add('js');
         <a class="btn btn-primary btn-sm verifier" href="https://app.trustidx.ch/verify" data-portail="header.verifyDocument">Verificare un documento</a>
         <a class="btn btn-edge btn-sm espace-client" href="https://app.trustidx.ch/login" data-portail="header.clientArea">Area clienti</a>
       </span>
+      <button class="menu-tel" type="button" aria-expanded="false" aria-controls="raccourcis" aria-label="Navigazione" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
@@ -631,7 +657,6 @@ document.documentElement.classList.add('js');
             <span data-i18n="heroPoint5">Un servizio svizzero, senza token né speculazione</span>
           </li>
         </ul>
-        <p class="soon-badge"><span class="dot" aria-hidden="true"></span><span data-i18n="footSoon">Presto disponibile</span></p>
       </div>
     </div>
   </div>
@@ -1113,7 +1138,6 @@ document.documentElement.classList.add('js');
     <div class="fbrand">
       <img class="logo flogo" src="/logo-light.svg" alt="TrustIDX" width="167" height="40">
     </div>
-    <div class="soon"><span class="dot" aria-hidden="true"></span><span data-i18n="footSoon">Presto disponibile</span></div>
     <p class="vers-app-pied">
       <a href="https://app.trustidx.ch/verify" data-portail="verify.title">Verificare l'autenticità di un documento</a>
       <a href="https://app.trustidx.ch/login" data-portail="header.clientArea">Area clienti</a>
@@ -1168,6 +1192,45 @@ document.documentElement.classList.add('js');
   function arm(){ link.setAttribute('href', 'mai' + 'lto:' + addr); }
   ['pointerenter', 'focus', 'touchstart', 'click', 'contextmenu'].forEach(function(ev){
     link.addEventListener(ev, arm);
+  });
+})();
+
+/* ---- Menu des raccourcis sur téléphone : le bouton n'apparaît qu'avec ce script ; choisir
+   un raccourci ou presser Échap referme le menu. ---- */
+(function(){
+  var bouton = document.querySelector('.menu-tel');
+  var entete = document.querySelector('header');
+  var liens = document.getElementById('raccourcis');
+  if (!bouton || !entete || !liens) return;
+  bouton.hidden = false;
+  var telephone = window.matchMedia('(max-width:700px)');
+  function fermer(){
+    entete.classList.remove('menu-ouvert');
+    bouton.setAttribute('aria-expanded', 'false');
+  }
+  // Mode menu sous 700 px, ou dès que la ligne des raccourcis déborde : mesurée hors du mode
+  // menu, puisque le mode menu la cache.
+  function decider(){
+    var ouvert = entete.classList.contains('menu-ouvert');
+    entete.classList.remove('raccourcis-menu', 'menu-ouvert');
+    var menu = telephone.matches || liens.scrollWidth > liens.clientWidth + 1;
+    entete.classList.toggle('raccourcis-menu', menu);
+    if (menu && ouvert) entete.classList.add('menu-ouvert');
+    else bouton.setAttribute('aria-expanded', 'false');
+  }
+  decider();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(decider);
+  var attente;
+  window.addEventListener('resize', function(){ clearTimeout(attente); attente = setTimeout(decider, 120); });
+  bouton.addEventListener('click', function(){
+    var ouvert = entete.classList.toggle('menu-ouvert');
+    bouton.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+  });
+  document.querySelectorAll('#raccourcis a').forEach(function(a){
+    a.addEventListener('click', fermer);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && entete.classList.contains('menu-ouvert')) { fermer(); bouton.focus(); }
   });
 })();
 
