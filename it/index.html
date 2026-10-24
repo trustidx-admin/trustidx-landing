@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-C7d3vOpfszCdRcfN17xM1AvvNt9jg+EV4905s8rPUBc='; style-src 'sha256-g657o6n82fcsppRoI/NOhE5P1YssR6A9J25ipbiUiAQ=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-pHoTPASJ1fhuudz5lCUm/WJ7ChD8i1ErwHq2Wc61jwo='; style-src 'sha256-RH3E2OwLkVNQ5Lyi6Ebq3rWIrGLVwIWqXAa4FxTpFAQ=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Certificazione di documenti sulla blockchain</title>
 <meta name="description" content="TrustIDX certifica l'autenticità dei Suoi documenti ancorandone l'impronta su due registri pubblici, Base e Bitcoin. Senza token, senza speculazione. Un progetto svizzero.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -565,6 +565,75 @@ document.documentElement.classList.add('js');
     .langs,.plan-table-wrap,.step,.hashbox,.btn,#domaine .ticks li{border-color:CanvasText}
   }
 
+  /* ---- Proposition 2026-10-24 : ouverture en deux colonnes, démonstration sur un vrai
+     document (conditions générales de trois pages, loupe sur la clause modifiée). ---- */
+  .hero-grille{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+  .hero h1{font-size:clamp(34px,3.7vw,52px);line-height:1.06}
+  .hero h1 .h1-accent{color:var(--accent)}
+  .hero .lead{color:var(--text);font-size:19px}
+  .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+  .btn-lg{height:50px;padding:0 26px;font-size:14.5px}
+  .demo{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+  .doc-bloc{display:flex;flex-direction:column;gap:12px;min-width:0}
+  .legende{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;min-height:3.4em;display:flex;align-items:flex-end}
+  .doc-bloc.ok .legende{color:var(--success)}
+  .doc-bloc.ko .legende{color:var(--flag-red)}
+  .liasse{position:relative;height:372px;margin-right:16px}
+  .page{position:absolute;inset:0;background:#fff;border-radius:2px;box-shadow:0 1px 2px rgba(6,28,42,.14),0 10px 24px rgba(6,28,42,.12)}
+  .page.p3{transform:translate(14px,12px) rotate(2.2deg);background:#f7f9fa}
+  .page.p2{transform:translate(7px,6px) rotate(1.1deg);background:#fbfcfc}
+  .page.p1{padding:16px 15px;font-size:6px;line-height:1.5;color:#43535d;overflow:hidden}
+  .p1 .entete{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #cfd8dd;padding-bottom:5px;margin-bottom:6px}
+  .p1 .societe{font-size:8px;font-weight:700;color:#0d2430}
+  .p1 .num{font-size:5.5px;color:#7a8a93}
+  .p1 .titre-doc{font-size:7px;font-weight:700;color:#0d2430;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+  .p1 h4{font-size:6.6px;font-weight:700;color:#0d2430;margin:5px 0 1px}
+  .p1 .cible{border-radius:1px;padding:0 1px}
+  .doc-bloc.ok .p1 .cible{background:rgba(5,96,63,.12)}
+  .doc-bloc.ko .p1 .cible{background:rgba(220,38,38,.14)}
+  .p1 .signature{position:absolute;left:15px;right:15px;bottom:14px;display:flex;justify-content:space-between;align-items:flex-end;font-size:5.5px;color:#7a8a93}
+  .p1 .ligne-sign{width:80px;border-bottom:1px solid #9aa9b1;height:24px;position:relative}
+  .p1 .ligne-sign svg{position:absolute;left:4px;bottom:-2px;width:74px;height:28px}
+  .loupe{position:absolute;right:-26px;top:118px;width:176px;height:176px;border-radius:50%;background:#fff;
+    border:4px solid var(--strong);box-shadow:0 14px 34px rgba(3,23,37,.3);display:flex;flex-direction:column;justify-content:center;padding:0 24px;z-index:2}
+  .manche{position:absolute;right:-58px;top:280px;width:60px;height:14px;border-radius:7px;background:var(--strong);transform:rotate(48deg);z-index:1}
+  .loupe .art{font-size:12.5px;font-weight:700;color:var(--strong)}
+  .loupe .txt{margin-top:5px;font-size:14px;line-height:1.35;color:var(--text)}
+  .loupe mark{white-space:nowrap;font-weight:700;border-radius:3px;padding:0 3px;transition:background .3s,color .3s}
+  .doc-bloc.ok .loupe mark{background:#e3f3ea;color:var(--success)}
+  .doc-bloc.ko .loupe mark{background:#fdecea;color:var(--flag-red)}
+  .doc-bloc.ko .loupe mark.avant{background:transparent;color:var(--text)}
+  .sceau{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border-radius:999px;font-size:14px;font-weight:600;margin-top:6px}
+  .sceau .rond{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;color:#fff;flex:none}
+  .doc-bloc.ok .sceau{background:#e3f3ea;color:var(--success)}
+  .doc-bloc.ok .sceau .rond{background:var(--success)}
+  .doc-bloc.ko .sceau{background:#fdecea;color:var(--flag-red)}
+  .doc-bloc.ko .sceau .rond{background:var(--flag-red)}
+  .doc-bloc.ko.attente .sceau{visibility:hidden}
+  .doc-bloc.ko.pret .sceau{animation:apparait .5s ease both}
+  @keyframes apparait{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* Trois étapes, sans cartes */
+  .etapes{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .etapes .n{display:block;font-size:56px;font-weight:200;line-height:1;color:var(--accent);letter-spacing:-.04em}
+  .etapes h3{margin-top:12px;color:var(--strong);font-size:20px;font-weight:500;letter-spacing:-.015em}
+  .etapes p{margin-top:6px;color:var(--muted);font-size:15.5px;line-height:1.65}
+  .prerequis{margin-top:18px;padding:26px 30px;border:1px solid var(--line-strong);border-radius:var(--radius-lg);background:var(--panel);box-shadow:var(--ombre-surface)}
+  .prerequis h3{color:var(--strong);font-size:19px;font-weight:500}
+  .prerequis p{margin-top:8px;color:var(--muted);font-size:15.5px;line-height:1.7}
+  #pourquoi .sub + .sub{margin-top:12px}
+
+  @media (max-width:980px){
+    .hero-grille{grid-template-columns:1fr;gap:40px}
+    .etapes{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:600px){
+    .demo{grid-template-columns:1fr;gap:44px;max-width:330px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .doc-bloc.ko.pret .sceau{animation:none}
+  }
+
   /* ---- Reduced motion ---- */
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
@@ -603,9 +672,7 @@ document.documentElement.classList.add('js');
     <nav class="navlinks" id="raccourcis" aria-label="Navigazione">
       <a href="#comment" data-i18n="navHow">Come funziona</a>
       <a href="#pourquoi" data-i18n="navWhy">Perché TrustIDX</a>
-      <a href="#confidentialite" data-i18n="navPriv">Riservatezza</a>
       <a href="#abonnements" data-i18n="navPlans">Abbonamenti</a>
-      <a href="#energie" data-i18n="navEnergy">Energia</a>
       <a href="#contact" data-i18n="navContact">Contatto</a>
     </nav>
     <div class="navtools">
@@ -637,250 +704,124 @@ document.documentElement.classList.add('js');
 </header>
 
 <main id="main" tabindex="-1">
-  <!-- ================= HERO ================= -->
+  <!-- ================= HERO : le document envoyé, le document reçu signé ================= -->
   <div class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grille">
       <div>
-        <div class="kicker" data-i18n="heroTag">Certificare una volta. Verificabile da tutti, per sempre.</div>
         <h1>
-          <span data-i18n="heroTitle1">Chiunque può imitare i Suoi documenti.</span>
-          <span data-i18n="heroTitle2">Nessuno può imitare le Sue prove.</span>
+          <span data-i18n="heroTitle1">I truffatori hanno l'IA per falsificare i Suoi documenti.</span>
+          <span class="h1-accent" data-i18n="heroTitle2">Lei risponde con TrustIDX.</span>
         </h1>
-        <p class="lead" data-i18n="heroLead">TrustIDX ancora l'impronta dei Suoi documenti su due registri pubblici, Base (layer 2 di Ethereum) e Bitcoin.</p>
-        <ul class="ticks">
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint1">I Suoi documenti restano presso di Lei: viene ancorata solo la loro impronta</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint2">Un'applicazione 100% web: niente da installare, niente da configurare</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint3">Verifica pubblica e gratuita, per sempre</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint4">La prova sussiste anche senza TrustIDX: i registri sono pubblici</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="heroPoint5">Un servizio svizzero, senza token né speculazione</span>
-          </li>
-        </ul>
+        <p class="lead" data-i18n="heroLead">Certifichi i Suoi documenti con un clic. Se qualcuno li modifica, Lei lo dimostra in pochi secondi, anche senza TrustIDX.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#contact" data-i18n="heroCta">Richieda una dimostrazione</a>
+          <a class="carte-lien" href="#comment" data-i18n="navHow">Come funziona</a>
+        </div>
+      </div>
+      <div class="demo">
+        <div class="doc-bloc ok">
+          <p class="legende" data-i18n="demoSent">Lei invia questo</p>
+          <div class="liasse">
+            <div class="page p3" aria-hidden="true"></div>
+            <div class="page p2" aria-hidden="true"></div>
+            <div class="page p1" aria-hidden="true">
+              <div class="entete"><span class="societe">Ateliers de Verchaux SA</span><span class="num">3 / 3</span></div>
+              <p class="titre-doc" data-i18n="demoDocTitle">Condizioni generali di esecuzione</p>
+              <h4 data-i18n="demoArt7">Art. 7 Termini</h4>
+              <p data-i18n="demoP7">I termini indicati nell'offerta sono indicativi. Sono prorogati in caso di intemperie, di ritardi di altre imprese o di modifiche dell'ordine da parte del committente.</p>
+              <h4 data-i18n="demoArt8">Art. 8 Collaudo dell'opera</h4>
+              <p data-i18n="demoP8">L'opera è collaudata con un verbale firmato dalle due parti. In mancanza, si considera collaudata dieci giorni dopo l'avviso di ultimazione.</p>
+              <h4 data-i18n="demoArt9">Art. 9 Garanzia</h4>
+              <p><span class="cible" data-i18n="demoP9ok">La garanzia sui lavori è di 1 anno dal collaudo dell'opera.</span> <span data-i18n="demoP9b">Non copre la normale usura né i danni dovuti a un uso improprio.</span></p>
+              <h4 data-i18n="demoArt10">Art. 10 Pagamento</h4>
+              <p data-i18n="demoP10">Le fatture sono pagabili a 30 giorni netti. Al momento dell'ordine è dovuto un acconto del 30 %.</p>
+              <h4 data-i18n="demoArt11">Art. 11 Foro competente</h4>
+              <p data-i18n="demoP11">Si applica il diritto svizzero. Il foro competente è Friburgo.</p>
+              <h4 data-i18n="demoArt12">Art. 12 Responsabilità</h4>
+              <p data-i18n="demoP12">La responsabilità dell'impresa è limitata ai danni diretti causati da colpa grave. Sono esclusi i danni indiretti e il lucro cessante.</p>
+              <h4 data-i18n="demoArt13">Art. 13 Disdetta</h4>
+              <p data-i18n="demoP13">Ciascuna parte può disdire il contratto per iscritto in caso di violazione grave non sanata entro quindici giorni.</p>
+              <div class="signature"><span data-i18n="demoSign">Letto e approvato, il cliente</span><span class="ligne-sign"></span></div>
+            </div>
+            <div class="loupe"><span class="art" data-i18n="demoArt9">Art. 9 Garanzia</span><span class="txt"><span data-i18n="demoLens1">La garanzia sui lavori è di</span> <mark data-i18n="demo1an">1 anno</mark> <span data-i18n="demoLens2">dal collaudo.</span></span></div>
+            <span class="manche" aria-hidden="true"></span>
+          </div>
+          <p class="sceau"><span class="rond" aria-hidden="true">&#10003;</span><span data-i18n="demoOk">Certificato prima dell'invio</span></p>
+        </div>
+        <div class="doc-bloc ko" id="demo-recu">
+          <p class="legende" data-i18n="demoBack">Lei riceve questo, firmato</p>
+          <div class="liasse">
+            <div class="page p3" aria-hidden="true"></div>
+            <div class="page p2" aria-hidden="true"></div>
+            <div class="page p1" aria-hidden="true">
+              <div class="entete"><span class="societe">Ateliers de Verchaux SA</span><span class="num">3 / 3</span></div>
+              <p class="titre-doc" data-i18n="demoDocTitle">Condizioni generali di esecuzione</p>
+              <h4 data-i18n="demoArt7">Art. 7 Termini</h4>
+              <p data-i18n="demoP7">I termini indicati nell'offerta sono indicativi. Sono prorogati in caso di intemperie, di ritardi di altre imprese o di modifiche dell'ordine da parte del committente.</p>
+              <h4 data-i18n="demoArt8">Art. 8 Collaudo dell'opera</h4>
+              <p data-i18n="demoP8">L'opera è collaudata con un verbale firmato dalle due parti. In mancanza, si considera collaudata dieci giorni dopo l'avviso di ultimazione.</p>
+              <h4 data-i18n="demoArt9">Art. 9 Garanzia</h4>
+              <p><span class="cible" data-i18n="demoP9ko">La garanzia sui lavori è di 3 anni dal collaudo dell'opera.</span> <span data-i18n="demoP9b">Non copre la normale usura né i danni dovuti a un uso improprio.</span></p>
+              <h4 data-i18n="demoArt10">Art. 10 Pagamento</h4>
+              <p data-i18n="demoP10">Le fatture sono pagabili a 30 giorni netti. Al momento dell'ordine è dovuto un acconto del 30 %.</p>
+              <h4 data-i18n="demoArt11">Art. 11 Foro competente</h4>
+              <p data-i18n="demoP11">Si applica il diritto svizzero. Il foro competente è Friburgo.</p>
+              <h4 data-i18n="demoArt12">Art. 12 Responsabilità</h4>
+              <p data-i18n="demoP12">La responsabilità dell'impresa è limitata ai danni diretti causati da colpa grave. Sono esclusi i danni indiretti e il lucro cessante.</p>
+              <h4 data-i18n="demoArt13">Art. 13 Disdetta</h4>
+              <p data-i18n="demoP13">Ciascuna parte può disdire il contratto per iscritto in caso di violazione grave non sanata entro quindici giorni.</p>
+              <div class="signature"><span data-i18n="demoSign">Letto e approvato, il cliente</span><span class="ligne-sign"><svg viewBox="0 0 74 28" aria-hidden="true"><path d="M2 20c6-10 10-14 13-12s-4 14 0 13 7-15 11-14-2 12 2 12 6-9 9-9 1 7 4 7 6-6 9-6 3 4 6 3 7-5 10-6" fill="none" stroke="#1f3b8f" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            </div>
+            <div class="loupe"><span class="art" data-i18n="demoArt9">Art. 9 Garanzia</span><span class="txt"><span data-i18n="demoLens1">La garanzia sui lavori è di</span> <mark id="demo-modifie" data-i18n="demo3ans">3 anni</mark> <span data-i18n="demoLens2">dal collaudo.</span></span></div>
+            <span class="manche" aria-hidden="true"></span>
+          </div>
+          <p class="sceau"><span class="rond" aria-hidden="true">&#10005;</span><span data-i18n="demoKo">Non corrisponde alla Sua versione</span></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PROBLEM ================= -->
-  <section id="probleme" aria-labelledby="t-probleme">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="probKicker">Il contesto</div>
-        <h2 id="t-probleme" data-i18n="probTitle">Nell'era dell'IA, ogni documento può essere imitato, falsificato o retrodatato.</h2>
-        <p class="sub" data-i18n="probText">Contratti, diplomi, attestati, rapporti, fatture, ma anche foto, video o file audio: gli strumenti per produrre falsi convincenti non sono mai stati così accessibili. La domanda non è più se un documento sembri autentico, ma se sia possibile dimostrarlo. TrustIDX stabilisce questa prova: l'integrità del documento, la sua data e il dominio da cui proviene.</p>
-      </div>
-      <div class="steps whycards">
-        <div class="step reveal" data-delay="1">
-          <h3 data-i18n="prob1Title">Falsificare richiede pochi secondi</h3>
-          <p data-i18n="prob1Text">Modificare un importo, una data o un nome in un preventivo, un contratto o un rapporto richiede solo pochi secondi. Le conseguenze per la Sua reputazione, invece, durano nel tempo.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <h3 data-i18n="prob2Title">Certificare non richiede di più</h3>
-          <p data-i18n="prob2Text">Deposita il documento nell'applicazione web, che ne calcola l'impronta nel Suo browser senza caricarlo, poi conferma. L'iscrizione di questa impronta sui registri pubblici avviene in seguito senza ulteriori interventi. Ai Suoi team non è richiesta alcuna installazione né operazione tecnica.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <h3 data-i18n="prob3Title">Un rigore visibile</h3>
-          <p data-i18n="prob3Text">I Suoi clienti, i Suoi partner e le autorità possono verificare autonomamente, gratuitamente e senza account, che il documento ricevuto non sia stato modificato dal momento della certificazione e che provenga dal dominio comprovato della Sua organizzazione. Certificando, mostra loro che l'autenticità dei Suoi documenti non si basa sulla Sua sola parola, ma si può verificare.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================= HOW ================= -->
+  <!-- ================= COMMENT ÇA MARCHE ================= -->
   <section id="comment" aria-labelledby="t-comment">
     <div class="wrap">
       <div class="reveal">
-        <div class="kicker" data-i18n="howKicker">Il principio</div>
-        <h2 id="t-comment" data-i18n="howTitle">Una prova pubblica e permanente.</h2>
+        <div class="kicker" data-i18n="howKicker">Come funziona</div>
+        <h2 id="t-comment" data-i18n="howTitle">Tre passaggi, nessuna installazione.</h2>
       </div>
-      <div class="steps-wrap reveal">
-        <div class="steps">
-          <div class="step reveal" data-delay="1">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round">
-                <circle cx="24" cy="24" r="6"  stroke-dasharray="8 5"/>
-                <circle cx="24" cy="24" r="12" stroke-dasharray="14 7 10 8"/>
-                <circle cx="24" cy="24" r="18" stroke-dasharray="20 9 14 10"/>
-                <circle cx="24" cy="24" r="1.8" fill="var(--cyan)" stroke="none"/>
-              </svg>
-            </div>
-            <div class="num">01</div>
-            <h3 data-i18n="how1Title">L'impronta</h3>
-            <p data-i18n="how1Text">L'impronta è la firma esatta calcolata a partire dal contenuto di qualsiasi file. È unica e, in pratica, impossibile da imitare.</p>
-          </div>
-          <div class="step reveal" data-delay="2">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="8" width="17" height="17" rx="5"/>
-                <rect x="25" y="23" width="17" height="17" rx="5"/>
-                <line x1="21" y1="23" x2="27" y2="25"/>
-                <circle cx="24" cy="24" r="2.4" fill="var(--cyan)" stroke="none"/>
-              </svg>
-            </div>
-            <div class="num">02</div>
-            <h3 data-i18n="how2Title">L'ancoraggio</h3>
-            <p data-i18n="how2Text">L'ancoraggio è l'iscrizione dell'impronta, con marca temporale, sui registri pubblici (blockchain) Base, un layer 2 basato su Ethereum, e Bitcoin. Una volta iscritta, è infalsificabile.</p>
-          </div>
-          <div class="step reveal" data-delay="3">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M24 5l14 5.5v10.5c0 9.5-6 16.5-14 20-8-3.5-14-10.5-14-20V10.5z"/>
-                <path d="M17 24l5.5 5.5L32 18.5"/>
-              </svg>
-            </div>
-            <div class="num">03</div>
-            <h3 data-i18n="how3Title">La verifica</h3>
-            <p data-i18n="how3Text">Chiunque può verificare, gratuitamente e per sempre, che un documento è autentico, datato ed è stato certificato dal dominio comprovato dell'organizzazione emittente.</p>
-            <a class="carte-lien" href="https://app.trustidx.ch/verify" data-portail="verify.title">Verificare l'autenticità di un documento</a>
-          </div>
-        </div>
+      <div class="etapes">
+        <div class="reveal"><span class="n">1</span><h3 data-i18n="how1Title">Trascini il file.</h3><p data-i18n="how1Text">Dal computer o dal telefono. Il file resta presso di Lei: se ne calcola solo l'impronta.</p></div>
+        <div class="reveal" data-delay="1"><span class="n">2</span><h3 data-i18n="how2Title">TrustIDX lo certifica.</h3><p data-i18n="how2Text">L'impronta, la data e il Suo nome di dominio vengono iscritti su due blockchain.</p></div>
+        <div class="reveal" data-delay="2"><span class="n">3</span><h3 data-i18n="how3Title">Lei lo dimostra.</h3><p data-i18n="how3Text">Se circola una versione modificata, Lei dimostra qual è la Sua. Chiunque può verificarlo, gratuitamente e senza account.</p></div>
       </div>
-
+      <div class="hashbox reveal">
+        <h3 data-i18n="hashTitle">Che cos'è un'impronta digitale?</h3>
+        <p data-i18n="hashText">Un'impronta (o hash) è un codice unico di lunghezza fissa, calcolato a partire dal Suo file, come un'impronta digitale umana. Modifichi una virgola o un pixel, e l'impronta diventa totalmente diversa. Impossibile ricostruire il documento a partire dalla sua impronta: il calcolo funziona in un solo senso. E in pratica, due file diversi non possono produrre la stessa impronta. In sintesi: l'impronta prova l'integrità del Suo documento, ma non ne rivela il contenuto.</p>
+      </div>
+      <div class="prerequis reveal">
+        <h3><span data-i18n="domTitle1">Un solo prerequisito:</span> <span data-i18n="domTitle2">il Suo nome di dominio.</span></h3>
+        <p data-i18n="domText">Il Suo nome di dominio porta la provenienza dei Suoi documenti. È ciò che viene iscritto con ogni documento certificato, pubblicamente e senza ambiguità. Se la Sua organizzazione controlla un nome di dominio, è pronta a certificare.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ================= WHY TRUSTIDX ================= -->
+  <!-- ================= POURQUOI C'EST SOLIDE ================= -->
   <section id="pourquoi" aria-labelledby="t-pourquoi">
     <div class="wrap">
       <div class="reveal">
-        <div class="kicker" data-i18n="whyKicker">Perché TrustIDX</div>
-        <h2 id="t-pourquoi" data-i18n="whyTitle">Una prova che non dipende da noi.</h2>
-        <p class="sub" data-i18n="whySub">I registri su cui TrustIDX iscrive le Sue impronte sono pubblici: nessuno li controlla, nessuno può riscriverli. Ciò che è certificato oggi resterà verificabile domani, con o senza TrustIDX.</p>
+        <div class="kicker" data-i18n="whyKicker">Perché è solida</div>
+        <h2 id="t-pourquoi" data-i18n="whyTitle">Una prova che né Lei né noi possiamo cancellare.</h2>
+        <p class="sub" data-i18n="whySub">La certificazione è iscritta su due blockchain diverse. Una blockchain è un registro pubblico, replicato su numerosi computer in tutto il mondo.</p>
+        <p class="sub" data-i18n="whyCrypto">Spesso la si associa alle criptovalute. Noi la usiamo per ciò a cui serve davvero: un registro che nessuno può riscrivere. Non deve acquistare alcuna criptovaluta.</p>
       </div>
       <div class="steps whycards">
-        <div class="step reveal" data-delay="1">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="6" width="17" height="17" rx="5"/>
-              <path d="M10.5 14.8l3 3 5.5-6.5"/>
-              <rect x="25" y="25" width="17" height="17" rx="5"/>
-              <path d="M29.5 33.8l3 3 5.5-6.5"/>
-            </svg>
-          </div>
-          <h3 data-i18n="why1Title">Due registri indipendenti</h3>
-          <p data-i18n="why1Text">Entrambi i registri attestano l'esistenza dell'impronta a una data. Base porta in più la provenienza: il dominio comprovato della Sua organizzazione. Due registrazioni distinte, che non dipendono l'una dall'altra.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="21" cy="21" r="12"/>
-              <path d="M30 30l10 10"/>
-              <path d="M16 21.5l3.5 3.5 6.5-7.5"/>
-            </svg>
-          </div>
-          <h3 data-i18n="why2Title">Verificabile con strumenti pubblici</h3>
-          <p data-i18n="why2Text">Le registrazioni si leggono con gli strumenti pubblici di ciascun registro: Ethereum Attestation Service per Base, OpenTimestamps per Bitcoin. Nessuno strumento proprietario è necessario.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <div class="icon suisse" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <rect x="8" y="8" width="32" height="32" rx="9" fill="var(--red)"/>
-              <path d="M24 15.5v17M15.5 24h17" stroke="#ffffff" stroke-width="6.4"/>
-            </svg>
-          </div>
-          <h3 data-i18n="why3Title">Un servizio svizzero</h3>
-          <p data-i18n="why3Text">TrustIDX è concepito e gestito a Friburgo, in Svizzera.</p>
-        </div>
+        <div class="step reveal"><h3 data-i18n="why3Title">Un servizio svizzero</h3><p data-i18n="why3Text">Progettato e gestito in Svizzera. Applicazione e banca dati ospitate in Svizzera.</p></div>
+        <div class="step reveal" data-delay="1"><h3 data-i18n="priv2Title">Il Suo file non ci viene mai trasmesso</h3><p data-i18n="priv2Text">L'impronta viene calcolata direttamente nel Suo browser. Il documento stesso non viene mai caricato: non passa né dai nostri server né dalla blockchain.</p></div>
+        <div class="step reveal" data-delay="2"><h3 data-i18n="why2Title">Verificabile con strumenti pubblici</h3><p data-i18n="why2Text">Le iscrizioni restano leggibili con strumenti pubblici e gratuiti, anche se TrustIDX scomparisse.</p></div>
       </div>
+      <p class="plan-note reveal" data-i18n="ecoLine">Costo energetico marginale: per un documento certificato, una lampadina LED accesa per qualche secondo.</p>
     </div>
   </section>
 
-  <!-- ================= HASH EXPLAINER + PRIVACY ================= -->
-  <section id="confidentialite" aria-labelledby="t-confidentialite">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="privKicker">Riservatezza</div>
-        <h2 id="t-confidentialite" data-i18n="privTitle">I Suoi documenti restano presso di Lei. Sempre.</h2>
-        <p class="sub" data-i18n="privText">Sui registri pubblici viene registrata l'impronta del Suo documento; i dettagli che la Sua organizzazione sceglie di iscrivere, campo per campo, sono registrati sulla blockchain Base. Il file e il suo contenuto non lasciano la Sua organizzazione.</p>
-      </div>
-
-      <div class="hashbox reveal">
-        <div>
-          <h3 data-i18n="hashTitle">Che cos'è un'impronta digitale?</h3>
-          <p data-i18n="hashText">Un'impronta (o hash) è un codice unico di lunghezza fissa, calcolato a partire dal Suo file, come un'impronta digitale umana. Modifichi una virgola o un pixel, e l'impronta diventa totalmente diversa. Impossibile ricostruire il documento a partire dalla sua impronta: il calcolo funziona in un solo senso. E in pratica, due file diversi non possono produrre la stessa impronta. In sintesi: l'impronta prova l'integrità del Suo documento, ma non ne rivela il contenuto.</p>
-        </div>
-      </div>
-
-      <div class="steps privcards">
-        <div class="step reveal" data-delay="1">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round">
-              <circle cx="22" cy="22" r="6"  stroke-dasharray="8 5"/>
-              <circle cx="22" cy="22" r="12" stroke-dasharray="14 7 10 8"/>
-              <circle cx="22" cy="22" r="18" stroke-dasharray="20 9 14 10"/>
-              <circle cx="37" cy="37" r="8" fill="rgb(var(--card-rgb) / .95)" stroke="var(--cyan)" stroke-width="1.6"/>
-              <path d="M33.5 37.2l2.4 2.5 4.4-5" stroke="var(--cyan)" stroke-width="1.7" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 data-i18n="priv1Title">L'impronta è sufficiente</h3>
-          <p data-i18n="priv1Text">Per certificare non serve accedere al file sorgente: basta possederne l'impronta, con gli eventuali metadati associati. Chi certifica non è necessariamente chi detiene il documento, a condizione di averne il diritto.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13.5 33.5a7.5 7.5 0 01.9-14.9A10.5 10.5 0 0134.8 20.6 7 7 0 0133.5 34"/>
-              <path d="M24 39V27M19.5 31.5L24 27l4.5 4.5"/>
-              <line x1="9" y1="41" x2="41" y2="9"/>
-            </svg>
-          </div>
-          <h3 data-i18n="priv2Title">Il Suo file non ci viene mai trasmesso</h3>
-          <p data-i18n="priv2Text">L'impronta viene calcolata direttamente nel Suo browser. Il documento stesso non viene mai caricato: non passa né dai nostri server né dalla blockchain.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 20V9.5A2.5 2.5 0 019.5 7H20l19 19-13.5 13.5L7 20z"/>
-              <circle cx="15" cy="15" r="2.6"/>
-              <rect x="28" y="30" width="13" height="10" rx="2.5" fill="rgb(var(--card-rgb) / .95)" stroke="var(--cyan)" stroke-width="1.5"/>
-              <path d="M31 30v-3a3.5 3.5 0 017 0v3" stroke="var(--cyan)" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <h3 data-i18n="priv3Title">I Suoi metadati Le appartengono</h3>
-          <p data-i18n="priv3Text">Scelga liberamente i metadati associati a un documento. Per impostazione predefinita non vengono pubblicati: viene ancorata solo la loro impronta, che ne prova l'integrità senza esporne nulla. La Sua organizzazione può iscriverne alcuni in chiaro, campo per campo, in modo definitivo; il firmatario non lo è mai.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= DOMAIN PREREQUISITE ================= -->
-  <section id="domaine" aria-labelledby="t-domaine">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="domKicker">Il prerequisito</div>
-        <h2 id="t-domaine">
-          <span data-i18n="domTitle1">Un solo prerequisito:</span>
-          <span data-i18n="domTitle2">il Suo nome di dominio.</span>
-        </h2>
-        <p class="sub" data-i18n="domText">Il Suo nome di dominio porta la provenienza dei Suoi documenti. È ciò che viene iscritto con ogni documento certificato, pubblicamente e senza ambiguità. Se la Sua organizzazione controlla un nome di dominio, è pronta a certificare.</p>
-        <ul class="ticks">
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="domPoint1">Niente da installare, nessuna infrastruttura da distribuire</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span data-i18n="domPoint3">La prova si stabilisce una volta e resta acquisita</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================= PLANS ================= -->
   <section id="abonnements" aria-labelledby="t-abonnements">
     <div class="wrap">
       <div class="reveal">
@@ -981,13 +922,6 @@ document.documentElement.classList.add('js');
             <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Incluso"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
-          <tr>
-            <th scope="row" class="pt-label">Supporto tramite ticket, tempo di presa in carico previsto</th>
-            <td class="pt-num">72&nbsp;h</td>
-            <td class="pt-num">48&nbsp;h</td>
-            <td class="pt-num">24&nbsp;h</td>
-            <td class="pt-num">12&nbsp;h</td>
-          </tr>
           <tr class="pt-group"><td colspan="5">Funzioni avanzate</td></tr>
           <tr>
             <th scope="row" class="pt-label">Cartelle di archiviazione</th>
@@ -1034,101 +968,15 @@ document.documentElement.classList.add('js');
           </tbody>
         </table>
       </div>
-      <p class="plan-note reveal" data-i18n="planNote">Un credito corrisponde a un documento certificato. Ogni versione iscritta del suo certificato PDF consuma un credito in più; ogni dettaglio iscritto nel registro pubblico, un supplemento secondo la sua lunghezza. Oltre ai crediti inclusi, ricariche completano l'abbonamento fino al termine dell'anno di abbonamento in corso. Il dettaglio della tariffazione sarà pubblicato al lancio.</p>
     </div>
   </section>
 
-  <!-- ================= NO SPECULATION ================= -->
-  <section id="nospec" aria-labelledby="t-nospec">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="nsKicker">La nostra convinzione</div>
-        <h2 id="t-nospec" data-i18n="nsTitle">La forza della blockchain. Senza la speculazione.</h2>
-        <p class="sub" data-i18n="nsText">TrustIDX non è un progetto crypto. Usiamo la blockchain per ciò che sa fare meglio: un registro pubblico che nessuno può riscrivere e che TrustIDX non controlla. E per nient'altro.</p>
-      </div>
-      <div class="steps whycards">
-        <div class="step reveal" data-delay="1">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <circle cx="24" cy="24" r="13" stroke="rgb(var(--faint-rgb) / .55)" stroke-width="1.8"/>
-              <circle cx="24" cy="24" r="6.5" stroke="rgb(var(--faint-rgb) / .35)" stroke-width="1.6" stroke-dasharray="4 3"/>
-              <line class="strike" x1="9" y1="9" x2="39" y2="39" stroke="var(--svg-ink)" stroke-width="2.6" stroke-linecap="round" filter="url(#fGlow)"/>
-            </svg>
-          </div>
-          <h3 data-i18n="ns1Title">Nessun token</h3>
-          <p data-i18n="ns1Text">Nessuna criptovaluta associata a TrustIDX, nessuna criptovaluta da comprare o detenere.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke-linejoin="round">
-              <rect x="8" y="14" width="32" height="22" rx="6" stroke="rgb(var(--faint-rgb) / .55)" stroke-width="1.8"/>
-              <path d="M30 22h10v8H30a4 4 0 010-8z" stroke="rgb(var(--faint-rgb) / .4)" stroke-width="1.6"/>
-              <circle cx="32" cy="26" r="1.8" fill="rgb(var(--faint-rgb) / .6)"/>
-              <line class="strike" x1="9" y1="9" x2="39" y2="39" stroke="var(--svg-ink)" stroke-width="2.6" stroke-linecap="round" filter="url(#fGlow)"/>
-            </svg>
-          </div>
-          <h3 data-i18n="ns2Title">Nessun wallet</h3>
-          <p data-i18n="ns2Text">Nessun portafoglio crypto da installare, niente da gestire.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="8,36 17,26 23,31 38,13" stroke="rgb(var(--faint-rgb) / .55)" stroke-width="1.8"/>
-              <polyline points="31,12 38,12 38,19" stroke="rgb(var(--faint-rgb) / .4)" stroke-width="1.6"/>
-              <line class="strike" x1="9" y1="9" x2="39" y2="39" stroke="var(--svg-ink)" stroke-width="2.6" filter="url(#fGlow)"/>
-            </svg>
-          </div>
-          <h3 data-i18n="ns3Title">Nessuna speculazione</h3>
-          <p data-i18n="ns3Text">Niente da puntare, niente da vincere, niente da perdere. Conta solo la prova.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ÉNERGIE ================= -->
-  <section id="energie" aria-labelledby="t-energie">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="kicker" data-i18n="ecoKicker">Energia</div>
-        <h2 id="t-energie" data-i18n="ecoTitle">Due registri, un costo energetico marginale.</h2>
-        <p class="sub" data-i18n="ecoSub">La parola «blockchain» evoca il mining e il suo consumo di elettricità. La domanda è legittima. La risposta sta in due fatti: su Bitcoin, TrustIDX non aggiunge alcuna transazione; su Base, la quota di un documento certificato si conta in frazioni di wattora.</p>
-      </div>
-      <div class="steps whycards eco-cards">
-        <div class="step reveal" data-delay="1">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="6" width="8" height="8" rx="2"/>
-              <rect x="20" y="6" width="8" height="8" rx="2"/>
-              <rect x="34" y="6" width="8" height="8" rx="2"/>
-              <path d="M10 14v5h28v-5M24 14v12"/>
-              <rect x="18" y="26" width="12" height="10" rx="3"/>
-              <path d="M24 36v6"/>
-            </svg>
-          </div>
-          <h3 data-i18n="eco1Title">Su Bitcoin: nessuna transazione aggiunta</h3>
-          <p data-i18n="eco1Text">Le impronte entrano in un albero di aggregazione pubblico (OpenTimestamps) la cui radice viene comunque iscritta su Bitcoin: una sola transazione per migliaia di impronte provenienti da tutto il mondo. Mille o un milione di documenti: non una transazione in più, non un centesimo versato al mining. Il consumo di Bitcoin dipende dal mining, non dal nostro uso: sarebbe identico senza TrustIDX.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="url(#gCyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="24" cy="24" r="16"/>
-              <path d="M26 13l-8 13h7l-3 9 8-13h-7z"/>
-            </svg>
-          </div>
-          <h3 data-i18n="eco2Title">Su Base: senza mining, frazioni di wattora</h3>
-          <p data-i18n="eco2Text">Base si appoggia a Ethereum, che dal 2022 funziona in proof of stake: nessun mining, nessuna competizione di calcolo. L'intera rete Ethereum consuma 0,9 MW in continuo, la potenza di novemila lampadine da 100 W, oltre diecimila volte meno di Bitcoin (Cambridge, giugno 2026). Rapportato alle transazioni che regola, layer 2 compresi (L2BEAT, settembre 2026), il suo consumo rappresenta, per un documento certificato, una lampadina LED accesa per pochi secondi.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
+  <!-- ================= DÉMONSTRATION ================= -->
   <section id="contact" aria-labelledby="t-contact">
     <div class="wrap">
       <div class="reveal">
         <div class="kicker" data-i18n="ctKicker">Contatto</div>
-        <h2 id="t-contact" data-i18n="ctTitle">Le interessa? Ha bisogno di maggiori informazioni?</h2>
-        <p class="sub" data-i18n="ctSub">Una domanda sulla certificazione, sugli abbonamenti o sull'integrazione: ci scriva.</p>
+        <h2 id="t-contact" data-i18n="ctTitle">Interessato a una dimostrazione o a maggiori informazioni? Ci contatti.</h2>
         <p class="contact-mail">
           <a id="contact-mail" class="btn btn-primary" href="#contact">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1252,6 +1100,31 @@ document.documentElement.classList.add('js');
   choix.addEventListener('change', function(){
     location.href = choix.value + (location.hash || '');
   });
+})();
+/* ---- Démonstration de l'ouverture : sous la loupe du document reçu, la garantie montre
+   d'abord la valeur envoyée, puis la valeur retouchée, et le verdict tombe. Les deux valeurs
+   viennent des textes traduits de la page : le script ne contient aucun mot. ---- */
+(function(){
+  var recu = document.getElementById('demo-recu');
+  var modifie = document.getElementById('demo-modifie');
+  var origine = document.querySelector('.doc-bloc.ok .loupe mark');
+  if (!recu || !modifie || !origine) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var valeurRetouchee = modifie.textContent;
+  function jouer(){
+    recu.classList.remove('pret');
+    recu.classList.add('attente');
+    modifie.classList.add('avant');
+    modifie.textContent = origine.textContent;
+    setTimeout(function(){
+      modifie.textContent = valeurRetouchee;
+      modifie.classList.remove('avant');
+      recu.classList.remove('attente');
+      recu.classList.add('pret');
+    }, 1500);
+  }
+  setTimeout(jouer, 700);
+  recu.addEventListener('click', jouer);
 })();
 </script>
 </body>
