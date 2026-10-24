@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-pHoTPASJ1fhuudz5lCUm/WJ7ChD8i1ErwHq2Wc61jwo='; style-src 'sha256-RH3E2OwLkVNQ5Lyi6Ebq3rWIrGLVwIWqXAa4FxTpFAQ=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-pHoTPASJ1fhuudz5lCUm/WJ7ChD8i1ErwHq2Wc61jwo='; style-src 'sha256-6aHqjiNArbqEZR4vmqqpAH9CTJoeB/Q/MIzM5MRGVM8=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Document certification on the blockchain</title>
 <meta name="description" content="TrustIDX certifies the authenticity of your documents by anchoring their fingerprint on two public ledgers, Base and Bitcoin. No token, no speculation. A Swiss project.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -393,6 +393,7 @@ document.documentElement.classList.add('js');
 
   /* ---- Abonnements ---- */
   .plan-from{margin-top:18px;color:var(--strong);font-size:16px;font-weight:600}
+  .plan-credit{margin-top:6px;color:var(--muted);font-size:15px}
   .plan-note{margin-top:22px;color:var(--muted-2);font-size:14px;line-height:1.7}
   /* ---- Tableau comparatif des abonnements ---- */
   .plan-table-wrap{margin-top:40px;background:var(--panel);border:1px solid var(--line-strong);
@@ -571,6 +572,7 @@ document.documentElement.classList.add('js');
   .hero h1{font-size:clamp(34px,3.7vw,52px);line-height:1.06}
   .hero h1 .h1-accent{color:var(--accent)}
   .hero .lead{color:var(--text);font-size:19px}
+  .hero .usages{margin-top:14px;color:var(--muted);font-size:15.5px;line-height:1.6;max-width:var(--measure)}
   .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
   .btn-lg{height:50px;padding:0 26px;font-size:14.5px}
   .demo{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
@@ -713,6 +715,7 @@ document.documentElement.classList.add('js');
           <span class="h1-accent" data-i18n="heroTitle2">You answer them with TrustIDX.</span>
         </h1>
         <p class="lead" data-i18n="heroLead">Certify your documents in one click. If someone alters them, you prove it in seconds, even without TrustIDX.</p>
+        <p class="usages" data-i18n="heroUsages">Protect your work: contracts, quotes, plans, photos, videos, audio, diplomas, certificates and any other file, even a scanned paper document.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="#contact" data-i18n="heroCta">Request a demonstration</a>
           <a class="carte-lien" href="#comment" data-i18n="navHow">How it works</a>
@@ -799,7 +802,7 @@ document.documentElement.classList.add('js');
       </div>
       <div class="prerequis reveal">
         <h3><span data-i18n="domTitle1">One single prerequisite:</span> <span data-i18n="domTitle2">your domain name.</span></h3>
-        <p data-i18n="domText">Your domain name carries the provenance of your documents. It is what is recorded with every certified document, publicly and unambiguously. If your organisation controls a domain name, it is ready to certify.</p>
+        <p data-i18n="domText">It is the address of your own website, for example your-company.ch. Your domain name carries the provenance of your documents. It is what is recorded with every certified document, publicly and unambiguously. If your organisation controls a domain name, it is ready to certify.</p>
       </div>
     </div>
   </section>
@@ -829,6 +832,7 @@ document.documentElement.classList.add('js');
         <h2 id="t-abonnements" data-i18n="planTitle">Distinct plans, one and the same proof.</h2>
         <p class="sub" data-i18n="planSub">Plans differ by volume, seats and features, never by the proof: every certified document receives the same dual anchoring and the same public, free, permanent verification.</p>
         <p class="plan-from" data-i18n="planFrom">Plans from CHF 1,490 per year, excluding VAT.</p>
+        <p class="plan-credit" data-i18n="planCredit">1 credit = 1 certified document, fingerprint and domain name included.</p>
       </div>
       <div class="plan-table-wrap reveal" role="region" tabindex="0" aria-label="Plan comparison">
         <table class="plan-table">
