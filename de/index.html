@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-pHoTPASJ1fhuudz5lCUm/WJ7ChD8i1ErwHq2Wc61jwo='; style-src 'sha256-6aHqjiNArbqEZR4vmqqpAH9CTJoeB/Q/MIzM5MRGVM8=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LwQsl261BGSZOaagxjTa/SlP0UytNkLSx6zQ21dZQew=' 'sha256-pHoTPASJ1fhuudz5lCUm/WJ7ChD8i1ErwHq2Wc61jwo='; style-src 'sha256-6VE9S+OUHbG5jaTPFUHVJQyo9CmKYDnCinYOr4Mfzws=' 'sha256-7UrZwKn9VaNJHgFY1oVQK+4+ydjNR+75ou9K1rl7pms='; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>TrustIDX · Dokumentenzertifizierung auf der Blockchain</title>
 <meta name="description" content="TrustIDX zertifiziert die Echtheit Ihrer Dokumente: Fingerabdruck auf zwei öffentlichen Registern, Base und Bitcoin. Ohne Token, ohne Spekulation. Schweiz.">
 <link rel="alternate" hreflang="fr" href="https://trustidx.ch/">
@@ -411,9 +411,13 @@ document.documentElement.classList.add('js');
   .plan-table tbody tr:not(.pt-group):hover > *{background:var(--panel-2)}
   .plan-table .pt-ico{display:inline-flex;vertical-align:middle}
   .plan-table .pt-ico svg{width:20px;height:20px}
-  /* « Non inclus » se lit en gris, jamais comme une alarme (maquette) : la couleur suit le
-     trait de la croix, identique dans les quatre langues, sans toucher aux lignes traduites. */
-  .plan-table .pt-ico path[stroke="var(--red)"]{stroke:var(--muted-2)}
+  /* Inclus en vert, non inclus en rouge, cercle compris : la différence se lit d'un coup d'oeil.
+     La couleur suit le trait du pictogramme, identique dans les quatre langues, sans toucher
+     aux lignes traduites. */
+  .plan-table .pt-ico path[stroke="var(--green)"]{stroke:#15803d;stroke-width:1.9}
+  .plan-table .pt-ico svg:has(path[stroke="var(--green)"]) circle{stroke:#15803d;stroke-opacity:.55;fill:rgba(21,128,61,.08)}
+  .plan-table .pt-ico path[stroke="var(--red)"]{stroke:var(--flag-red);stroke-width:1.7}
+  .plan-table .pt-ico svg:has(path[stroke="var(--red)"]) circle{stroke:var(--flag-red);stroke-opacity:.45;fill:rgba(220,38,38,.06)}
   .plan-table tr.pt-group td{padding:24px 20px 9px;text-align:left;color:var(--muted-2);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line-strong)}
 
   /* ---- Contact ---- */
