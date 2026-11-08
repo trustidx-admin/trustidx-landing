@@ -56,7 +56,8 @@
   page de vérification personnalisée, la certification de répertoires, les
   domaines multiples et l'inscription de détails sur le registre public sont
   compris dès Business ; le SSO, l'API machine à machine et la co-signature par
-  la clé de l'organisation dès Premium. Abonnements dès 1 490 CHF par an, hors TVA ;
+  la clé de l'organisation dès Premium ; le cachet électronique réglementé ou
+  qualifié dans Infinity. Abonnements dès 1 490 CHF par an, hors TVA ;
   le détail de la tarification sera publié au lancement.
 - Pays : Suisse (conçu et opéré en Suisse)
 - Statut : lancement prochain (pré-inscription à venir)
