@@ -844,7 +844,7 @@ document.documentElement.classList.add('js');
         <div class="step reveal" data-delay="1"><h3 data-i18n="souv2Title">Vérifiable sans TrustIDX</h3><p data-i18n="souv2Text">La signature figure dans l'inscription publique du document, et la clé publique se lit dans le DNS de votre domaine. Un tiers la vérifie avec des outils publics, sans passer par nos serveurs.</p></div>
         <div class="step reveal" data-delay="2"><h3 data-i18n="souv3Title">Vos clés restent chez vous</h3><p data-i18n="souv3Text">La clé est conservée dans votre propre KMS ou HSM. La clé privée ne nous est jamais transmise : seule la clé publique est enregistrée.</p></div>
       </div>
-      <p class="plan-note reveal" data-i18n="souvNote">La co-signature ne prouve pas l'identité légale de votre organisation : TrustIDX ne la vérifie pas. Pour Infinity, un cachet électronique réglementé ou qualifié est prévu ; l'identité y sera attestée par le prestataire qui le délivre, jamais par TrustIDX. Ces deux options ne sont pas encore ouvertes.</p>
+      <p class="plan-note reveal" data-i18n="souvNote">La co-signature par la clé de votre organisation est comprise dans les abonnements Premium et Infinity. Elle ne prouve pas l'identité légale de votre organisation : TrustIDX ne la vérifie pas. Pour Infinity, un cachet électronique réglementé ou qualifié est à venir ; l'identité y sera attestée par le prestataire qui le délivre, jamais par TrustIDX.</p>
     </div>
   </section>
 
@@ -989,7 +989,7 @@ document.documentElement.classList.add('js');
             <th scope="row" class="pt-label">API machine à machine et webhooks</th>
             <td aria-label="Non inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
             <td aria-label="Non inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td aria-label="Non inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
             <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr class="pt-group"><td colspan="5">Souveraineté</td></tr>
@@ -997,8 +997,8 @@ document.documentElement.classList.add('js');
             <th scope="row" class="pt-label">Signature par la clé de votre organisation (KMS, HSM)</th>
             <td aria-label="Non inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
             <td aria-label="Non inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M6.2 6.2l5.6 5.6M11.8 6.2l-5.6 5.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round"/></svg></span></td>
-            <td class="pt-soon">À venir</td>
-            <td class="pt-soon">À venir</td>
+            <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            <td aria-label="Inclus"><span class="pt-ico"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.6" fill="none" stroke="rgb(var(--accent-rgb) / .5)" stroke-width="1.3"/><path d="M5.8 9.3l2.3 2.3 4.1-5" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
           </tr>
           <tr>
             <th scope="row" class="pt-label">Cachet électronique réglementé ou qualifié</th>
